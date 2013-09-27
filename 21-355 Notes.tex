@@ -1,0 +1,781 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\oddsidemargin0cm
+\topmargin-2cm
+\textwidth16.5cm
+\textheight23.5cm
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+ 
+\pagestyle{fancyplain}
+\rhead{\fancyplain{}{\today}}
+\chead{\fancyplain{}{21-355 Notes}}
+
+\begin{document}
+
+\tableofcontents
+\newpage
+
+\section{Section 1 - The Number Systems}
+
+\subsection{The Natural Numbers}
+
+\textbf{Theorem} (existence of $\mathbb{N}$): There exists a set $\mathbb{N}$ satisfying the following properties, known as the Peano Axioms:
+\begin{quote}
+	\begin{enumerate}
+	\item[\bf PA1] $0 \in \mathbb{N}$
+	
+	\item [\bf PA2] There exists a function $S: \mathbb{N} \to \mathbb{N}$ called the successor function. In particular, $S(n) \in \mathbb{N}$.
+	
+	\item[\bf PA3] $\forall n \in \mathbb{N}.\; S(n) \neq 0$
+	
+	\item[\bf PA4] $S(n) = S(m) \implies n = m$ ($S$ is injective, one-to-one)
+
+	\item[\bf PA5] [Axiom of Induction] Let $P(n)$ be a property associated to each $n \in \mathbb{N}$.\\
+	If $P(0)$ is true, and $P(n) \implies P(S(n))$, then $P(n)$ is true $\forall n \in \mathbb{N}$.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Definition}: \textbf{PA1} $\implies 0 \in \mathbb{N}$. \textbf{PA2} $\implies S(0) \in \mathbb{N}$.
+\begin{quote}\vspace{-0.3cm}
+	Define $1 = S(0), 2 = S(1), 3 = S(2)$, etc.
+
+	\textbf{PA2} guarantees that $\{0, 1, 2, \cdots\} \subseteq \mathbb{N}$.
+
+	\textbf{PA3} prevents ``wraparound": no successor can map to a ``negative" number.
+
+	\textbf{PA4} prevents ``stagnation": the cycle does not terminate.
+\end{quote}
+
+\textbf{Theorem}: $\mathbb{N} = \{0, 1, 2, \cdots\}$
+
+\emph{Proof}: We know that $\{0, 1, 2, \cdots\} \subseteq \mathbb{N}$, so it suffices to prove that $\mathbb{N} \subseteq \{0, 1, 2, \cdots\}$.
+
+\begin{quote}\vspace{-0.3cm}
+	Let $P(n)$ denote the proposition that $n \in \{0, 1, 2, \cdots\}$. Clearly $P(0)$ is true.
+
+	Suppose $P(n)$ is true; then $n \in \{0, 1, 2, \cdots\} \implies S(n) \in \{0, 1, 2, \cdots\}$ by construction.\\
+	Hence, $P(S(n))$ is true. By induction, \textbf{PA5} guarantees that $P(n)$ is true $\forall n \in \mathbb{N}$.
+
+	It follows that $\mathbb{N} \subseteq \{0, 1, 2, \cdots\}$.
+\end{quote}
+
+\textbf{Definition}: For any $m \in \mathbb{N}$, we define $0 + m = m$.\\
+Then if $n + m$ is defined for $n \in \mathbb{N}$, we set $S(n) + m = S(n + m)$.
+
+\textbf{Proposition} (Properties of Addition):
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $\forall n \in \mathbb{N}.\; n + 0 = n$ \hspace{4.2cm} (0 is the additive identity)
+	\item $\forall m,n \in \mathbb{N}.\; n + S(m) = S(n + m)$
+	\item $\forall m,n \in \mathbb{N}.\; m + n = n + m$ \hspace{2.8cm} (commutativity)
+	\item $\forall k,m,n \in \mathbb{N}.\; k + (m+n) = (k+m) + n$ \hspace{0.5cm} (associativity)
+	\item $\forall k,m,n \in \mathbb{N}.\; n + k = n + m \implies k = m$ \hspace{0.5cm} (cancelation)
+	\end{enumerate}
+\end{quote}
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item Let $P(n)$ be $n + 0 = n$.\\ $P(0)$ is true because $0 + 0 = 0$ by definition.\\
+	Note $P(n) \implies S(n) + 0 = S(n + 0) = S(n)$, so $P(S(n))$ is true. By induction, (1) is true.
+
+	\item Fix $m \in \mathbb{N}$. Let $P(n)$ denote $n + S(m) = S(n+m)$.\\
+	$P(0)$ is true because $0 + S(m) = S(m) = S(0 + m)$.\\
+	$P(n) \implies S(n) + S(m) = S(n + S(m)) = S(S(n+m)) = S(S(n) + m)$, so $P(S(n))$ is true. By induction, since $m \in \mathbb{N}$ was arbitrary, (2) is true.
+
+	\item Let $m$ be fixed and $P(n)$ denote $n + m = m + n$.\\
+	$P(0)$ is true since $0 + m = m$ by definition, and $m + 0 = m$ by 1, so $0 + m = m = m + 0$.\\
+	Suppose $P(n)$; then $S(n) + m = S(n + m) = S(m + n) = m + S(n)$, so $P(S(n))$ is true. By induction and arbitrary choice of $m$, (3) is true.
+
+	\item Fix $k,m \in \mathbb{N}$ and let $P(n)$ denote $k + (m + n) = (k + m) + n$.\\
+	$P(0)$ is true as $k + (m + 0) = k + m = (k + m) + 0$.\\
+	Suppose $P(n)$; then $k + (m + S(n)) = k + S(m + n) = S(k + (m + n)) = S(k + m) + n = (k + m) + S(n)$ by (2). By induction and arbitrary choice, (4) is true.
+
+	\item Fix $m,n \in \mathbb{N}$ and let $P(k)$ denote proposition 5.\\
+	$P(0)$ is true because $n + 0 = n = n + m \implies m = 0 \implies k = m$.\\
+	Suppose $P(k)$; also, suppose $m + S(k) = n + S(k)$. Then $S(m+k) = m + S(k) = n + S(k) = S(n + k) \implies m + k = n + k \implies m = n$ (by 4). By the axiom of induction, (5) is true.
+	\end{enumerate}
+\end{quote}
+
+\subsubsection{Positivity}
+
+\textbf{Definition}: We say that $n \in \mathbb{N}$ is \emph{positive} if $n \neq 0$.
+
+\textbf{Proposition} (Properties of Positivity):
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $\forall n, m \in \mathbb{N}$, if $m$ is positive, then $m + n$ is positive.
+	\item $\forall n, m \in \mathbb{N}$, if $m + n = 0$, then $m = n = 0$.
+	\item $\forall n \in \mathbb{N}$, if $n$ is positive, then there exists a unique $m \in \mathbb{N}$ such that $n = S(m)$.
+	\end{enumerate}
+\end{quote}
+
+\subsubsection{Order}
+
+\textbf{Definition}: For all $m, n \in \mathbb{N}$, $m \leq n$ or $n \geq m$ iff $n = m + p$ for some $p \in \mathbb{N}$.\\
+\hspace{0.5cm}$m < n$ or $n > m$ iff $m \leq n \land m \neq n$. The relation $\leq$ provides what is called an \emph{order} on $\mathbb{N}$.
+
+\textbf{Proposition} (Properties of Order):
+\begin{quote}\vspace{-0.3cm}
+	Let $j,k,m,n \in \mathbb{N}$. Then:
+	\begin{enumerate}
+	\item $n \geq n$ (reflexitivity)
+	\item $m \leq n \land k \leq m \implies k \leq n$ (transitivity)
+	\item $m \geq n \land m \leq n \implies m = n$ (anti-symmetry)
+	\item $j \leq k \land m \leq n \implies j + m \leq k + n$ (order preservation)
+	\item $m < n \iff S(m) \leq n$
+	\item $m < n \iff n = m + p$ for some positive $p \in \mathbb{N}$.
+	\item $n \geq m \iff S(n) > m$
+	\item $n = 0 \oplus 0 < n$
+	\end{enumerate}
+\end{quote}
+
+\textbf{Theorem} (Trichotomy of Order): Let $m, n \in \mathbb{N}$. Then exactly one of the following is true:
+\begin{displaymath}
+	m < n \hspace{0.5cm} \oplus \hspace{0.5cm} m = n \hspace{0.5cm} \oplus \hspace{0.5cm} m > n
+\end{displaymath}
+
+\emph{Proof}: Show that no two can be true simultaneously (by definition of $<$ and $>$), and then at least one must be true (by induction on $n$).
+
+\subsubsection{Multiplication}
+
+\textbf{Definition}: Fix $m \in \mathbb{N}$. Define $0 \cdot m = 0$. Now, if $n \cdot m$ is defined for some $n \in \mathbb{N}$, we define $S(n) \cdot m = n \cdot m + m$.
+
+\textbf{Proposition} (Properties of Multiplication):
+\begin{quote}\vspace{-0.3cm}
+	Fix $k,m,n \in \mathbb{N}$. Then:
+	\begin{enumerate}
+	\item $m \cdot n = n \cdot m$ (commutativity)
+	\item $m,n$ are positive $\implies mn$ is positive
+	\item $m \cdot n = 0 \iff m = 0 \lor n = 0$ (no zero divisors)
+	\item $k \cdot (m \cdot n) = (k \cdot m) \cdot n$ (associativity)
+	\item $k \cdot m = k \cdot n \land k$ is positive $\implies m = n$ (cancelation)
+	\item $k \cdot (m + n) = (m + n) \cdot k = k \cdot m + k \cdot n$ (distributivity)
+	\item $m < n \land k \leq l \land k,l$ are positive $\implies m \cdot k < n \cdot l$
+	\end{enumerate}
+\end{quote}
+
+\subsection{The Integers}
+
+Consider the following relation on the set $\mathbb{N} \times \mathbb{N}$:
+\begin{displaymath}
+	(m,n) \simeq (m', n') \iff m + n' = m' + n
+\end{displaymath}
+
+\textbf{Lemma}: $\simeq$ is an equivalence relation.
+
+\emph{Proof}:
+\begin{quote}\vspace{-1cm}
+	\item Reflexivity: $m + n = m + n \implies (m,n) \simeq (m,n)$
+	\item Symmetry: $(m,n) \simeq (m', n') \implies m + n' = m' + n \implies m' + n = m + n' \implies (m', n') \simeq (m, n)$
+	\item Transitivity: Suppose $(m,n) \simeq (m', n') \land (m', n') \simeq (m'', n'')$. Then:
+	\begin{align*}
+		& m+n' = m' + n \land m' + n'' = m'' + n'\\
+		\implies & m + n'' = m'' + n\\
+		\implies & (m,n) \simeq (m'',n'')
+	\end{align*}
+\end{quote}
+
+\textbf{Definition}: Write the \emph{equivalence class} of $(m,n)$ as $[(m,n)] = \{(p,q) \;|\; (p,q) \simeq (m,n)\}$.\\
+Define the \emph{integers} $\mathbb{Z} = \{[(m,n)]\}$.
+
+\textbf{Lemma}: Suppose $(m,n) \simeq (m', n'), (p,q) \simeq (p',q')$. Then:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $(m+p, n+q) \simeq (m'+p', n'+q')$
+	\item $(mp+nq, mq+np) \simeq (m'p'+n'q', m'q'+n'p')$
+	\end{enumerate}
+\end{quote}
+
+\emph{Proof}: Consider equalities $(a): m+n' = m'+n$ and $(b): p+q' = p'+q$ (by definition of $\simeq$).
+
+Using linear combinations of $(a)$ and $(b)$, we derive the two rules of the lemma:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $(a) + (b)$
+	\item $(a)(p' + q') + (b)(m + n)$
+	\end{enumerate}
+\end{quote}
+
+\textbf{Definition}: Let $[(m,n)], [(p,q)] \in \mathbb{Z}$. Then:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $[(m,n)] + [(p,q)] = [(m+p, n+q)]$ (addition of integers)
+	\item $[(m,n)] \cdot [(p,q)] = [(mp+nq, mq+np)]$ (multiplication of integers)
+	\end{enumerate}
+\end{quote}
+By the lemma, these are well-defined operations.
+
+Note that for all $m,n \in \mathbb{N}$:
+\begin{align*}
+[(m,0)] = [(n,0)] &\iff m+0 = n+0 \iff m = n\\
+[(m,0)] + [(n,0)] &= [(m+n, 0)]\\
+[(m,0)] \cdot [(n,0)] &= [(mn, 0)]
+\end{align*}
+As such, the set $\{[(n,0)] \;|\; n \in \mathbb{N}\} \subseteq \mathbb{Z}$ behaves exactly like a copy of $\mathbb{N}$.
+
+\textbf{Definition}: For $n \in \mathbb{N}$ we set $n \in \mathbb{Z}$ to be $n := [(n,0)]$.
+
+\hspace{2cm}For $x = [(m,n)] \in \mathbb{Z}$ we define $-x = [(n,m)]$.
+
+\subsubsection{Properties of Integers}
+
+(We can see that every integer $x \in \mathbb{Z}$ can be represented as $x := m - n$ where $x = [(m,n)]$.)
+
+\textbf{Theorem}: Every $x \in \mathbb{Z}$ satisfies exactly one of the following:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $x = n$ for some $n \in \mathbb{N} \backslash \{0\}$
+	\item $x = 0$
+	\item $x = -n$ for some $n \in \mathbb{N} \backslash \{0\}$
+	\end{enumerate}
+\end{quote}
+\emph{Proof}: Write $x = [(p,q)]$ for some $p,q \in \mathbb{N}$. By trichotomy of order on $\mathbb{N}$ we know that $p < q$ or $p = q$ or $p > q$. Each of these correlates to one of the three properties.
+
+\textbf{Corollary}: $\mathbb{Z} = \{0,1,2, \ldots \} \cup \{-1, -2, -3, \ldots \}$
+
+\subsubsection{Algebraic Properties}
+
+\textbf{Proposition}: Let $x,y,z \in \mathbb{Z}$. Then the following hold:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $x + y = y + x$
+	\item $x + (y+z) = (x+y) + z$
+	\item $x + 0 = 0 + x = x$
+	\item $x + (-x) = (-x) + x = 0$
+	\item $xy = yx$
+	\item $(xy)z = x(yz)$
+	\item $x \cdot 1 = 1 \cdot x = x$
+	\item $x(y+z) = xy + xz$
+	\end{enumerate}
+\end{quote}
+\textbf{Definition}: Define $x-y = x+ (-y)$. The usual properties hold.
+
+\textbf{Definition}: For $x,y \in \mathbb{Z}$, we say $x \leq y$ or $y \geq x$ if $y - x = n$ for some $n \in \mathbb{N}$.\\
+We say $x < y$ if $x \leq y \land x \neq y$.
+
+\subsection{The Rationals and Ordered Fields}
+
+Let a relation on $\mathbb{Z} \times (\mathbb{Z} \backslash \{0\})$ be given by $(m,n) \simeq (m',n') \iff mn' = m'n$.
+
+\textbf{Lemma}: $\simeq$ is an equivalence relation. Proof follows from properties of $\mathbb{Z}$.
+
+\textbf{Definition}: $\mathbb{Q} = \{[(m,n)]\}$
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $[(m,n)] + [(p,q)] = [(mq+np, nq)]$ (addition)
+	\item $[(m,n)] \cdot [(p,q)] = [(mp, nq)]$ (multiplication)
+	\item $-[(m,n)] = [(-m, n)]$ (negation)
+	\item If $m \neq 0$ we set $[(m,n)]^{-1} = [(n,m)]$
+	\end{enumerate}
+\end{quote}
+Remark: the heuristic here is that $\frac{m}{n} = [(m,n)]$.
+
+\textbf{Definition}: If $m \in \mathbb{Z}$, we write $m = [(m,1)] \in \mathbb{Q}$; and thus $\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q}$.
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item For $x,y \in \mathbb{Q}$, we define $x-y = x+(-y) \in \mathbb{Q}$
+	\item For $x,y \in \mathbb{Q}, y \neq 0$ we define $\frac{x}{y} = x(y)^{-1}$. This is well defined because $y=0 \iff y = [(0,n)]$.\end{enumerate}
+\end{quote}
+\textbf{Proposition}: $\mathbb{Q} = \{\frac{m}{n} \;|\; m,n \in \mathbb{Z}, n \neq 0\}$.
+
+We define and propose the trichotomy of order on $\mathbb{Q}$, as per the integers.
+
+\subsubsection{Fields and Orders}
+
+\textbf{Definition}: A field is a set $\mathbb{F}$ endowed with two binary operations, $+, \cdot$, satisfying the following axioms:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item[(A1, M1)] $\forall x,y \in \mathbb{F}.\; x+y \in \mathbb{F}, xy \in \mathbb{F}$ (closure)
+	\item[(A2, M2)] $\forall x,y \in \mathbb{F}.\; x + y = y + x,\; xy = yx$ (commutativity)
+	\item[(A3, M3)] $\forall x,y,z \in \mathbb{F}.\; x + (y+z) = (x+y) + z,\; x(yz) = (xy)z$ (associativity)
+	\item[(A4, M4)] $\exists (0,1) \in \mathbb{F}.\; \forall x \in \mathbb{F}.\; 0 + x = x + 0 = x,\; 1 \cdot x = x \cdot 1 = x$ (identity)
+	\item[(A5, M5)] $\forall x \in \mathbb{F}.\; \exists (-x).\; x + (-x) = 0;\; \exists x^{-1} \in \mathbb{F}.\; xx^{-1} = x^{-1}x = 1$ (inverse)
+	\item[(D1)] $\forall x,y,z \in \mathbb{F}.\; x(y+z) = xy + xz$ (distributivity)
+	\end{enumerate}
+\end{quote}
+
+\emph{Remark}: Field must have at least 2 elements (0, 1) by (A/M4). To prove field, must prove 5 properties of addition and multiplication (closure, symmetry, associativity, identity, inverse) as well as distributivity.
+
+\textbf{Definition}: Let $E$ be a set; an \emph{order} on $E$ is a relation $<$ satisfying the following:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $\forall x,y \in E$ exactly one of the following is true: $x < y$ or $x = y$ or $y < x$ (trichotomy)
+	\item $\forall x,y,z \in E$, $x < y \land y < z \implies x < z$ (transitivity)
+	\end{enumerate}
+\end{quote}
+
+\textbf{Definition}: Let $\mathbb{F}$ be a field. Then we define $x - y = x + (-y)$ and $\frac{x}{y} = xy^{-1}$ (for $y \neq 0$).
+
+\textbf{Theorem}: $\mathbb{Q}$ is an ordered field with order $<$.
+
+\emph{Proof}: Follows from definitions and properties of $\mathbb{Z}$.
+
+
+\subsection{Problems with $\mathbb{Q}$}
+
+\textbf{Theorem}: There does not exist a $q \in \mathbb{Q}$ such that $q^2 = 2$.
+
+\emph{Proof}: Suppose not; i.e. there does exist such a $q \in \mathbb{Q}$.
+\begin{quote}\vspace{-0.3cm}
+Consider the set $S(q) = \{n \in \mathbb{N}^+ \;|\; q = \frac{m}{n}$ for some $m \in \mathbb{Z}\}$. Cleary $|S(q)| > 0$. Then the well-ordering principle implies that $\exists !n \in S(q).\; n = \text{min}\; S(q)$.
+
+Since $n \in S(q)$, we know that $q = \frac{m}{n}$ for some $m \in \mathbb{Z}$. Then $q^2 = (\frac{m}{n})^2 = \frac{m^2}{n^2} \implies m^2 = 2n^2 \implies m^2$ is even. We claim that $m$ is also even (proof is exercise to reader).
+
+Then $\exists l \in \mathbb{Z}.\; m = 2l$. Then $4l^2 = (2l)^2 = m^2 = 2n^2 \implies n^2 = 2l^2 \implies n^2$ is even $\implies n$ is even $\implies n = 2p$ for some $p \in \mathbb{N}^+$.
+
+Hence $q = \frac{m}{n} = \frac{2l}{2p} = \frac{l}{p} \implies p \in S(q)$. But clearly $p < n$, which contradicts the fact that $n$ is the minimal element. By contradiction, the theorem must be true.
+\end{quote}
+
+\subsubsection{Bounds (Infimum and Supremum)}
+
+Informally, $\mathbb{Q}$ has ``holes":
+
+\textbf{Definition}: Let $E$ be an ordered set with order $<$.
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item We say $A \subseteq E$ is bounded above iff $\exists x \in E.\; \forall a \in A.\; a \leq x$. We say $x$ is an upper bound of $A$.
+	\item We say $A \subseteq E$ is bounded below iff $\exists x \in E.\; \forall a \in A.\; x \leq a$. We say $x$ is a lower bound of $A$.
+	\item We say $A \subseteq E$ is bounded iff it's bounded above and below.
+	\item We say $x$ is a minimum of $A$ iff $x \in A$ and $x$ is a lower bound of $A$.
+	\item We say $x$ is a maximum of $A$ iff $x \in A$ and $x$ is an upper bound of $A$.
+	\end{enumerate}
+\end{quote}
+\emph{Remark}: If a min or max exists, then it is unique.
+
+\textbf{Definition}: Let $E$ be an ordered set and $A \subseteq E$.
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item We say $x \in E$ is the least upper bound (\emph{supremum}) of $A$, written $x = \text{sup}\; A$, iff $x$ is an upper bound of $A$ and $y \in E$ is an upper bound of $A \implies x \leq y$.
+	\item We say $x \in E$ is the greatest lower bound (\emph{infimum}) of $A$, written $x = \text{inf}\; A$, iff $x$ is a lower bound of $A$ and $y \in E$ is a lower bound of $A \implies y \leq x$.
+	\end{enumerate}
+\end{quote}
+\emph{Remark}: If $x = \text{min}(A)$, then $x = \text{inf}(A)$. If $x = \text{max}(A)$, then $x = \text{sup}(A)$. But the converse is false; some sets have a supremum but no maximum, others a infimum but no minimum.
+
+\textbf{Definition}: Let $\mathbb{F}$ be an ordered field. We say that $\mathbb{F}$ has the \emph{least upper bound property} iff every $\varnothing \neq A \subseteq \mathbb{F}$ that is bounded above has a least upper bound.
+
+\textbf{Theorem}: $\mathbb{Q}$ does not satisfy the least upper bound property.
+
+\emph{Proof}: Consider the set $A = \{x \in \mathbb{Q} \;|\; x > 0, x^2 \leq 2\}$.
+\begin{quote}\vspace{-0.3cm}
+Note that $0 < 1 = 1^2 \leq 2 \implies 1 \in A$, so $A$ is non-empty. Also, $2 \leq 4 = 2^2$ implies $(x \in A \implies 0 < x^2 < 2 < 2^2) \implies x < 2$. Then 2 is an upper bound of $A$.
+
+Assume for sake of contradiction that $\mathbb{Q}$ has the least upper bound property. Then $A$ has a supremum. Let $x = \text{sup }A \in \mathbb{Q}$ and write $x = \frac{p}{q}$ for $p,q \in \mathbb{Z}$.
+
+By trichotomy, $x^2 < 2$ or $x^2 = 2$ or $x^2 > 2$. We know $x^2 \neq 2$.
+
+\textbf{Case 1}: Suppose $x^2 < 2$. Then for any $n \in \mathbb{N}^+$ we have $(\frac{p}{q} + \frac{1}{n})^2 = \frac{p^2}{q^2} + \frac{2p}{qn} + \frac{1}{n^2} \leq \frac{p^2}{q^2} + \frac{1}{n}(\frac{2p+q}{q})$. From algebra, we derive $(\frac{p}{q} + \frac{1}{n})^2 < 2$ for some $n \in \mathbb{N}^+$.
+
+Cleary $x > 0$ since otherwise $x \leq 0 < 1 \in A$. Hence $0 < x = \frac{p}{q} < \frac{p}{q} + \frac{1}{n} \in A$. But then $x$ is not an upper bound $\implies$ contradiction.
+
+\textbf{Case 2}: Suppose $x^2 > 2$. Considering $(\frac{p}{q} - \frac{1}{n})^2 > 2$ and using the same logic as before, we can choose $n$ large enough such that $\frac{p}{q} - \frac{1}{n}$ is an upper bound of $A$. But $\frac{p}{q} - \frac{1}{n} < \frac{p}{q} = x$, which contradicts the fact that $x = \text{ sup }A$.
+
+As all cases are false, we contradict trichotomy, and hence $\mathbb{Q}$ cannot have the least upper bound property.
+\end{quote}
+
+\subsection{The Real Numbers}
+
+We now construct an ordered field satisfying the least upper bound property using $\mathbb{Q}$.
+
+\textbf{Definition}: We say $\mathbb{Q}$ is Archimedean iff $\forall (x \in \mathbb{Q}).\; x > 0 \implies \exists (n \in \mathbb{N}).\; x < n$.
+
+\textbf{Lemma}: If $\mathbb{Q}$ is Archimedean, then $\forall (p < q \in \mathbb{Q}).\; \exists (r \in \mathbb{Q}).\; p < r < q$.\\
+(Proofs in HW 2.)
+
+\subsubsection{Defining the Real Numbers: Dedekind Cuts}
+
+\textbf{Definition}: We say that $\mathcal{C} \in \mathcal{P}(\mathbb{Q})$ is a \emph{cut} (Dedekind cut) iff the following hold:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item[(C1)] $\varnothing \neq \mathcal{C}, \mathcal{C} \neq \mathbb{Q}$
+	\item[(C2)] If $p \in \mathcal{C}$ and $q \in \mathbb{Q}$ with $q < p$, then $q \in \mathcal{C}$.
+	\item[(C3)] If $p \in \mathcal{C}$, $\exists (r \in \mathbb{Q}).\; p < r \land r \in \mathcal{C}$.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Lemma}: Suppose $\mathcal{C}$ is a cut. Then:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $p \in \mathcal{C}, q \notin \mathcal{C} \implies p < q$
+	\item$r \notin \mathcal{C}, r < s \implies s \notin \mathcal{C}$
+	\item $\mathcal{C}$ is bounded above
+	\end{enumerate}
+\end{quote}
+
+\textbf{Lemma}: Let $q \in \mathbb{Q}$. Then $\{p \in \mathbb{Q} \;|\; p < q\}$ is a cut.
+
+\emph{Proof}: Call the set $\mathcal{C}$. We prove the 3 properties of a cut:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item[(C1)] $q - 1 \in \mathcal{C} \implies \mathcal{C} \neq \varnothing$; $q + 1 \notin \mathcal{C} \implies \mathcal{C} \neq \mathbb{Q}$.
+	\item[(C2)] If $p \in \mathcal{C}$ and $r \in \mathbb{Q}$ such that $r < p$, then $r < p < q \implies r < q \implies r \in \mathcal{C}$.
+	\item[(C3)] Let $p \in \mathcal{C}$ where $p < q$. Since $\mathbb{Q}$ is Archimedean, $\exists (r \in \mathbb{Q}).\; p < r < q \implies r \in \mathcal{C}$.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Definition}: Given $q \in \mathbb{Q}$ we write $\mathcal{C}_q = \{p \in \mathbb{Q} \;|\; p < q\}$. By the above lemma, $\mathcal{C}_q$ is a cut.
+
+\textbf{Definition}: We write $\mathbb{R} = \{\mathcal{C} \in \mathcal{P}(\mathbb{Q}) \;|\; \mathcal{C} \text{ is a cut}\} \neq \varnothing$.
+
+\textbf{Lemma}: The following hold:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $\forall \mathcal{A}, \mathcal{B} \in \mathbb{R}$, exactly one of the following holds: $\mathcal{A} \subset \mathcal{B}, \mathcal{A} = \mathcal{B}, \mathcal{B} \subseteq \mathcal{A}$.
+	\item $\forall \mathcal{A}, \mathcal{B}, \mathcal{C} \in \mathbb{R}$, $\mathcal{A} \subset \mathcal{B} \land \mathcal{B} \subseteq \mathcal{C} \implies \mathcal{A} \subset \mathcal{C}$.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Definition}: If $\mathcal{A}, \mathcal{B} \in \mathbb{R}$ we say that $\mathcal{A} < \mathcal{B} \iff \mathcal{A} \subset \mathcal{B}$, and $\mathcal{A} \leq \mathcal{B} \iff \mathcal{A} \subseteq \mathcal{B}$. This defines an order on $\mathbb{R}$ by the above lemma.
+
+\subsubsection{Defining the Real Numbers: The Least Upper Bound Property}
+
+\textbf{Lemma}: Suppose $\varnothing \neq E \subseteq \mathbb{R}$ is bounded above. Then $\mathcal{B} := \bigcup_{\mathcal{A} \in E} \mathcal{A} \in \mathbb{R}$.
+
+\textbf{Theorem}: $\mathbb{R}$ satisfies the least upper bound property.
+
+\emph{Proof}: Let $\varnothing \neq E \subseteq \mathbb{R}$ be bounded above and set $\mathcal{B} = \bigcup_{\mathcal{A} \in E} \mathcal{A} \in \mathbb{R}$. We claim $\mathcal{B} = \text{sup }E$.
+\begin{quote}\vspace{-0.3cm}
+First, we show that $\mathcal{B}$ is an upper bound of $E$. Let $\mathcal{A} \in E$. Then $\mathcal{A} \subseteq \mathcal{B} \implies \mathcal{A} \leq \mathcal{B}$ (by definition). This is true for all $\mathcal{A} \in E$, so $\mathcal{B}$ is an upper bound.
+
+We claim that for $\mathcal{C} \in \mathbb{R}.\; \mathcal{C} < \mathcal{B} \implies \mathcal{C}$ is not an upper bound of $E$. If $\mathcal{C} < \mathcal{B}$, then $\mathcal{C} \subset \mathcal{B}$. This implies $\exists b \in \mathcal{B}.\; b \notin \mathcal{C} \implies \exists(\mathcal{A} \in E).\; b \in \mathcal{A} \land b \notin \mathcal{C}$. Then $\mathcal{A} > \mathcal{C}$ since otherwise $\mathcal{A} \subseteq \mathcal{C} \implies b \in \mathcal{C}, b \notin \mathcal{C}$. Hence $\mathcal{C} < \mathcal{A}$ and $\mathcal{C}$ is not an upper bound of $E$.
+
+By the contrapositive: if $\mathcal{C}$ is an upper bound, $\mathcal{C} \geq \mathcal{B}$. Thus, $\mathcal{B}$ is the least upper bound, and the theorem holds.
+\end{quote}
+
+\subsubsection{Defining the Real Numbers: Addition}
+
+\textbf{Definition}: Given $\mathcal{A}, \mathcal{B} \in \mathbb{R}$, set $\mathcal{A} + \mathcal{B} = \{a+b \;|\; a \in \mathcal{A}, b \in \mathcal{B}\}$.
+
+\textbf{Lemma}: If $\mathcal{A}, \mathcal{B} \in \mathbb{R}$, then $\mathcal{A} + \mathcal{B} \in \mathbb{R}$.
+
+\textbf{Theorem}: Define $-\mathcal{A} = \{q \in \mathbb{Q} \;|\; \exists(p >q).\; -p \notin \mathcal{A}\}$. Then $\mathbb{R}, +, 0_\mathbb{R} = \mathcal{C}_0 = \{p \in \mathbb{Q} \;|\; p < 0\}$ satisfy the field axioms.
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item[(A1)] $\mathcal{A} + \mathcal{B} \in \mathbb{R}$ by previous lemma.
+	\item[(A2)] $\mathcal{A} + \mathcal{B} = \{a + b\} = \{b + a\} = \mathcal{B} + \mathcal{A}$.
+	\item[(A3)] $\mathcal{A} + (\mathcal{B} + \mathcal{C}) = \{a + (b+c)\} = \{(a+b) + c\} = (\mathcal{A} + \mathcal{B}) + \mathcal{C}$.
+	\item[(A4)] Show $\forall \mathcal{A} \in \mathbb{R}.\; 0_\mathbb{R} + \mathcal{A} = \mathcal{A}$.
+	\item[(A5)] Show that $-\mathcal{A} \in \mathbb{R}$, then $\mathcal{A} + (-\mathcal{A}) = 0_\mathbb{R}$ using Archimedean property.
+	\end{enumerate}
+\end{quote}
+\textbf{Theorem} (Ordered Field): Let $\mathcal{A}, \mathcal{B}, \mathcal{C} \in \mathbb{R}$. If $\mathcal{A} < \mathcal{B}$ then $\mathcal{A} + \mathcal{C} < \mathcal{B} + \mathcal{C}$.
+
+\emph{Proof}: It's trivial to see that $\mathcal{A} \subseteq \mathcal{B} \implies \mathcal{A} + \mathcal{C} \subseteq \mathcal{B} + \mathcal{C} \implies \mathcal{A} + \mathcal{C} \leq \mathcal{B} + \mathcal{C}$.
+\begin{quote}\vspace{-0.3cm}
+If $\mathcal{A} + \mathcal{C} = \mathcal{B} + \mathcal{C}$, we can add $- \mathcal{C}$ to both sides and use the last theorem to see that $\mathcal{A} = \mathcal{B}$, a contradiction. Hence, $\mathcal{A} + \mathcal{C} < \mathcal{B} + \mathcal{C}$.
+\end{quote}
+
+\subsubsection{Defining the Real Numbers: Multiplication}
+
+\textbf{Lemma}: Let $\mathcal{A}, \mathcal{B} \in \mathbb{R}$, $\mathcal{A}, \mathcal{B} > 0_\mathbb{R}$. Then $\mathcal{C} = \{q \in \mathbb{Q} \;|\; q \leq 0\} \cup \{a \cdot b \;|\; a \in \mathcal{A}, b \in \mathcal{B}, a, b > 0\} \in \mathbb{R}$.
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item[(C1)] $0 \in \mathcal{C} \implies \mathcal{C} \neq \varnothing$. $\mathcal{A}, \mathcal{B}$ are bounded above by, say $M_1, M_2$, so $M_1 \cdot M_2 + 1 \notin \mathcal{C}$ and $\mathcal{C} \neq \mathbb{Q}$.
+	\item[(C2)] Let $p \in \mathcal{C}$ and $q < p$. If $q \leq 0$ then $q \in \mathcal{C}$ by definition. If $q > 0$ then $0 < q < p$, but then $0 < p \implies p = a \cdot b$ for $a \in \mathcal{A}, b \in \mathcal{B}, a, b > 0$. Then $0 < q < a \cdot b \implies \frac{q}{a} < b \implies 0 < \frac{q}{a} \in \mathcal{B}$. Then $q = a(\frac{q}{a}) \in \mathcal{C}$.
+	\item[(C3)] Let $p \in \mathcal{C}$. If $p \leq 0$ then any $a \cdot b$ with $a \in \mathcal{A}, b \in \mathcal{B}, a,b > 0$ satisfies $p < a \cdot b \in \mathcal{C}$, so $r = a \cdot b$ is the desired element of $\mathcal{C}$. However, if $p > 0$, then $p = a \cdot b$ for $a \in \mathcal{A}, b \in \mathcal{B}, a,b > 0$. Choose $s \in \mathcal{A}$ such that $a < s, t \in \mathcal{B}$ such that $t > b$. Then $p = a \cdot b < s \cdot t \in \mathcal{S}$, so $r = s \cdot t$ proves the claim.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Definition of Multiplication}: Let $\mathcal{A}, \mathcal{B} \in \mathbb{R}$.
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item If $\mathcal{A} > 0, \mathcal{B} > 0$ we set $\mathcal{A} \cdot \mathcal{B} = \{q \in \mathbb{Q} \;|\; q \leq 0\} \cup \{a \cdot b \;|\; a \in \mathcal{A}, b \in \mathcal{B}, a, b > 0\} \in \mathbb{R}$.
+	\item If $\mathcal{A} = 0$ or $\mathcal{B} = 0$, we set $\mathcal{A} \cdot \mathcal{B} = 0_\mathbb{R}$.
+	\item If $\mathcal{A} > 0$ and $\mathcal{B} < 0$, let $\mathcal{A} \cdot \mathcal{B} = - (\mathcal{A} \cdot (-\mathcal{B}))$.
+	\item If $\mathcal{A} < 0$ and $\mathcal{B} > 0$, let $\mathcal{A} \cdot \mathcal{B} = -((-\mathcal{A}) \cdot \mathcal{B})$.
+	\item If $\mathcal{A} < 0$ and $\mathcal{B} < 0$, let $\mathcal{A} \cdot \mathcal{B} = (-\mathcal{A}) \cdot (-\mathcal{B})$.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Theorem}: $\mathbb{R}, \cdot$ satisfies (M1-M5) with $1_\mathbb{R} = \mathcal{C}_1$, and\\
+$\mathcal{A} > 0 \implies \mathcal{A}^{-1} = \{q \in \mathbb{Q} \;|\; q \leq 0\} \cup \{q \in \mathbb{Q} \;|\; q > 0, \exists p > q.\; p^{-1} \notin \mathcal{A}\} \in \mathbb{R}$;\\
+$\mathcal{A} < 0 \implies \mathcal{A}^{-1} = -(-\mathcal{A})^{-1}$.
+
+\emph{Proof}: HW3 (similar to addition).
+
+\textbf{Theorem}: If $\mathcal{A}, \mathcal{B} > 0$, then $\mathcal{A} \cdot \mathcal{B} > 0$.
+
+\emph{Proof}: By definition $\mathcal{C}_0 \subseteq \mathcal{A} \cdot \mathcal{B} \implies 0 \leq \mathcal{A} \cdot \mathcal{B}$. Equality is impossible since $\mathcal{A}, \mathcal{B} > 0$.
+
+\subsubsection{Defining the Real Numbers: Distributivity}
+
+\textbf{Theorem}: Let $\mathcal{A}, \mathcal{B}, \mathcal{C} \in \mathbb{R}$. Then $\mathcal{A} \cdot (\mathcal{B} + \mathcal{C}) = \mathcal{A} \cdot \mathcal{B} + \mathcal{A} \cdot \mathcal{C}$.
+
+\emph{Proof}: We prove the case where all are positive. The other cases are in HW.
+\begin{quote}\vspace{-0.3cm}
+Let $p \in \mathcal{A}(\mathcal{B} + \mathcal{C})$. If $p \leq 0$ then $p \in \mathcal{A} \cdot \mathcal{B} + \mathcal{A} \cdot \mathcal{B}$ is trivial (both products contain the interval less than 0).
+
+If $p > 0$, $p = a(b+c)$ for $a \in \mathcal{A}, b \in \mathcal{B}, c \in \mathcal{C}$ for $a > 0, b + c > 0$.
+
+Regardless of sign of $b$ or $c$, $a \cdot b \in \mathcal{A} \cdot \mathcal{B}, a \cdot c \in \mathcal{A} \cdot \mathcal{C}$. Hence $p = a(b+c) = a \cdot b + a \cdot c \in \mathcal{A} \cdot \mathcal{B} + \mathcal{A} \cdot \mathcal{C}$. So $\mathcal{A}(\mathcal{B} + \mathcal{C}) \subseteq \mathcal{A} \cdot \mathcal{B} + \mathcal{A} \cdot \mathcal{C}$.
+
+Finally, we show the converse is true; let $p \in \mathcal{A} \cdot \mathcal{B} + \mathcal{A} \cdot \mathcal{C} \implies p = r+s$ for $r \in \mathcal{A} \cdot \mathcal{B}, s \in \mathcal{A} \cdot \mathcal{C}$. Case on positivity of $p,r,s$ to show $p \in \mathcal{A}(\mathcal{B} + \mathcal{C})$.
+\end{quote}
+
+\subsubsection{Defining the Real Numbers: Archimedean}
+
+\textbf{Theorem}: For $p,q \in \mathbb{Q}$, the following are true:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $\mathcal{C}_{p+q} = \mathcal{C}_p + \mathcal{C}_q$
+	\item $\mathcal{C}_{-p} = -\mathcal{C}_p$
+	\item $\mathcal{C}_{pq} = \mathcal{C}_p \mathcal{C}_q$
+	\item If $p \neq 0$ then $\mathcal{C}_{p^{-1}} = (\mathcal{C}_p)^{-1}$
+	\item $p < q \in \mathbb{Q} \iff \mathcal{C}_p < \mathcal{C}_q \in \mathbb{R}$
+	\end{enumerate}
+\end{quote}
+\emph{Proof}: HW.
+
+\textbf{Definition}: For $q \in \mathbb{Q}$ we say $\mathcal{C}_q \in \mathbb{R}$. Then $\mathbb{Q} \subseteq \mathbb{R}$.
+
+\textbf{Theorem}: There exists an ordered field satisfying the least upper bound property; $\mathbb{R}$ is unique (for any ordered field $\mathbb{F}$ satisfying these properties, $\mathbb{F} = \mathbb{R}$ up to isomorphism; and $\mathbb{R}$ is Archimedean.
+
+\emph{Proof}: The basic assertion is Steps (0)-(4). Step (5) proves 1, Step (6) proves 3.
+
+\subsection{Properties of $\mathbb{R}$}
+
+Notation: think of $\mathbb{R}$ as numbers, not cut notation.
+
+\textbf{Proposition}: $\mathbb{R}$ satisfies the following:
+
+\textbf{Theorem}: For $p,q \in \mathbb{Q}$, the following are true:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $\mathbb{R}$ is Archimedean: $\forall x \in \mathbb{R}, x > 0.\; \exists n \in \mathbb{N}.\; x < n$
+	\item $\mathbb{N} \subset \mathbb{R}$ is not bounded above
+	\item inf$\{\frac{1}{n} \;|\; n \in \mathbb{N}, n \geq 1\} = 0$
+	\item $\forall x \in \mathbb{R}$ the set $B(x) = \{m \in \mathbb{Z} \;|\; x < m\}$ has a minimum in $\mathbb{Z}$.
+	\item $\forall x,y \in \mathbb{R}, x < y.\; \exists q \in \mathbb{Q}.\; x < q < y$
+	\end{enumerate}
+\end{quote}
+
+\emph{Remarks:}
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item (5) is interpreted as ``the density of $\mathbb{Q} \subseteq \mathbb{R}$". Any element $x \in \mathbb{R}$ can be approximated to arbitrary accuracy by elements of $\mathbb{Q}$.
+	\item (4) allows us to define the integer part of any $x \in \mathbb{R}$. We can set $\lfloor x \rfloor = \text{min} B(x) - 1 \in \mathbb{Z}$. Then $\lfloor x \rfloor \leq x < \lfloor x \rfloor + 1$.
+	\end{enumerate}
+\end{quote}
+
+Next we show that $\mathbb{R}$ does not have the ``holes" we saw in $\mathbb{Q}$.
+
+\textbf{Theorem}: Let $x \in \mathbb{R}$ satisfy $x > 0$ and $n \in \mathbb{N}, n \geq 1$. Then $\exists ! y \in \mathbb{R}.\; y > 0 \land y^n = x$.
+
+\emph{Proof}: The case $n = 1$ is trivial so assume $n \geq 2$.
+\begin{quote}\vspace{-0.3cm}
+Set $E = \{z \in \mathbb{R} \;|\; z > 0 \land z^n < x\}$. We want to show $E \neq \varnothing$ and is bounded above. Set $t = \frac{x}{1+x}$; then $0 < t < 1$ and $t < x$. Hence $0 < t^n < t < x$, and so $t \in E$ and $E \neq \varnothing$.
+
+Set $s = 1+x$. Then $1 < s \land x < s \implies x < s < s^n$; so if $z \in E$ then $z^n < x < s^n \implies z < s$. Then $s$ is an upper bound of $E$.
+
+By least upper bound property, $\exists y \in \mathbb{R}.\; y = \text{sup } E$. Since $t \in E$, $0 < t < y$, so $y > 0$. We claim that $y^n < x$ and $y^n > x$ are both impossible (proof is exercise), so $y^n = x$.
+\end{quote}
+
+\textbf{Definition}: Let $n \geq 1$; for $x \in \mathbb{R}, x > 0,$ we write $x^{\frac{1}{n}} = y$ where $y^n = x$. We set $0^{\frac{1}{n}} = 0$.
+
+\section{Sequences}
+
+\subsection{Convergence and Bounds}
+
+\textbf{Definition}: We say a sequence $\{a_n\}_{n=l}^{\infty} \subseteq \mathbb{R}$ converges if $\exists a \in \mathbb{R}.\; a_n \to a$ as $n \to \infty$;\\
+i.e. $\forall \epsilon \in \mathbb{R}.\; \exists N.\; n \geq N \implies |a_n - a| < \epsilon$.
+
+\textbf{Definition}: We say a sequence $\{a_n\}_{n=l}^{\infty} \subseteq \mathbb{R}$ is bounded iff. $\exists M \in \mathbb{R}, M > 0.\; |a_n| < M \;(\forall n \geq l)$.
+
+\textbf{Lemma}: If a sequence converges, then it is bounded.
+
+\textbf{Definition}: Given $\{a_n\}, \{b_n\} \subseteq \mathbb{R}$ we define $\{a_n + b_n\} \subseteq \mathbb{R}$ to be the sequence whose elements are $a_n + b_n$. We simiplary define $\{ca_n\}$ for a fixed $c \in \mathbb{R}$, $\{a_nb_n\}$, and $\{a_n/b_n\}$ where $b_n \neq 0, n \geq l$.
+
+\textbf{Theorem} (algebra of convergence): Let $\{a_n\}, \{b_n\} \subseteq \mathbb{R}, c \in \mathbb{R}$, and assume that $a_n \to a, b_n \to b$ as $n \to \infty$. Then the following hold:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $a_n + b_n \to a + b$ as $n \to \infty$
+	\item $c_an \to ca$ as $n \to \infty$
+	\item $a_nb_n \to ab$ as $n \to \infty$
+	\item If $b_n \neq 0$ and $b \neq 0$, then $a_n/b_n \to a/b$ as $n \to \infty$.
+	\end{enumerate}
+\end{quote}
+
+\emph{Proof}: (1), (2) are in next week's HW.
+\begin{quote}\vspace{-0.3cm}
+(3): Note that $|a_nb_n - ab| = |a_nb_n - ab_n + ab_n - ab| \leq |a_nb_n - ab_n| + |ab_n - ab| = |b_n||a_n-a| + |a||b_n - b|$. Since $b_n \to b$ we know that $\exists M > 0.\; |b_n| < M (\forall n \geq l)$.
+
+Let $\epsilon > 0$. Since $a_n \to a$ and $b_n \to b$ we may choose $N_1$ such that $n \geq N_1 \implies |a_n - a| < \frac{\epsilon}{2M}$; and $N_2$ where $n \geq N_2 \implies |b_n - b| < \frac{\epsilon}{2(1+|a|)}$.
+
+Then set $N = \text{max}(N_1, N_2)$. So if $n \geq N$ we know that $|a_nb_n - ab| \leq |b_n||a_n-a| + |a||b_n-b| < M|a_n - a| + |a||b_n-b| < M \cdot \frac{\epsilon}{2M} + |a| \cdot \frac{\epsilon}{2(1+|a|)} < \frac{\epsilon}{2} +\frac{\epsilon}{2} = \epsilon$.
+
+Since $\epsilon$ was arbitrary, we deduce that $a_nb_n \to ab$.\\
+
+(4): We know $|\frac{a_n}{b_n} - \frac{a}{b}| = |\frac{a_nb - ab_n}{b_nb}| = |\frac{a_nb - ab + ab - ab_n}{b_nb}| \leq \frac{|a_nb - ab|}{|b_n||b|} + \frac{|ab - ab_n|}{|b||b_n|} = \frac{|a_n-a|}{|b_n|} + \frac{|a|}{|b||b_n|} |b_n - b|$.
+
+Let $\epsilon > 0$. Since $b_n \to b \neq 0$ we know that $\exists N_1$ such that $n \geq N_1 \implies |b_n - b| < \frac{|b|}{2}$. Then $n \geq N \implies 0 < |b| = |b - b_n + b_n| \leq |b-b_n| + |b_n| < \frac{|b|}{2} + |b_n| \implies 0 < \frac{|b|}{2} \leq |b_n| \implies 0 < \frac{1}{|b_n|} < \frac{2}{|b|}$.
+
+Similarly, $a_n \to a \implies \exists N_2 .\; (n \geq N_2 \implies |a_n - a| < \frac{\epsilon}{4} |b|$; and\\
+$b_n \to b \implies \exists N_3.\; (n \geq N_3 \implies |b_n - b| < \frac{\epsilon |b|^2}{4(1+|a|)}$.
+
+Set $N = \text{max}(N_1, N_2, N_3)$. Then $n \geq N \implies |\frac{a_n}{b_n} - \frac{a}{b}| \leq \frac{|a_n-a|}{|b_n|} + \frac{|a|}{|b_n||b|} |b_n - b| < \frac{2}{|b| |a_n - a|} + \frac{2|a|}{|b|^2} |b_n - b| < \frac{\epsilon}{2} + \frac{\epsilon}{2} \frac{|a|}{1+|a|} < \epsilon$.
+
+Since $\epsilon > 0$ was arbitrary, we deduce $\frac{a_n}{b_n} \to \frac{a}{b}$ as $n \to \infty$.
+\end{quote}
+
+\textbf{Lemma}: Let $\{a_n\}_{n=l}^\infty$ converge to $a \in \mathbb{R}$. Then $\forall \epsilon > 0.\; \exists N.\; m, n \geq N \implies |a_n - a_m| < \epsilon$.
+
+\textbf{Definition}: We say $\{a_n\}_{n=l}^\infty \subseteq \mathbb{R}$ is \emph{Cauchy} iff $\forall \epsilon > 0.\; \exists N.\; m,n \geq N \implies |a_n - a_m| < \epsilon$.
+
+\textbf{Lemma}: If $\{a_n\}$ is Cauchy, then it's bounded.
+
+\emph{Proof}: Let $\epsilon = 1$. Then $\exists N.\; m,n \geq N \implies |a_m - a_n| < 1$. Then $n \geq N \implies |a_n - a_N| < 1 \implies |a_n| < |a_n - a_N| + |a_N| < 1 + |a_N|$. Set $M = \text{max}(1+ |a_N|, k)$, where $k = \text{max}\{|a_l|, \ldots, |a_{N-1}|\}$. Then $|a_n| < M (\forall n \geq l)$, and $\{a_n\}$ is bounded.
+
+\textbf{Theorem}: Let $\{a_n\} \subseteq \mathbb{R}$. Then $\{a_n\}$ converges $\iff \{a_n\}$ is Cauchy.
+
+\emph{Proof}: $\implies$ is covered by 2nd-previous lemma. We show the converse:
+\begin{quote}\vspace{-0.3cm}
+Suppose $\{a_n\}$ is Cauchy. Then $|a_n| < M (\forall n \geq l)$ by the last lemma.
+
+Set $E = \{x \in \mathbb{R} \;|\; \exists N.\; n \geq N \implies x < a_n\}$. Note that $-M < a_n (\forall n \geq l)$, and so $-M \in E$ and $E \neq \varnothing$.
+
+Also, $x \in E \implies \exists N_x.\; n \geq N_x \implies x < a_n < M$, and so $M$ is an upper bound of $E$.\\
+By the least upper bound property of $\mathbb{R}$, $\exists a = \text{sup } E \in \mathbb{R}$. We claim that $a_n \to a$ as $n \to \infty$.
+
+Let $\epsilon > 0$. Then since $\{a_n\}$ is Cauchy, $\exists N.\; m,n \geq N \implies |a_n - a_m| < \frac{\epsilon}{2}$. In particular, $|a_n - a_N| < \frac{\epsilon}{2}$ when $n \geq N$. Then $n \geq N \implies a_N - \frac{\epsilon}{2} < a_n \implies a_N - \frac{\epsilon}{2} \in E \implies a_N - \frac{\epsilon}{2} \leq a$.
+
+If $x \in E$, then $\exists E_x.\; (n \geq N_x \implies x < a_n < a_N + \frac{\epsilon}{2})$. Hence $a_N + \frac{\epsilon}{2}$ is an upper bound of $E \implies a \leq a_N + \frac{\epsilon}{2}$. Then $|a - a_N| < \frac{\epsilon}{2}$.
+
+But if $n \geq N$, then $|a_n - a| \leq |a_n - a_N| + |a_N - a| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$. Hence $a_n \to a$.
+\end{quote}
+
+\subsubsection{Squeeze Lemma}
+
+\textbf{Lemma}: Let $\{a_n\}_{n=l}^\infty, \{b_n\}, \{c_n\} \subseteq \mathbb{R}$ and suppose that $a_n \to a, c_n \to a$ as $n \to \infty$. If $\exists k \geq l$ such that $a_n \leq b_n \leq c_n (\forall n \geq k)$, then $b_n \to a$ as $n \to \infty$.
+
+Examples:
+\begin{enumerate}\vspace{-0.3cm}
+\item Suppose $a_n \to 0$ and $\{b_n\}$ is bounded, i.e. $|b_n| \leq M (\forall n \geq l)$. Then $|a_n b_n| = |a_n| |b_n| \leq |a_n| M$. But $c_n \to 0 \iff |c_n| \to 0$. Then $0 \leq |a_n b_n| \leq |a_n| M$, both sides of which go to 0; and by the squeeze lemma, $|a_n b_n| \to 0 \implies a_n b_n \to 0$.
+
+\item  Fix $k \in \mathbb{N}$ with $k \geq 1$. Set $a_n = \frac{1}{n^k}, n \geq 1$. Then $0 \leq \frac{1}{n^k} \leq \frac{1}{n}$, and by squeeze lemma $\frac{1}{n^k} \to 0$.
+
+\item Fix $k \in \mathbb{N}$ with $k \geq 2$. Let $a_n = \frac{1}{k^n}, n \geq 0$. We know $\forall n \in \mathbb{N}.\; n \leq k^n$ (proof by induction). Then $0 \leq \frac{1}{k^n} \leq \frac{1}{n}$, and by squeeze $\frac{1}{k^n} \to 0$.
+\end{enumerate}
+
+\subsection{Monotonicity and limsup, liminf}
+
+\textbf{Definition}: Let $\{a_n\}_{n=l}^\infty \subseteq \mathbb{R}$. We say $\{a_n\}$ is:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item increasing iff. $a_n < a_{n+1} (\forall n \geq l)$,
+	\item non-decreasing iff. $a_n \leq a_{n+1} (\forall n \geq l)$,
+	\item decreasing iff. $a_{n+1} < a_n (\forall n \geq l)$,
+	\item non-increasing iff. $a_{n+1} \leq a_n (\forall n \geq l)$.
+	\end{enumerate}
+\end{quote}
+We say $\{a_n\}$ is \emph{monotone} iff. it is either non-increasing or non-decreasing.
+
+\emph{Remark}: increasing $\implies$ non-decreasing, decreasing $\implies$ non-increasing.
+
+\textbf{Theorem}: Suppose that $\{a_n\}_{n=l}^\infty \subseteq \mathbb{R}$ is monotone. Then $\{a_n\}$ is bounded iff $\{a_n\}$ is convergent.
+
+\emph{Proof}: $\Longleftarrow$ is done in a previous lemma.
+\begin{quote}
+$\implies$: We'll prove when the sequence is non-decreasing (other case handled by similar argument).
+
+Set $E = \{a_n \;|\; n \geq l\} \subseteq \mathbb{R}$. Clearly $E \neq \varnothing$. Also, since $\{a_n\}$ is bounded, $E$ is as well (in particular above). By least upper bound property of $\mathbb{R}$, $\exists a = \text{sup}(E) \in \mathbb{R}$. We claim that $a = \lim_{n \to \infty} a_n$.
+
+Let $\epsilon > 0$. Since $a = \text{sup}(E)$ we know that $a- \epsilon$ is not an upper bound of $E$; hence $\exists (N \geq l).\; a - \epsilon < a_N$. Also, since the sequence is non-decreasing, $a_n \leq a_{n+1} (\forall n \geq l)$, and so $n \geq N \implies a_N \leq a_n$. Then $n \geq N \implies a - \epsilon < a_N \leq a_n \leq a$ because $a$ is an upper bound of $E$.
+
+So $n \geq N \implies -\epsilon < a_n - a \leq 0 \implies |a_n - a| < \epsilon$. Since $\epsilon > 0$ was arbitrary, we deduce that $a_n \to a$ as $n \to \infty$.
+\end{quote}
+
+\textbf{Lemma}: Suppose that $\{a_n\}$ is bounded. Set $S_m = \text{sup} \{a_n \;|\; n \geq m\}$ and $I_m = \text{inf} \{a_n \;|\; n \geq m\}$. Then $S_m, I_m \in \mathbb{R}$ are well-defined $\forall m \geq l$; $\{S_m\}$ is non-increasing; and $\{I_m\}$ is non-decreasing. Both sequences are bounded.
+
+\textbf{Definition}: Suppose $\{a_n\} \subseteq \mathbb{R}$ is bounded. We set $\lim_{n \to \infty} \sup a_n = \lim_{m \to \infty} S_m \in \mathbb{R}$ and $\lim_{n \to \infty} \inf a_n = \lim_{m \to \infty} I_m \in \mathbb{R}$. Both limits exist by the lemma and previous theorem. We know that $\lim_{n \to \infty} \inf a_n \leq \lim_{n \to \infty} \sup a_n$ from HW.
+
+\subsection{Subsequences}
+
+\textbf{Definition}: Let $\phi: \{n \in \mathbb{Z} \;|\; n \geq l\} \to \{n \in \mathbb{Z}\;|\; n \geq l\}$ be order preserving (increasing), i.e. $m < n$ then $\phi(m) < \phi(n)$. Let $\{a_n\}_{l=k}^\infty \subseteq \mathbb{R}$ be a sequence. We say $\{a_{\phi(k)}\}_{k=l}^\infty$ is a \emph{subsequence} of $\{a_n\}$.
+
+\emph{Remarks}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $\phi(k) = k$ is order preserving, so every sequence is a subsequence of itself.
+	\item Not every $a_n$ has to be in the subsequence $\{a_{\phi(k)}\}$.
+
+	For example, if $l = 0$ then $\phi(k) = 2k$ is order preserving. In this case $a_n, n$ odd does not appear in the subsequence $\{a_{\phi(k)}\}$.
+
+	\item We will often write $n_k = \phi(k)$ to simplify notation, so $\{a_{n_k}\}$ denotes a subsequence.
+	\item From HW1, we know $k \leq \phi(k) \; (\forall k \geq l)$.
+	\end{enumerate}
+\end{quote}
+
+\emph{Proposition}: Suppose $\{a_n\}$ satisfies $a_n \to a \in \mathbb{R}$ as $n \to \infty$. Then any subsequence of $\{a_n\}$ also converges to $a$.
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+Let $\{a_{\phi(k)}\}$ be a subsequence of $\{a_n\}$. Let $\epsilon > 0$. Since $a_n \to a$ as $n \to \infty$, we know $\exists N \geq l.\; n \geq N \implies |a_n - a| < \epsilon$. We claim $\exists K \geq l.\; k \geq K \implies \phi(k) \geq N$.
+
+If not, then $\phi(k) < N (\forall k \geq l)$; but $k \leq \phi(k) < N (\forall k \geq l)$ is a contradiction. Then the claim is true, and $k \geq K \implies \phi(k) \geq N \implies |a_{\phi(k)} - a| < \epsilon$. Since $\epsilon > 0$ was arbitrary, we deduce $\{a_{\phi(k)}\} \to a$ as $k \to \infty$.
+\end{quote}
+
+\emph{Remark}: Converse fails. Example: $a_n = (-1)^n$; $a_{2n} = +1 \to +1$, but $a_{2n+1} = -1 \to -1$.
+
+\subsubsection{Limsup Theorem}
+
+\textbf{Theorem}: Let $\{a_n\} \subseteq \mathbb{R}$ be bounded. The following hold:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item Every subsequence of $\{a_n\}$ is bounded.
+	\item If $\{a_{n_k}\}$ is a subsequence, then $\lim_{k \to \infty} \sup a_{n_k} \leq \limsup_{n \to \infty} a_n$.
+	\item If $\{a_{n_k}\}$ is a subsequence, then $\lim_{n \to \infty} \inf a_n \leq \liminf_{n \to \infty} a_{n_k}$.
+	\item There exists a subsequence $\{a_{n_k}\}$ such that $\lim_{k \to \infty} a_{n_k} = \limsup_{n \to \infty} a_n$.
+	\item There exists a subsequence $\{a_{n_k}\}$ such that $\lim_{k \to \infty} a_{n_k} = \liminf_{n \to \infty} a_n$ ($\neq$ (4)).
+	\end{enumerate}
+\end{quote}
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item Trivial.
+	\item Since $k \leq \phi(k)$, $\{a_{\phi(n)} \;|\; n \geq k\} \subseteq \{a_n \;|\; n \geq k\}$ for every order-preserving $\phi$. Hence $S_k = \sup \{a_{\phi(n)}\} \;|\; n \geq k\} \subseteq \sup \{a_n \;|\; n \geq k\} = T_k$. But:\\
+	$\limsup_{n \to \infty} a_{\phi(n)} = \lim_{k \to \infty} \sup \{a_{\phi(n)} \;|\; n \geq k\} \leq \limsup_{k \to \infty} \{a_n \;|\; n \geq k\} = \limsup_{n \to \infty} a_n$.
+	\item Similar to (2); exercise to reader.
+	\item Too lazy to \LaTeX; exercise to reader.
+	\item Exercise to reader.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Theorem}: Suppose $\{a_n\} \subseteq \mathbb{R}$; the following are equivalent:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $a_n \to a$ as $n \to \infty$
+	\item $\{a_n\}$ is bounded, and every convergent subsequence converges to $a$.
+	\item $\{a_n\}$ is bounded, and $\limsup_{n \to \infty} a_n = \liminf_{n \to \infty} a_n$.
+	\end{enumerate}
+\end{quote}
+\emph{Proof}: $(1) \implies (2)$ proven already.
+\begin{quote}\vspace{-0.3cm}
+$(2) \implies (3)$\\
+Limsup theorem (4,5) $\implies \exists \{a_{\phi(k)}\}, \{a_{\gamma(k)}\}$ subsequences such that $a_{\phi(k)} \to \limsup_{n \to \infty} a_n, a_{\gamma(k)} \to \liminf_{n \to \infty} a_n$ as $k \to \infty$. By (2) the limits must agree.
+
+$(3) \implies (1)$\\
+
+\end{quote}
+
+\textbf{Theorem} (Bolzano-Weierstrass): If $\{a_n\} \subseteq \mathbb{R}$ is bounded then there exists a convergent subsequence. Proof from (4) or (5) of Limsup Theorem.
+\end{document}
