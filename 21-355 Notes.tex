@@ -604,6 +604,30 @@ By least upper bound property, $\exists y \in \mathbb{R}.\; y = \text{sup } E$. 
 
 \textbf{Definition}: Let $n \geq 1$; for $x \in \mathbb{R}, x > 0,$ we write $x^{\frac{1}{n}} = y$ where $y^n = x$. We set $0^{\frac{1}{n}} = 0$.
 
+
+\subsubsection{Absolute Value}
+
+For $x \in \mathbb{R}$, we define the function $|\cdot| : \mathbb{R} \to \{r \in \mathbb{R} \;|\; r \geq 0\}$:
+\[
+ |x| =
+  \begin{cases}
+   x & \text{if } x > 0\\
+   0 & \text{if } x = 0\\
+  -x & \text{if } x < 0
+  \end{cases}
+\]
+
+\textbf{Proposition} (Properties of $|\cdot|$):
+\begin{quote}
+	\begin{enumerate}
+	\item $\forall x \in \mathbb{R}.\; |x| \geq 0$ and $|x| = 0 \iff x = 0$
+	\item $\forall x,y \in \mathbb{R}.\; |x| < y \iff -y < x < y$
+	\item $\forall x,y \in \mathbb{R}.\; |xy| = |x||y|$
+	\item $\forall x,y \in \mathbb{R}.\; |x+y| \leq |x| + |y|$ (Triangle Inequality)
+	\item $\forall x,y \in \mathbb{R}.\; ||x|-|y|| \leq |x-y|$
+	\end{enumerate}
+\end{quote}
+
 \section{Sequences}
 
 \subsection{Convergence and Bounds}
