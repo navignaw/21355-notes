@@ -27,6 +27,19 @@
 
 \begin{document}
 
+\begin{titlepage}
+	\vspace*{\fill}
+	\begin{center}
+		{\Huge 21-355: Real Analysis 1}\\[0.5cm]
+		{\Large Carnegie Mellon University}\\[0.3cm]
+		{\Large Professor Ian Tice - Fall 2013}\\[2cm]
+		 Project \LaTeX'd by Ivan Wang
+	\end{center}
+	\vspace*{\fill}
+\end{titlepage}
+
+\newpage
+
 \tableofcontents
 \newpage
 
@@ -755,7 +768,7 @@ If not, then $\phi(k) < N (\forall k \geq l)$; but $k \leq \phi(k) < N (\forall 
 	\item Since $k \leq \phi(k)$, $\{a_{\phi(n)} \;|\; n \geq k\} \subseteq \{a_n \;|\; n \geq k\}$ for every order-preserving $\phi$. Hence $S_k = \sup \{a_{\phi(n)}\} \;|\; n \geq k\} \subseteq \sup \{a_n \;|\; n \geq k\} = T_k$. But:\\
 	$\limsup_{n \to \infty} a_{\phi(n)} = \lim_{k \to \infty} \sup \{a_{\phi(n)} \;|\; n \geq k\} \leq \limsup_{k \to \infty} \{a_n \;|\; n \geq k\} = \limsup_{n \to \infty} a_n$.
 	\item Similar to (2); exercise to reader.
-	\item Too lazy to \LaTeX; exercise to reader.
+	\item Too lazy to \LaTeX; exercise to reader. %% Insert proof %%
 	\item Exercise to reader.
 	\end{enumerate}
 \end{quote}
@@ -774,6 +787,7 @@ $(2) \implies (3)$\\
 Limsup theorem (4,5) $\implies \exists \{a_{\phi(k)}\}, \{a_{\gamma(k)}\}$ subsequences such that $a_{\phi(k)} \to \limsup_{n \to \infty} a_n, a_{\gamma(k)} \to \liminf_{n \to \infty} a_n$ as $k \to \infty$. By (2) the limits must agree.
 
 $(3) \implies (1)$\\
+%% Insert proof %%
 
 \end{quote}
 
