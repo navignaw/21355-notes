@@ -630,22 +630,23 @@ For $x \in \mathbb{R}$, we define the function $|\cdot| : \mathbb{R} \to \{r \in
 
 \section{Sequences}
 
+Let $E$ be a set. Then we may define a sequence $\{a_n\}_{n=l}^\infty \subseteq E$ as the set of values $a_n \equiv a(n)$ for some $l \in \mathbb{Z}$ and some function $a : \{n \in \mathbb{Z} \;|\; n \geq l\} \to E$.
+
 \subsection{Convergence and Bounds}
 
-\textbf{Definition}: We say a sequence $\{a_n\}_{n=l}^{\infty} \subseteq \mathbb{R}$ converges if $\exists a \in \mathbb{R}.\; a_n \to a$ as $n \to \infty$;\\
-i.e. $\forall \epsilon \in \mathbb{R}.\; \exists N.\; n \geq N \implies |a_n - a| < \epsilon$.
+\textbf{Definition}: We say a sequence $\{a_n\}_{n=l}^{\infty} \subseteq \mathbb{R}$ converges to $a \in \mathbb{R}$, i.e. $a_n \to a$ as $n \to \infty$ or $\lim_{n \to \infty} a_n = a$, if for every $0 < \epsilon \in \mathbb{R}$, there exists $N \in \{m \in \mathbb{Z} \;|\; m \geq l\}$ such that $n \geq N \implies |a_n - a| < \epsilon$.
 
 \textbf{Definition}: We say a sequence $\{a_n\}_{n=l}^{\infty} \subseteq \mathbb{R}$ is bounded iff. $\exists M \in \mathbb{R}, M > 0.\; |a_n| < M \;(\forall n \geq l)$.
 
 \textbf{Lemma}: If a sequence converges, then it is bounded.
 
-\textbf{Definition}: Given $\{a_n\}, \{b_n\} \subseteq \mathbb{R}$ we define $\{a_n + b_n\} \subseteq \mathbb{R}$ to be the sequence whose elements are $a_n + b_n$. We simiplary define $\{ca_n\}$ for a fixed $c \in \mathbb{R}$, $\{a_nb_n\}$, and $\{a_n/b_n\}$ where $b_n \neq 0, n \geq l$.
+\textbf{Definition}: Given $\{a_n\}, \{b_n\} \subseteq \mathbb{R}$ we define $\{a_n + b_n\} \subseteq \mathbb{R}$ to be the sequence whose elements are $a_n + b_n$. We similary define $\{ca_n\}$ for a fixed $c \in \mathbb{R}$, $\{a_nb_n\}$, and $\{a_n/b_n\}$ where $b_n \neq 0, n \geq l$.
 
 \textbf{Theorem} (algebra of convergence): Let $\{a_n\}, \{b_n\} \subseteq \mathbb{R}, c \in \mathbb{R}$, and assume that $a_n \to a, b_n \to b$ as $n \to \infty$. Then the following hold:
 \begin{quote}\vspace{-0.3cm}
 	\begin{enumerate}
 	\item $a_n + b_n \to a + b$ as $n \to \infty$
-	\item $c_an \to ca$ as $n \to \infty$
+	\item $ca_n \to ca$ as $n \to \infty$
 	\item $a_nb_n \to ab$ as $n \to \infty$
 	\item If $b_n \neq 0$ and $b \neq 0$, then $a_n/b_n \to a/b$ as $n \to \infty$.
 	\end{enumerate}
