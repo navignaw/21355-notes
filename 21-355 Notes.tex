@@ -817,4 +817,104 @@ $(3) \implies (1)$\\
 \end{quote}
 
 \textbf{Theorem} (Bolzano-Weierstrass): If $\{a_n\} \subseteq \mathbb{R}$ is bounded then there exists a convergent subsequence. Proof from (4) or (5) of Limsup Theorem.
+
+\subsection{Special Sequences}
+
+\textbf{Definition}: Given $a_n \in \mathbb{R}$ for $0 \leq k \leq n, n \in \mathbb{N}$ we define $\sum_{k=0}^n a_n = a_0 + a_1 + \cdots + a_n$.
+
+\textbf{Lemma} (Binomial Theorem): Let $x,y \in \mathbb{R}$ and $n \in \mathbb{N}$. Then $(x+y)^n = \sum_{k=0}^n x^k y^{n-k}$, where ${n \choose k} := \frac{n!}{k!(n-k)!} \in \mathbb{N}$.
+
+\textbf{Theorem}: In the following assuming that $n \geq 1$:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item Let $x \in \mathbb{R}, x > 0$. Then $a_n = \frac{1}{n^x} \to 0$ as $n \to \infty$.
+	\item Let $x \in \mathbb{R}, x > 0$. Then $a_n = x^{1/n} \to 1$ as $n \to \infty$.
+	\item Let $a_n = n^{1/n}$; then $a_n \to 1$ as $n \to \infty$.
+	\item Let $a,x \in \mathbb{R}, x > 0$. Then $\frac{n^a}{(1+x)^a} \to 0$ as $n \to \infty$.
+	\item Let $x \in \mathbb{R}, |x| < 1$. Then $a_n = x^n \to 0$ as $n \to \infty$.
+	\end{enumerate}
+\end{quote}
+
+\section{Series}
+
+\textbf{Definition}: Let $\{a_n\}_{n=l}^\infty \subseteq \mathbb{R}$; for $p < q$ we write $\sum_{n=p}^q a_n = (a_p + \cdots + a_q)$.
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item We define, for each $n \geq l$, $S_n = \sum_{k=l}^n a_k \in \mathbb{R}$ to be the $n^\text{th}$ partial sum of $\{a_n\}_{n=l}^\infty$.
+	\item If $\exists s \in \mathbb{R}.\; S_n \to s$ as $n \to \infty$, then $\sum_{n=l}^\infty a_n = s$. We say the "infinite series" $\sum_{n=l}^\infty a_n$ converges.
+	\item If the series does not converge, it diverges.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Examples}
+\begin{enumerate}\vspace{-0.3cm}
+	\item Let $a_n = x^n$ for $n \geq 0, x \in \mathbb{R}$. Then $S_n = \sum_{k=0}^n x^k$. Notice that $(1-x)S_n = \sum_{k=0}^n x^k - \sum_{k=0}^n x^{k+1} = \sum_{k=0}^n x^k - \sum_{k=1}^{n+1} x^k = 1-x^{n+1}$.
+
+So $S_n = \sum_{k=0}^n x^k = (\frac{1-x^{n+1}}{1-x})$. If $|x| < 1$ then $S_n \to \frac{1}{1-x}$ by special seq (5).
+
+	\item Suppose $\{b_n\}_{n=0}^\infty \subseteq \mathbb{R}$ where $b_n \to b$ as $n \to \infty$. Set $a_n = b_{n+1}-b_n$ for $n \geq 0$. Then the series $\sum_{n=0}^\infty a_n$ converges and in fact $\sum_{n=0}^\infty = b - b_0$.
+\end{enumerate}
+
+\subsection{Convergence Results}
+
+We develop tool sthat will let us deduce the convergence of a series without knowing its value.
+
+\textbf{Theorem}: Suppose $\sum_{n=l}^\infty a_n$ converges. Then $a_n \to 0$ as $n \to \infty$.
+
+\emph{Proof}: Notice that $a_n = S_n - S_{n-1}$ and so $\lim_{n \to \infty} a_n = \lim_{n \to \infty} (S_n - S_{n-1}) = S - S = 0$.
+
+\textbf{Corollary}: $\sum_{n=0}^\infty (-1)^n$ and $\sum_{n=0}^\infty n$ diverge, as neither sequences converge to 0.
+
+\textbf{Corollary}: The series $\sum_{n=0}^\infty x^n$ converges $\iff |x| < 1$.
+
+\emph{Proof}: $|x| \geq 1 \implies |x^n| = |x|^n \geq 1 (\forall n \in \mathbb{N})$. The converse was proved last time.\\
+
+Next, we provide a characterization of convergence in terms of the size of the ``tails" of the series.
+
+\textbf{Theorem}: $\sum_{n=l}^\infty a_n$ converges $\iff \forall \epsilon > 0.\; \exists N \geq l.\; m \geq k \geq N \implies |\sum_{n=k}^m a_n| < \epsilon$.
+
+\emph{Proof}: $\sum_{n=l}^\infty a_n$ converges $\iff S_k = \sum_{n=l}^k a_n$ converges $\iff \{S_k\}$ is Cauchy.
+
+This is useful in practice because we can guarantee a series converges without knowing its value.\\
+
+\textbf{Theorem}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item If $\forall n \geq k.\; |a_n| \leq b_n$ for some $k \geq l$, and $\sum\limits_{n=l}^\infty b_n$ converges, then $\sum\limits_{n=l}^\infty a_n$ converges.
+	\item If $\forall n \geq k.\; 0 \leq a_n \leq b_n$ for some $k \geq l$, and $\sum\limits_{n=l}^\infty a_n$ diverges, then $\sum\limits_{n=l}^\infty b_n$ diverges.
+	\end{enumerate}
+\end{quote}
+
+\emph{Proof}: (1) Let $\epsilon > 0$ and prove with previous theorem and induction on triangle inequality. (2) follows from contrapositive.
+
+\textbf{Examples}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $\sum_{n=0}^\infty \frac{(-1)^n}{2^n}$ converges because $|\frac{(-1)^n}{2^n}| = \frac{1}{2^n}$ and $\sum_{n=0}^\infty \frac{1}{2^n}$ converges ($\frac{1}{2} < 1$).
+
+	\item Suppose $\sum_{n=0}^\infty a_n$ converges and $a_n \geq 0 \;\forall n \geq 0$. Let $\{b_n\} \subseteq \mathbb{R}$ be bounded, i.e. $|b_n| \leq M \forall n$. Then $|a_nb_n| = |a_n||b_n| \leq Ma_n$. Then $MS_n = M\sum_{k=0}^n a_n = \sum_{k=0}^n M a_n$, so by the theorem, $\sum_{n=0}^\infty a_nb_n$ converges.
+
+	\item $\sum_{n=0}^\infty \frac{(-1)^n}{2^n} \cdot \frac{n!}{n^n} \cdot \frac{3n^2}{4n^2+2}$ converges because the product is bounded.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Theorem}: Suppose $\forall n \geq l.\; a_n \geq 0$. Then $\sum_{n=l}^\infty a_n$ converges $\iff \{S_n\}_{n=l}^\infty$ is bounded.
+
+\emph{Proof}: Since $a_n \geq 0$, the sequence $S_n = \sum_{k=l}^n a_k$ is non-decreasing: $S_{n+1} = a_{n+1} + S_n \geq S_n$. Since $S_n$ is monotone and converges, it is bounded.
+
+\subsubsection{Cauchy Criterion Theorem}
+
+\textbf{Theorem}: Suppose that $\{a_n\}_{n=1}^\infty \subseteq \mathbb{R}$ satisfies $\forall n \geq l.\; a_n \geq 0$ and $\forall n \geq 1.\; a_{n+1} \leq a_n$. Then $\sum\limits_{n=1}^\infty a_n$ converges $\iff \sum\limits_{n=0}^\infty 2^n a_{2^n}$ converges.
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+Let $S_n = \sum_{k=1}^n a_k$ and $T_n = \sum_{n=0}^m 2^n a_{2^n}$. Notice that if $m \leq 2^k$ then $S_m = a_1 + a_2 + \cdots + a_{2^k} \leq a_1 + (a_2 + a_3) + \cdots + (a_{2^k} + \cdots + a_{2^{k+1}-1}) \leq a_1 + 2a_2 + \cdots + 2^k a_{2^k} = T_k$.
+
+On the other hand, if $m \geq 2^k$, $S_m \geq a_1 + \cdots + a_{2^k} = a_1 + a_2 + (a_3 + a_4) + \cdots + (a_{2^{k-1}-1} + \cdots + a_{2^k}) \geq \frac{1}{2}a_1 + a_2 + \cdots + 2^{k-1}a_{2^k} = \frac{1}{2}T_k$.\\
+
+Now, if $\sum_{n=0}^\infty 2^n a_{2^n}$ converges, then $T_n \to T$ as $n \to \infty$ and so $S_m \leq \lim_{n \to \infty} T_m = T$, which means $\{S_m\}$ is bounded and $\sum_{n=1}^\infty a_n$ converges.
+
+Similarly, if $\sum_{n=1}^\infty a_n$ converges, then $T_k \leq 2 \lim_{n \to \infty} S_n \implies \{T_k\}$ is bounded $\implies \sum_{n=0}^\infty 2^n a_{2^n}$ converges.
+\end{quote}
+
 \end{document}
