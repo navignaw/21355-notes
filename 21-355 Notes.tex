@@ -43,7 +43,7 @@
 \tableofcontents
 \newpage
 
-\section{Section 1 - The Number Systems}
+\section{The Number Systems}
 
 \subsection{The Natural Numbers}
 
@@ -374,11 +374,11 @@ Informally, $\mathbb{Q}$ has ``holes":
 \textbf{Definition}: Let $E$ be an ordered set and $A \subseteq E$.
 \begin{quote}\vspace{-0.3cm}
 	\begin{enumerate}
-	\item We say $x \in E$ is the least upper bound (\emph{supremum}) of $A$, written $x = \text{sup}\; A$, iff $x$ is an upper bound of $A$ and $y \in E$ is an upper bound of $A \implies x \leq y$.
-	\item We say $x \in E$ is the greatest lower bound (\emph{infimum}) of $A$, written $x = \text{inf}\; A$, iff $x$ is a lower bound of $A$ and $y \in E$ is a lower bound of $A \implies y \leq x$.
+	\item We say $x \in E$ is the least upper bound (\emph{supremum}) of $A$, written $x = \sup A$, iff $x$ is an upper bound of $A$ and $y \in E$ is an upper bound of $A \implies x \leq y$.
+	\item We say $x \in E$ is the greatest lower bound (\emph{infimum}) of $A$, written $x = \inf A$, iff $x$ is a lower bound of $A$ and $y \in E$ is a lower bound of $A \implies y \leq x$.
 	\end{enumerate}
 \end{quote}
-\emph{Remark}: If $x = \text{min}(A)$, then $x = \text{inf}(A)$. If $x = \text{max}(A)$, then $x = \text{sup}(A)$. But the converse is false; some sets have a supremum but no maximum, others a infimum but no minimum.
+\emph{Remark}: If $x = \text{min}(A)$, then $x = \inf (A)$. If $x = \text{max}(A)$, then $x = \sup (A)$. But the converse is false; some sets have a supremum but no maximum, others a infimum but no minimum.
 
 \textbf{Definition}: Let $\mathbb{F}$ be an ordered field. We say that $\mathbb{F}$ has the \emph{least upper bound property} iff every $\varnothing \neq A \subseteq \mathbb{F}$ that is bounded above has a least upper bound.
 
@@ -388,7 +388,7 @@ Informally, $\mathbb{Q}$ has ``holes":
 \begin{quote}\vspace{-0.3cm}
 Note that $0 < 1 = 1^2 \leq 2 \implies 1 \in A$, so $A$ is non-empty. Also, $2 \leq 4 = 2^2$ implies $(x \in A \implies 0 < x^2 < 2 < 2^2) \implies x < 2$. Then 2 is an upper bound of $A$.
 
-Assume for sake of contradiction that $\mathbb{Q}$ has the least upper bound property. Then $A$ has a supremum. Let $x = \text{sup }A \in \mathbb{Q}$ and write $x = \frac{p}{q}$ for $p,q \in \mathbb{Z}$.
+Assume for sake of contradiction that $\mathbb{Q}$ has the least upper bound property. Then $A$ has a supremum. Let $x = \sup A \in \mathbb{Q}$ and write $x = \frac{p}{q}$ for $p,q \in \mathbb{Z}$.
 
 By trichotomy, $x^2 < 2$ or $x^2 = 2$ or $x^2 > 2$. We know $x^2 \neq 2$.
 
@@ -396,7 +396,7 @@ By trichotomy, $x^2 < 2$ or $x^2 = 2$ or $x^2 > 2$. We know $x^2 \neq 2$.
 
 Cleary $x > 0$ since otherwise $x \leq 0 < 1 \in A$. Hence $0 < x = \frac{p}{q} < \frac{p}{q} + \frac{1}{n} \in A$. But then $x$ is not an upper bound $\implies$ contradiction.
 
-\textbf{Case 2}: Suppose $x^2 > 2$. Considering $(\frac{p}{q} - \frac{1}{n})^2 > 2$ and using the same logic as before, we can choose $n$ large enough such that $\frac{p}{q} - \frac{1}{n}$ is an upper bound of $A$. But $\frac{p}{q} - \frac{1}{n} < \frac{p}{q} = x$, which contradicts the fact that $x = \text{ sup }A$.
+\textbf{Case 2}: Suppose $x^2 > 2$. Considering $(\frac{p}{q} - \frac{1}{n})^2 > 2$ and using the same logic as before, we can choose $n$ large enough such that $\frac{p}{q} - \frac{1}{n}$ is an upper bound of $A$. But $\frac{p}{q} - \frac{1}{n} < \frac{p}{q} = x$, which contradicts the fact that $x = \sup A$.
 
 As all cases are false, we contradict trichotomy, and hence $\mathbb{Q}$ cannot have the least upper bound property.
 \end{quote}
@@ -461,7 +461,7 @@ We now construct an ordered field satisfying the least upper bound property usin
 
 \textbf{Theorem}: $\mathbb{R}$ satisfies the least upper bound property.
 
-\emph{Proof}: Let $\varnothing \neq E \subseteq \mathbb{R}$ be bounded above and set $\mathcal{B} = \bigcup_{\mathcal{A} \in E} \mathcal{A} \in \mathbb{R}$. We claim $\mathcal{B} = \text{sup }E$.
+\emph{Proof}: Let $\varnothing \neq E \subseteq \mathbb{R}$ be bounded above and set $\mathcal{B} = \bigcup_{\mathcal{A} \in E} \mathcal{A} \in \mathbb{R}$. We claim $\mathcal{B} = \sup E$.
 \begin{quote}\vspace{-0.3cm}
 First, we show that $\mathcal{B}$ is an upper bound of $E$. Let $\mathcal{A} \in E$. Then $\mathcal{A} \subseteq \mathcal{B} \implies \mathcal{A} \leq \mathcal{B}$ (by definition). This is true for all $\mathcal{A} \in E$, so $\mathcal{B}$ is an upper bound.
 
@@ -575,7 +575,7 @@ Notation: think of $\mathbb{R}$ as numbers, not cut notation.
 	\begin{enumerate}
 	\item $\mathbb{R}$ is Archimedean: $\forall x \in \mathbb{R}, x > 0.\; \exists n \in \mathbb{N}.\; x < n$
 	\item $\mathbb{N} \subset \mathbb{R}$ is not bounded above
-	\item inf$\{\frac{1}{n} \;|\; n \in \mathbb{N}, n \geq 1\} = 0$
+	\item $\inf\{\frac{1}{n} \;|\; n \in \mathbb{N}, n \geq 1\} = 0$
 	\item $\forall x \in \mathbb{R}$ the set $B(x) = \{m \in \mathbb{Z} \;|\; x < m\}$ has a minimum in $\mathbb{Z}$.
 	\item $\forall x,y \in \mathbb{R}, x < y.\; \exists q \in \mathbb{Q}.\; x < q < y$
 	\end{enumerate}
@@ -599,7 +599,7 @@ Set $E = \{z \in \mathbb{R} \;|\; z > 0 \land z^n < x\}$. We want to show $E \ne
 
 Set $s = 1+x$. Then $1 < s \land x < s \implies x < s < s^n$; so if $z \in E$ then $z^n < x < s^n \implies z < s$. Then $s$ is an upper bound of $E$.
 
-By least upper bound property, $\exists y \in \mathbb{R}.\; y = \text{sup } E$. Since $t \in E$, $0 < t < y$, so $y > 0$. We claim that $y^n < x$ and $y^n > x$ are both impossible (proof is exercise), so $y^n = x$.
+By least upper bound property, $\exists y \in \mathbb{R}.\; y = \sup E$. Since $t \in E$, $0 < t < y$, so $y > 0$. We claim that $y^n < x$ and $y^n > x$ are both impossible (proof is exercise), so $y^n = x$.
 \end{quote}
 
 \textbf{Definition}: Let $n \geq 1$; for $x \in \mathbb{R}, x > 0,$ we write $x^{\frac{1}{n}} = y$ where $y^n = x$. We set $0^{\frac{1}{n}} = 0$.
@@ -691,7 +691,7 @@ Suppose $\{a_n\}$ is Cauchy. Then $|a_n| < M (\forall n \geq l)$ by the last lem
 Set $E = \{x \in \mathbb{R} \;|\; \exists N.\; n \geq N \implies x < a_n\}$. Note that $-M < a_n (\forall n \geq l)$, and so $-M \in E$ and $E \neq \varnothing$.
 
 Also, $x \in E \implies \exists N_x.\; n \geq N_x \implies x < a_n < M$, and so $M$ is an upper bound of $E$.\\
-By the least upper bound property of $\mathbb{R}$, $\exists a = \text{sup } E \in \mathbb{R}$. We claim that $a_n \to a$ as $n \to \infty$.
+By the least upper bound property of $\mathbb{R}$, $\exists a = \sup E \in \mathbb{R}$. We claim that $a_n \to a$ as $n \to \infty$.
 
 Let $\epsilon > 0$. Then since $\{a_n\}$ is Cauchy, $\exists N.\; m,n \geq N \implies |a_n - a_m| < \frac{\epsilon}{2}$. In particular, $|a_n - a_N| < \frac{\epsilon}{2}$ when $n \geq N$. Then $n \geq N \implies a_N - \frac{\epsilon}{2} < a_n \implies a_N - \frac{\epsilon}{2} \in E \implies a_N - \frac{\epsilon}{2} \leq a$.
 
@@ -734,14 +734,14 @@ We say $\{a_n\}$ is \emph{monotone} iff. it is either non-increasing or non-decr
 \begin{quote}
 $\implies$: We'll prove when the sequence is non-decreasing (other case handled by similar argument).
 
-Set $E = \{a_n \;|\; n \geq l\} \subseteq \mathbb{R}$. Clearly $E \neq \varnothing$. Also, since $\{a_n\}$ is bounded, $E$ is as well (in particular above). By least upper bound property of $\mathbb{R}$, $\exists a = \text{sup}(E) \in \mathbb{R}$. We claim that $a = \lim_{n \to \infty} a_n$.
+Set $E = \{a_n \;|\; n \geq l\} \subseteq \mathbb{R}$. Clearly $E \neq \varnothing$. Also, since $\{a_n\}$ is bounded, $E$ is as well (in particular above). By least upper bound property of $\mathbb{R}$, $\exists a = \sup(E) \in \mathbb{R}$. We claim that $a = \lim_{n \to \infty} a_n$.
 
-Let $\epsilon > 0$. Since $a = \text{sup}(E)$ we know that $a- \epsilon$ is not an upper bound of $E$; hence $\exists (N \geq l).\; a - \epsilon < a_N$. Also, since the sequence is non-decreasing, $a_n \leq a_{n+1} (\forall n \geq l)$, and so $n \geq N \implies a_N \leq a_n$. Then $n \geq N \implies a - \epsilon < a_N \leq a_n \leq a$ because $a$ is an upper bound of $E$.
+Let $\epsilon > 0$. Since $a = \sup(E)$ we know that $a- \epsilon$ is not an upper bound of $E$; hence $\exists (N \geq l).\; a - \epsilon < a_N$. Also, since the sequence is non-decreasing, $a_n \leq a_{n+1} (\forall n \geq l)$, and so $n \geq N \implies a_N \leq a_n$. Then $n \geq N \implies a - \epsilon < a_N \leq a_n \leq a$ because $a$ is an upper bound of $E$.
 
 So $n \geq N \implies -\epsilon < a_n - a \leq 0 \implies |a_n - a| < \epsilon$. Since $\epsilon > 0$ was arbitrary, we deduce that $a_n \to a$ as $n \to \infty$.
 \end{quote}
 
-\textbf{Lemma}: Suppose that $\{a_n\}$ is bounded. Set $S_m = \text{sup} \{a_n \;|\; n \geq m\}$ and $I_m = \text{inf} \{a_n \;|\; n \geq m\}$. Then $S_m, I_m \in \mathbb{R}$ are well-defined $\forall m \geq l$; $\{S_m\}$ is non-increasing; and $\{I_m\}$ is non-decreasing. Both sequences are bounded.
+\textbf{Lemma}: Suppose that $\{a_n\}$ is bounded. Set $S_m = \sup \{a_n \;|\; n \geq m\}$ and $I_m = \inf \{a_n \;|\; n \geq m\}$. Then $S_m, I_m \in \mathbb{R}$ are well-defined $\forall m \geq l$; $\{S_m\}$ is non-increasing; and $\{I_m\}$ is non-decreasing. Both sequences are bounded.
 
 \textbf{Definition}: Suppose $\{a_n\} \subseteq \mathbb{R}$ is bounded. We set $\lim_{n \to \infty} \sup a_n = \lim_{m \to \infty} S_m \in \mathbb{R}$ and $\lim_{n \to \infty} \inf a_n = \lim_{m \to \infty} I_m \in \mathbb{R}$. Both limits exist by the lemma and previous theorem. We know that $\lim_{n \to \infty} \inf a_n \leq \lim_{n \to \infty} \sup a_n$ from HW.
 
@@ -916,5 +916,96 @@ Now, if $\sum_{n=0}^\infty 2^n a_{2^n}$ converges, then $T_n \to T$ as $n \to \i
 
 Similarly, if $\sum_{n=1}^\infty a_n$ converges, then $T_k \leq 2 \lim_{n \to \infty} S_n \implies \{T_k\}$ is bounded $\implies \sum_{n=0}^\infty 2^n a_{2^n}$ converges.
 \end{quote}
+
+\textbf{Theorem}: Let $p \in \mathbb{R}$. Then $\sum_{n=1}^\infty \frac{1}{n^p}$ converges $\iff p > 1$.
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+If $p \leq 0$ the result is trivial since $\frac{1}{n^p} \geq 1$ (the sequences converges to 0). Assume that $p > 0$. Then $\frac{1}{(n+1)^p} \leq \frac{1}{n^p}$, so we can apply the Cauchy criterion:
+\begin{displaymath}
+\sum_{n=1}^\infty \frac{1}{n^p} \text{ converges} \iff \sum_{n=0}^\infty \frac{2^n}{(2^n)^p} \text{ converges.}
+\end{displaymath}
+But $\sum_{n=0}^\infty \frac{2^n}{(2^n)^p} = \sum_{n=0}^\infty \frac{1}{(2^{p-1})^n}$, and this series converges $\iff \frac{1}{2^{p-1}} < 1 \iff p > 1$.
+\end{quote}
+
+Notice $\sum_{n=1}^\infty \frac{1}{n}$ is divergent, but $\sum_{n=1}^\infty \frac{1}{n^{1+r}}$ converges $\forall r > 0$. To try to find intermediate series, we need the logarithm.
+
+\subsubsection{Logarithm}
+
+\textbf{Definition}: From Supplemental Reading 3, for every $1 < b \in \mathbb{R}$, we define a function\\
+$\log_b : \{x \in \mathbb{R} \;|\; x > 0 \} \to \mathbb{R}$ such that
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $b^{\log_b x} = x \;(\forall x > 0)$
+	\item $\log_b(1) = 0,\; \log_b b = 1$
+	\item $0 < x < y \iff \log_b x < \log_b y$
+	\item $\log_b (x^z) = z \log_b (x) \;(\forall x > 0, \forall z \in \mathbb{R})$
+	\item $\log_b$ is a bijection
+	\item $\lim\limits_{n \to \infty} \frac{\log_b n}{n^r} = 0 \;(\forall r \in \mathbb{R}, r > 0)$
+	\end{enumerate}
+\end{quote}
+Then from (6), for large $n$ and $p > 0$ we know:\\
+$n \leq n (\log_b n)^p \leq n \cdot n^p = n^{1+p} \implies \frac{1}{n^{1+p}} \leq \frac{1}{n (\log_b n)^p} \leq \frac{1}{n}$.
+
+So $\frac{1}{n(\log_b n)^p}$ is such an ``intermediate series."
+
+\textbf{Theorem}: Let $b > 1$. $\sum\limits_{n=2}^\infty \frac{1}{n (\log_b n)^p}$ converges $\iff p > 1$. ($n \geq 2 \implies \log_b n > 0$)
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+$\sum\limits_{n=2}^\infty \frac{1}{n (\log_b n)^p}$ converges $\iff \sum\limits_{n=1}^\infty \frac{2^n}{2^n (\log_b 2^n)^p}$ converges by Cauchy criterion, but\\
+$\sum\limits_{n=1}^\infty \frac{1}{(\log_b 2)^p n^p} = \frac{1}{(\log_b 2)^p} \sum\limits_{n=1}^\infty \frac{1}{n^p}$ converges $\iff p > 1$.
+\end{quote}
+In particular, $\sum\limits_{n=2}^\infty \frac{1}{n \log_b n}$ is divergent.
+
+\subsection{The number $e$}
+
+\textbf{Lemma}: $\sum_{n=0}^\infty \frac{1}{n!}$ converges.
+
+\emph{Proof}: If $n \geq 2$ then:
+\begin{align*}
+S_n &= \sum_{k=0}^n \frac{1}{k!} = 1 + 1 + \frac{1}{2 \cdot 1} + \cdots + \frac{1}{n(n-1) \cdots 2 \cdot 1}\\
+&\leq 1 + 1 + \frac{1}{2} + \frac{1}{2 \cdot 2} + \cdots + \frac{1}{2^{n-1}}\\
+&\leq 1 + \sum_{k=0}^\infty \frac{1}{2^k} = 1 + 2 = 3
+\end{align*}
+Since $S_n$ is increasing and bounded, we know that $\sum_{n=0}^\infty \frac{1}{n!}$ converges.
+
+\textbf{Definition}: We set $e = \sum\limits_{n=0}^\infty \frac{1}{n!}$. Note that $e > 1$.
+
+\textbf{Theorem}: $e = \lim_{n \to \infty} (1+\frac{1}{n})^n$.
+
+\emph{Proof}: Let $S_n = \sum_{k=0}^n \frac{1}{k!}, T_n = (1 + \frac{1}{n})^n$. Then by the Binomial Theorem:
+\begin{align*}
+T_n &= (1+\frac{1}{n})^n = \sum_{k=0}^n \frac{n!}{k!(n-k)!} \frac{1}{n^k}\\
+&= 1 + 1 + \frac{1}{2!} \frac{n(n-1)}{n^2} + \cdots + \frac{1}{n!} \frac{n(n-1) \cdots 1}{n^n}\\
+&= 1 + 1 + \frac{1}{2!} (1-\frac{1}{n}) + \frac{1}{3!} (1-\frac{1}{n})(1-\frac{2}{n}) + \cdots + \frac{1}{n!} (1-\frac{1}{n}) \cdots (1-\frac{n-1}{n})\\
+&\leq 1 + 1 + \frac{1}{2!} + \cdots + \frac{1}{n!} = S_n
+\end{align*}
+\begin{quote}\vspace{-0.3cm}
+Hence, $\limsup_{n \to \infty} T_n \leq \limsup_{n \to \infty} S_n = \lim_{n \to \infty} S_n = e$.
+
+OTOH, fix $m \in \mathbb{N}$. Then for $n \geq m$:
+\begin{align*}
+&T_n \geq 1 + 1 + \frac{1}{2!}(1-\frac{1}{n}) + \cdots + \frac{1}{m!} (1-\frac{1}{n}) \cdots (1-\frac{m-1}{n})\\
+\implies &\liminf_{n \to \infty} T_n \geq \liminf_{n \to \infty} \text{RHS} \geq 1 + 1 + \frac{1}{2!} \liminf_{n \to \infty} (1-\frac{1}{n}) + \cdots + \frac{1}{m!} \liminf_{n \to \infty} (1-\frac{1}{n} \cdots (1-\frac{m-1}{n})
+&= 1 + 1 + \frac{1}{2!} + \cdots + \frac{1}{m!} = S_m
+\end{align*}
+Then, letting $m \to \infty$, $e = \lim_{m \to \infty} S_m \leq \liminf_{n \to \infty} T_n$.
+
+Thus, $e \leq \liminf_{n \to \infty} T_n \leq \limsup_{n \to \infty} T_n \leq e \implies \lim_{n \to \infty} T_n = e$.
+\end{quote}
+
+\textbf{Theorem}: $\forall n \geq 1.\; 0 < e - S_n < \frac{1}{n \cdot n!}$. Also, $e \in \mathbb{R} \backslash \mathbb{Q}$ is irrational.
+
+\emph{Proof}: Since $S_n$ is increasing, $0 < e - S_n$ is clear. The other side can be seen from algebra.
+\begin{quote}\vspace{-0.3cm}
+Now, suppose $e \in \mathbb{Q}$; then $e = \frac{p}{q}$ for $p, q \in \mathbb{N}, p, q \geq 1$.
+
+Then $0 < q!(e-S_q) < \frac{1}{q} \;(\forall q \geq 1)$. Notice that $q!e = q!\frac{p}{q} = (q-1)!p \in \mathbb{N}$ and\\
+$q!(1 + \frac{1}{2!} + \cdots + \frac{1}{q!}) \in \mathbb{N}$.
+
+Hence $q!(e - S_q) \in \mathbb{Z}$; but this yields an integer between 0 and 1, a contradiction. So $e$ is irrational.
+\end{quote}
+\emph{Remark}: In fact, $e$ is transcendental.
 
 \end{document}
