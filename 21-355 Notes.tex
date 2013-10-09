@@ -348,7 +348,7 @@ We define and propose the trichotomy of order on $\mathbb{Q}$, as per the intege
 
 \emph{Proof}: Suppose not; i.e. there does exist such a $q \in \mathbb{Q}$.
 \begin{quote}\vspace{-0.3cm}
-Consider the set $S(q) = \{n \in \mathbb{N}^+ \;|\; q = \frac{m}{n}$ for some $m \in \mathbb{Z}\}$. Cleary $|S(q)| > 0$. Then the well-ordering principle implies that $\exists !n \in S(q).\; n = \text{min}\; S(q)$.
+Consider the set $S(q) = \{n \in \mathbb{N}^+ \;|\; q = \frac{m}{n}$ for some $m \in \mathbb{Z}\}$. Cleary $|S(q)| > 0$. Then the well-ordering principle implies that $\exists !n \in S(q).\; n = \min S(q)$.
 
 Since $n \in S(q)$, we know that $q = \frac{m}{n}$ for some $m \in \mathbb{Z}$. Then $q^2 = (\frac{m}{n})^2 = \frac{m^2}{n^2} \implies m^2 = 2n^2 \implies m^2$ is even. We claim that $m$ is also even (proof is exercise to reader).
 
@@ -380,7 +380,7 @@ Informally, $\mathbb{Q}$ has ``holes":
 	\item We say $x \in E$ is the greatest lower bound (\emph{infimum}) of $A$, written $x = \inf A$, iff $x$ is a lower bound of $A$ and $y \in E$ is a lower bound of $A \implies y \leq x$.
 	\end{enumerate}
 \end{quote}
-\emph{Remark}: If $x = \text{min}(A)$, then $x = \inf (A)$. If $x = \text{max}(A)$, then $x = \sup (A)$. But the converse is false; some sets have a supremum but no maximum, others a infimum but no minimum.
+\emph{Remark}: If $x = \min(A)$, then $x = \inf (A)$. If $x = \max(A)$, then $x = \sup (A)$. But the converse is false; some sets have a supremum but no maximum, others a infimum but no minimum.
 
 \textbf{Definition}: Let $\mathbb{F}$ be an ordered field. We say that $\mathbb{F}$ has the \emph{least upper bound property} iff every $\varnothing \neq A \subseteq \mathbb{F}$ that is bounded above has a least upper bound.
 
@@ -587,7 +587,7 @@ Notation: think of $\mathbb{R}$ as numbers, not cut notation.
 \begin{quote}\vspace{-0.3cm}
 	\begin{enumerate}
 	\item (5) is interpreted as ``the density of $\mathbb{Q} \subseteq \mathbb{R}$". Any element $x \in \mathbb{R}$ can be approximated to arbitrary accuracy by elements of $\mathbb{Q}$.
-	\item (4) allows us to define the integer part of any $x \in \mathbb{R}$. We can set $\lfloor x \rfloor = \text{min} B(x) - 1 \in \mathbb{Z}$. Then $\lfloor x \rfloor \leq x < \lfloor x \rfloor + 1$.
+	\item (4) allows us to define the integer part of any $x \in \mathbb{R}$. We can set $\lfloor x \rfloor = \min B(x) - 1 \in \mathbb{Z}$. Then $\lfloor x \rfloor \leq x < \lfloor x \rfloor + 1$.
 	\end{enumerate}
 \end{quote}
 
@@ -660,7 +660,7 @@ Let $E$ be a set. Then we may define a sequence $\{a_n\}_{n=l}^\infty \subseteq 
 
 Let $\epsilon > 0$. Since $a_n \to a$ and $b_n \to b$ we may choose $N_1$ such that $n \geq N_1 \implies |a_n - a| < \frac{\epsilon}{2M}$; and $N_2$ where $n \geq N_2 \implies |b_n - b| < \frac{\epsilon}{2(1+|a|)}$.
 
-Then set $N = \text{max}(N_1, N_2)$. So if $n \geq N$ we know that $|a_nb_n - ab| \leq |b_n||a_n-a| + |a||b_n-b| < M|a_n - a| + |a||b_n-b| < M \cdot \frac{\epsilon}{2M} + |a| \cdot \frac{\epsilon}{2(1+|a|)} < \frac{\epsilon}{2} +\frac{\epsilon}{2} = \epsilon$.
+Then set $N = \max(N_1, N_2)$. So if $n \geq N$ we know that $|a_nb_n - ab| \leq |b_n||a_n-a| + |a||b_n-b| < M|a_n - a| + |a||b_n-b| < M \cdot \frac{\epsilon}{2M} + |a| \cdot \frac{\epsilon}{2(1+|a|)} < \frac{\epsilon}{2} +\frac{\epsilon}{2} = \epsilon$.
 
 Since $\epsilon$ was arbitrary, we deduce that $a_nb_n \to ab$.\\
 
@@ -671,7 +671,7 @@ Let $\epsilon > 0$. Since $b_n \to b \neq 0$ we know that $\exists N_1$ such tha
 Similarly, $a_n \to a \implies \exists N_2 .\; (n \geq N_2 \implies |a_n - a| < \frac{\epsilon}{4} |b|$; and\\
 $b_n \to b \implies \exists N_3.\; (n \geq N_3 \implies |b_n - b| < \frac{\epsilon |b|^2}{4(1+|a|)}$.
 
-Set $N = \text{max}(N_1, N_2, N_3)$. Then $n \geq N \implies |\frac{a_n}{b_n} - \frac{a}{b}| \leq \frac{|a_n-a|}{|b_n|} + \frac{|a|}{|b_n||b|} |b_n - b| < \frac{2}{|b| |a_n - a|} + \frac{2|a|}{|b|^2} |b_n - b| < \frac{\epsilon}{2} + \frac{\epsilon}{2} \frac{|a|}{1+|a|} < \epsilon$.
+Set $N = \max(N_1, N_2, N_3)$. Then $n \geq N \implies |\frac{a_n}{b_n} - \frac{a}{b}| \leq \frac{|a_n-a|}{|b_n|} + \frac{|a|}{|b_n||b|} |b_n - b| < \frac{2}{|b| |a_n - a|} + \frac{2|a|}{|b|^2} |b_n - b| < \frac{\epsilon}{2} + \frac{\epsilon}{2} \frac{|a|}{1+|a|} < \epsilon$.
 
 Since $\epsilon > 0$ was arbitrary, we deduce $\frac{a_n}{b_n} \to \frac{a}{b}$ as $n \to \infty$.
 \end{quote}
@@ -682,7 +682,7 @@ Since $\epsilon > 0$ was arbitrary, we deduce $\frac{a_n}{b_n} \to \frac{a}{b}$ 
 
 \textbf{Lemma}: If $\{a_n\}$ is Cauchy, then it's bounded.
 
-\emph{Proof}: Let $\epsilon = 1$. Then $\exists N.\; m,n \geq N \implies |a_m - a_n| < 1$. Then $n \geq N \implies |a_n - a_N| < 1 \implies |a_n| < |a_n - a_N| + |a_N| < 1 + |a_N|$. Set $M = \text{max}(1+ |a_N|, k)$, where $k = \text{max}\{|a_l|, \ldots, |a_{N-1}|\}$. Then $|a_n| < M (\forall n \geq l)$, and $\{a_n\}$ is bounded.
+\emph{Proof}: Let $\epsilon = 1$. Then $\exists N.\; m,n \geq N \implies |a_m - a_n| < 1$. Then $n \geq N \implies |a_n - a_N| < 1 \implies |a_n| < |a_n - a_N| + |a_N| < 1 + |a_N|$. Set $M = \max(1+ |a_N|, k)$, where $k = \max\{|a_l|, \ldots, |a_{N-1}|\}$. Then $|a_n| < M (\forall n \geq l)$, and $\{a_n\}$ is bounded.
 
 \textbf{Theorem}: Let $\{a_n\} \subseteq \mathbb{R}$. Then $\{a_n\}$ converges $\iff \{a_n\}$ is Cauchy.
 
@@ -1117,5 +1117,98 @@ When a series is only conditionally convergent, the situation is vastly worse.
 
 \textbf{Theorem}: Suppose $\sum_{n=0}^\infty a_n$ is conditionally convergent. Let $c \in \mathbb{R}$.\\
 There exists a rearrangement (bijection) $\gamma : \mathbb{N} \to \mathbb{N}$ such that $\sum_{n=0}^\infty a_{\gamma(n)} = c$.
+
+\textbf{Lemma}: Suppose $\sum_{n=0}^\infty a_n$ is conditionally convergent and set:
+\[
+ b_n =
+  \begin{cases}
+   a_n & \text{if } a_n > 0\\
+   0 & \text{if } a_n \leq 0
+  \end{cases}\hspace{2cm}
+ c_n =
+  \begin{cases}
+   -a_n & \text{if } a_n < 0\\
+   0 & \text{if } a_n \geq 0
+  \end{cases}
+\]
+Then $\sum_{n=0}^\infty b_n$ and $\sum_{n=0}^\infty c_n$ both diverge.
+
+\emph{Proof}: Suppose not; one of the series is convergent. If $\sum b_n$ converges, then $c_n = b_n - a_n \implies \sum c_n = \sum b_n - \sum a_n$; but $|a_n| = b_n + c_n$ and so $\sum |a_n| = \sum b_n + \sum c_n$ is convergent, a contradiction. A similar argument holds if $\sum c_n$ converges.
+
+\textbf{Rearrangement Theorem Proof}:
+\begin{quote}\vspace{-0.3cm}
+Let $\{a_n^+\}_{n=0}^\infty$ denote the subsequence of $\{b_n \;|\; b_n > 0$ or $b_n = 0 \land a_n = 0\}$. Let $\{a_n^-\}_{n=0}^\infty$ denote the subsequence of $\{c_n \;|\; c_n > 0\}$ (from last lemma). Note:
+
+\begin{enumerate}
+\item $a_n^+ \to 0, a_n^- \to 0$ since $a_n \to 0 \implies b_n \to 0, c_n \to 0$.
+\item $\sum a_n^+$ and $\sum a_n^-$ both diverge because they differ by 0 from $\sum b_n, \sum c_n$ respectively.
+\end{enumerate}
+Set $m_0 = n_0 = -1$. Since $\sum a_n^+$ diverges we may use the well-ordering principle: $\exists m_1 = \min\{k \in \mathbb{N} \;|\; \sum_{n=0}^k a_n^+ > c\}$. Similarly, $\exists n_1 = \min\{k \in \mathbb{N} \;|\; \sum_{n=0}^{m_1} a_n^+ - \sum_{n=0}^k a_n^- < c\}$.
+
+Next, if $m_p$ and $n_p$ are known, we set:
+\begin{align*}
+m_{p+1} &= \min\left\{k \in \mathbb{N} \;|\; \sum_{l=0}^{p-1} \sum_{j=1+m_l}^{m_l} a_j^+ - \sum_{l=0}^{p-1} \sum_{j=1+n_l}^{n_l} a_j^- + \sum_{j=1+m_p}^k a_j^+ > c\right\}\\
+n_{p+1} &= \min\left\{k \in \mathbb{N} \;|\; \sum_{l=0}^{p-1} \sum_{j=1+m_l}^{m_l} a_j^+ - \sum_{l=0}^{p-1} \sum_{j=1+n_l}^{n_l} a_j^- + \sum_{j=1+m_p}^{m_{p+1}} a_j^+ - \sum_{j=1+n_p}^k a_j^- < c\right\}
+\end{align*}
+
+Consider the series $(a_1^+ + \cdots + a_{m_1}^+) - (a_1^- + \cdots + a_{n+1}^-) + (a_{1+m_1}^+ + \cdots + a_{m+2}^+) - (a_{1+n_1}^- + \cdots + a_{n_2}^-) + \cdots$. This is clearly a rearrangement of $\sum_{n=0}^\infty a_n$.
+
+Write $A_p = \sum_{l=1+m_p}^{m_{p+1}} a_l^+, A_p^- = \sum_{l=1+n_p}^{n_{p+1}} a_l^-$, and let $S_j$ denote the $j^\text{th}$ partial sum of the rearrangement.\\
+By construction, $\limsup_{j \to \infty} S_j = \limsup_{p \to \infty} (\sum_{l=0}^{p+1} A_l^+ - \sum_{l=0}^p A_l^-)$ and\\
+$\liminf_{j \to \infty} S_j = \liminf_{p \to \infty} (\sum_{l=0}^p A_l^+ + \sum_{l=0}^p A_l^-)$.
+
+Also, $c < \sum_{l=0}^{p+1} A_l^+ - \sum_{l=0}^p A_l^- < c + a_{m_{p+1}}^+$ and $c - a_{n_{p+1}}^- < \sum_{l=0}^{p+1} A_l^+ - \sum_{l=0}^{p+1} A_l^- < c$.
+
+Thus, by the squeeze lemma, $\lim_{p \to \infty} (\sum_{l=0}^{p+1} A_l^+ - \sum_{l=0}^p A_l^-) = \lim_{p \to \infty} (\sum_{l=0}^p A_l^+ - \sum_{l=0}^p A_l^-) = c$, and so $\lim_{j \to \infty} S_j = c \implies \sum_{n=0}^\infty a_{\gamma(n)} = c$.
+\end{quote}
+
+\emph{Remark}: One can also rearrange such that $\sum a_{\gamma(n)} = \pm \infty$.
+
+\newpage
+
+\section{Topology of $\mathbb{R}$}
+
+Our goal in Section 4 is to develop some tools for understanding the ``topology" of $\mathbb{R}$, which is a sort of generalized qualitative geometry.
+
+\subsection{Open and Closed Sets}
+
+\textbf{Definition}:
+\begin{quote}\vspace{-0.3cm}
+\begin{enumerate}
+	\item For $a,b \in \mathbb{R}$ with $a \leq b$, we define:
+	\begin{align*}
+		(a,b) = \{x \in \mathbb{R} \;|\; a < x < b\} \hspace{1.5cm} [a, b) = \{x \in \mathbb{R} \;|\; a \leq x < b\}\\
+		(a,b] = \{x \in \mathbb{R} \;|\; a < x \leq b\} \hspace{1.5cm} [a,b] = \{x \in \mathbb{R} \;|\; a \leq x \leq b\}
+	\end{align*}
+
+	\item For $x \in \mathbb{R}$ and $\epsilon > 0$, we set $B(x, \epsilon) = (x-\epsilon, x + \epsilon)$ and $B[x, \epsilon] = [x-\epsilon, x + \epsilon]$.\\
+	We call the set $B(x, \epsilon)$ a \emph{neighborhood} of $x$ or a ``ball of radius $\epsilon$ centered at $x$".
+
+	\item A set $E \subseteq \mathbb{R}$ is \emph{open} if $\forall x \in E.\; \exists \epsilon > 0.\; B(x, \epsilon) \subseteq E$.\\
+	In other words, every point in $E$ has a neighborhood contained in $E$.
+\end{enumerate}
+\end{quote}
+\emph{Examples}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $\varnothing$ is vacuously open.
+
+	\item $\mathbb{R}$ is open because $\forall x \in \mathbb{R}.\; B(x, 1) \subseteq \mathbb{R}$.
+
+	\item If $a < b$ then $(a,b)$ is open.\\
+	\emph{Proof}: Fix $x \in (a,b)$ and let $\epsilon = \min\{x-a, b-x\} > 0$. Then $a \leq x - \epsilon < x < x + \epsilon \leq b$ by construction, and $B(x, \epsilon) \subseteq (a,b)$.
+
+	\item If $a < b$ then $[a,b)$ is not open.\\
+	\emph{Proof}: For $x = a$ we know that $\forall \epsilon > 0.\; a - \epsilon \notin [a, b)$ and hence $B(a, \epsilon) \not \subseteq [a,b)$.
+
+	\item $[a,b]$ is not open, nor is $(a,b]$ by previous argument.
+	\item $E = \{a\}$ is not open.
+	\item $E = \{\frac{1}{n} \;|\; n \in \mathbb{N}, n \geq 1\}$ is not open: $\forall \epsilon > 0.\; B(1, \epsilon) \not \subseteq E$.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Lemma}: If $E_\alpha \subseteq \mathbb{R}$ is open $\forall \alpha \in A$ (some index set), then $\bigcup_{\alpha \in A} E_\alpha$ is open.
+
+\emph{Proof}: Let $x \in \bigcup_{\alpha \in A} E_\alpha$. Then $x \in E_{\alpha_0}$ for some $\alpha_0 \in A$. Since $E_{\alpha_0}$ is open, $\exists \epsilon > 0.\; B(x, \epsilon) \subseteq E_{\alpha_0} \subseteq \bigcup_{\alpha \in A} E_\alpha$.
 
 \end{document}
