@@ -25,6 +25,8 @@
 \rhead{\fancyplain{}{\today}}
 \chead{\fancyplain{}{21-355 Notes}}
 
+\newcommand{\qeq}{\stackrel{?}{=}}
+
 \begin{document}
 
 \begin{titlepage}
@@ -822,7 +824,7 @@ $(3) \implies (1)$\\
 
 \textbf{Definition}: Given $a_n \in \mathbb{R}$ for $0 \leq k \leq n, n \in \mathbb{N}$ we define $\sum_{k=0}^n a_n = a_0 + a_1 + \cdots + a_n$.
 
-\textbf{Lemma} (Binomial Theorem): Let $x,y \in \mathbb{R}$ and $n \in \mathbb{N}$. Then $(x+y)^n = \sum_{k=0}^n x^k y^{n-k}$, where ${n \choose k} := \frac{n!}{k!(n-k)!} \in \mathbb{N}$.
+\textbf{Lemma} (Binomial Theorem): Let $x,y \in \mathbb{R}$ and $n \in \mathbb{N}$. Then $(x+y)^n = \sum\limits_{k=0}^n {n \choose k} x^k y^{n-k}$, where ${n \choose k} := \frac{n!}{k!(n-k)!} \in \mathbb{N}$.
 
 \textbf{Theorem}: In the following assuming that $n \geq 1$:
 \begin{quote}\vspace{-0.3cm}
@@ -840,7 +842,7 @@ $(3) \implies (1)$\\
 \textbf{Definition}: Let $\{a_n\}_{n=l}^\infty \subseteq \mathbb{R}$; for $p < q$ we write $\sum_{n=p}^q a_n = (a_p + \cdots + a_q)$.
 \begin{quote}\vspace{-0.3cm}
 	\begin{enumerate}
-	\item We define, for each $n \geq l$, $S_n = \sum_{k=l}^n a_k \in \mathbb{R}$ to be the $n^\text{th}$ partial sum of $\{a_n\}_{n=l}^\infty$.
+	\item We define, for each $n \geq l$, $S_n = \sum\limits_{k=l}^n a_k \in \mathbb{R}$ to be the $n^\text{th}$ partial sum of $\{a_n\}_{n=l}^\infty$.
 	\item If $\exists s \in \mathbb{R}.\; S_n \to s$ as $n \to \infty$, then $\sum_{n=l}^\infty a_n = s$. We say the "infinite series" $\sum_{n=l}^\infty a_n$ converges.
 	\item If the series does not converge, it diverges.
 	\end{enumerate}
@@ -1007,5 +1009,113 @@ $q!(1 + \frac{1}{2!} + \cdots + \frac{1}{q!}) \in \mathbb{N}$.
 Hence $q!(e - S_q) \in \mathbb{Z}$; but this yields an integer between 0 and 1, a contradiction. So $e$ is irrational.
 \end{quote}
 \emph{Remark}: In fact, $e$ is transcendental.
+
+\subsection{More Convergence Results}
+
+%% Missing proofs, examples! %%
+
+\textbf{Theorem (Root Test)}: Suppose $\{a_n\}_{n=l}^\infty \subseteq \mathbb{R}$ and $\{|a_n|^{1/n}\}$ is bounded. Let $0 \leq \alpha = \limsup_{n \to \infty} |a_n|^{1/n}$. Then the following holds:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item If $\alpha < 1$, then $\sum_{n=l}^\infty a_n$ converges.
+	\item If $\alpha > 1$, then $\sum_{n=l}^\infty a_n$ diverges.
+	\item if $\alpha = 1$, both convergence and divergence are possible.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Theorem (Ratio Test)}: Let $\{a_n\}_{n=l}^\infty \subseteq \mathbb{R}$. Then $\sum_{n=l}^\infty a_n$:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item converges if $\{|\frac{a_{n+1}}{a_n}|\}_{n=l}^\infty$ is bounded and $\limsup_{n \to \infty} \frac{|a_{n+1}|}{|a_n|} < 1$.
+	\item diverges if $\exists k \geq l.\; |a_k| \neq 0$ and $|a_{n+1}| \geq |a_n| (\forall n \geq k)$.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Lemma (Summation of Parts)}: Let $\{a_n\}_{n=0}^\infty \subseteq \mathbb{R}$ and define:
+\[
+A_n =
+  \begin{cases}
+   \sum_{k=0}^n a_k & \text{if } n \geq 0 \\
+   0 & \text{if } n = -1
+  \end{cases}
+\]
+Then if $0 \leq p < q$:
+\begin{displaymath}
+\sum_{n=p}^q a_nb_n = \sum_{n=p}^{q-1} A_n(b_n - b_{n+1}) + A_qb_q - A_{p-1}b_p
+\end{displaymath}
+
+\textbf{Theorem (Dirichlet Test)}: Suppose $\{a_n\}_{n=0}^\infty, \{b_n\}_{n=0}^\infty \subseteq \mathbb{R}$ satisfy:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item The sequence $A_n = \sum_{k=0}^n a_k$ is bounded.
+	\item $0 \leq b_{n+1} \leq b_n (\forall n \in \mathbb{N}$
+	\item $\lim_{n \to \infty} b_n = 0$
+	\end{enumerate}
+\end{quote}
+Then $\sum_{n=0}^\infty a_nb_n$ converges.
+
+\textbf{Corollary (Alternating Series)}: Suppose $0 \leq a_{n+1} \leq a_n, a_n \to 0$ as $n \to \infty$. Then $\sum_{n=l}^\infty (-1)^n a_n$ conveges. Proof follows from Dirichlet Test.
+
+\textbf{Corollary (Abel's Test)}: Suppose $\sum_{n=l}^\infty a_n$ converges, $b_{n+1} \leq b_n (\forall n \geq l)$ and $b_n \to b$ as $n \to \infty$. Then $\sum_{n=l}^\infty a_nb_n$ converges.
+
+\subsection{Algebra of Series}
+
+\textbf{Theorem}: If $A = \sum_{n=l}^\infty a_n, B = \sum_{n=l}^\infty B-N$, then
+\begin{align*}
+(1) A + B = \sum_{n=l}^\infty (a_n + b_n) \hspace{3cm} (2) cA = \sum_{n=l}^\infty ca_n \;(\forall c \in \mathbb{R})
+\end{align*}
+\textbf{Theorem}: Suppose $\{a_n\}_{n=0}^\infty, \{b_n\}_{n=0}^\infty \in \mathbb{R}$ satisfy:
+\begin{align*}
+(1) \sum_{n=0}^\infty |a_n| \text{ converges} \hspace{2cm}
+(2) \sum_{n=0}^\infty b_n = B \hspace{2cm}
+(3)\; c_n = \sum_{k=0}^n a_kb_{n-k}\text{ for }n \geq 0
+\end{align*}
+Then $\sum_{n=0}^\infty c_n = A \cdot B$ converges.
+
+\textbf{Definition}: The series $\sum\limits_{n=0}^\infty c_n$, where $c_n = \sum\limits_{k=0}^n a_k b_{n-k}$, is called the \emph{Cauchy product}\\ of the series $\sum\limits_{n=0}^\infty a_n, \sum\limits_{n=0}^\infty b_n$.
+
+\emph{Remark}: If $\sum a_n, \sum b_n$ converge, $\sum c_n$ does not necessarily converge if neither series has convergent absolute values.
+
+\subsection{Absolute Convergence and Rearrangements}
+
+\textbf{Proposition}: If $\sum_{n=l}^\infty |a_n|$ converges, then $\sum_{n=l}^\infty a_n$ converges. Proof is trivial.
+
+\textbf{Definition}: Suppose $\sum_{n=l}^\infty a_n$ converges. If $\sum_{n=l}^\infty |a_n|$ converges, the series converges \emph{absolutely}. If $\sum |a_n|$ diverges, the series is \emph{conditionally convergent}.
+
+\emph{Example}: $\sum_{n=1}^\infty \frac{(-1)^n}{n}$ is conditionally convergent, while $\sum_{n=1}^\infty \frac{(-1)^n}{n^2}$ is absolutely convergent.\\
+
+Let's try to manipulate the series without being careful.
+\begin{align*}
+\gamma &= \sum_{n=1}^\infty \frac{(-1)^{n+1}}{n} = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \cdots\\
+&= \lim_{k \to \infty} (S_k = \sum_{n=0}^k \frac{(-1)^{n+1}}{n}) = \lim_{k \to \infty} (S_{2k} = \sum_{n=0}^{2k} \frac{(-1)^{n+1}}{n})\\
+\text{but: } S_{2k} &= (1-\frac{1}{2}) + (\frac{1}{3} - \frac{1}{4} + \cdots + (\frac{1}{2k-1} - \frac{1}{2k}) > 0
+\end{align*}
+Hence, $\gamma > 0$. But the next step is questionable:
+\begin{align*}
+2\gamma &= \sum_{n=1}^\infty \frac{(2)(-1)^{n+1}}{n} \qeq \sum_{k=0}^\infty \frac{2}{2k+1} - \sum_{k=1}^\infty \frac{2}{2k}\\
+&\qeq \sum_{k=0}^\infty \frac{2}{2k+1} - \sum_{k=1}^\infty \frac{1}{k} = \sum_{k=0}^\infty \frac{1}{2k+1} - \sum_{k=1}^\infty \frac{1}{2k} = \gamma\\
+&\implies 2\gamma = \gamma \land \gamma > 0 \hspace{0.5cm} \text{a contradiction!}
+\end{align*}
+Problem: rearrangement is a delicate issue.
+
+\textbf{Definition}: Let $\gamma : \{m \in \mathbb{Z} \;|\; m \geq l\} \to \{m \in \mathbb{Z} \;|\; m \geq l\}$ be a bijection. The series $\sum_{n=l}^\infty a_{\gamma(n)}$ is called a rearrangement of $\sum_{n=l}^\infty a_n$.
+
+\textbf{Theorem}: If $\sum_{n=l}^\infty a_n$ is absolutely convergent, then every rearrangement converges to $\sum_{n=l}^\infty a_n$.
+
+\emph{Proof}: Let $\epsilon > 0$.
+\begin{quote}
+Since $\sum_{n=l}^\infty a_n$ converges absolutely, $\exists N \geq l.\; k \geq m \geq N \implies \sum_{n=m}^k |a_n| < \frac{\epsilon}{2}$.
+
+Let $k \to \infty : \sum_{n=m}^\infty |a_n| \leq \frac{\epsilon}{2} < \epsilon$.\\
+Now choose $M \geq N$ such that $\{l, l+1, \ldots, N\} \subseteq \{\gamma(l), \gamma(l+1), \ldots, \gamma(M)\}$. Then $m \geq M \implies |\sum_{n=l}^m a_n - \sum_{n=l}^m a_{\gamma(n)}| \leq \sum_{n=N}^\infty |a_n| < \epsilon$.
+
+Hence $\lim_{m \to \infty} (\sum_{n=l}^m a_n - \sum_{n=l}^\infty a_{\gamma(n)}) = 0$ and from this we deduce\\
+$\lim_{m \to \infty} \sum_{n=l}^m a_{\gamma(n)} = \lim_{m \to \infty} \sum_{n=l}^m a_n = \sum_{n=l}^\infty a_n$.
+\end{quote}
+
+When a series is only conditionally convergent, the situation is vastly worse.
+
+\textbf{Theorem}: Suppose $\sum_{n=0}^\infty a_n$ is conditionally convergent. Let $c \in \mathbb{R}$.\\
+There exists a rearrangement (bijection) $\gamma : \mathbb{N} \to \mathbb{N}$ such that $\sum_{n=0}^\infty a_{\gamma(n)} = c$.
 
 \end{document}
