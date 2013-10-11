@@ -1172,6 +1172,8 @@ Our goal in Section 4 is to develop some tools for understanding the ``topology"
 
 \subsection{Open and Closed Sets}
 
+\subsubsection{Open Sets}
+
 \textbf{Definition}:
 \begin{quote}\vspace{-0.3cm}
 \begin{enumerate}
@@ -1210,5 +1212,80 @@ Our goal in Section 4 is to develop some tools for understanding the ``topology"
 \textbf{Lemma}: If $E_\alpha \subseteq \mathbb{R}$ is open $\forall \alpha \in A$ (some index set), then $\bigcup_{\alpha \in A} E_\alpha$ is open.
 
 \emph{Proof}: Let $x \in \bigcup_{\alpha \in A} E_\alpha$. Then $x \in E_{\alpha_0}$ for some $\alpha_0 \in A$. Since $E_{\alpha_0}$ is open, $\exists \epsilon > 0.\; B(x, \epsilon) \subseteq E_{\alpha_0} \subseteq \bigcup_{\alpha \in A} E_\alpha$.
+
+\textbf{Lemma}: If $E_i \subseteq \mathbb{R}$ is open for $i \in [n], n \in \mathbb{N}$, then $\bigcap_{i=1}^n E_i$ is open.
+
+\emph{Remark}: Infinite intersections of open sets need not be open. Let $E_n = (\frac{-1}{n}, \frac{1}{n}), n \geq 1$.\\
+Then $\bigcap_{n=1}^\infty E_n = \{0\}$ which is closed.
+
+\subsubsection{Closed Sets}
+
+\textbf{Definition}: We say $E \subseteq \mathbb{R}$ is \emph{closed} iff $E^c = \mathbb{R} \backslash E$ is open.
+
+\textbf{Lemma}: $E$ is open $\iff E^c$ is closed (by definition).
+
+\emph{Examples}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $\varnothing$ is closed because $\varnothing^c = \mathbb{R}$ is open.
+	\item $\mathbb{R}$ is closed because $\mathbb{R}^c = \varnothing$ is open.
+	\item $[a,b]$ is closed because $[a,b]^c = (-\infty, a) \cup (b, \infty)$ is the union of open sets, and thus open.
+	\item $[a,b)$ and $(a,b]$ are not closed because $[a,b)^c = (-\infty, a) \cup [b, \infty)$ and $B(b, \epsilon) \not \subseteq [a,b)^c \;(\forall \epsilon > 0)$.
+	\item $\{a\}$ is closed since $\{a\}^c = (-\infty, a) \cup (a, \infty)$, both open sets.
+	\item Suppose $E \subseteq \mathbb{R}$ is finite. Write $E = \{a_i \;|\; i \in [n]\}$ where $a_1 < a_2 < \ldots < a_n$. Then $E^c = (-\infty, a_1) \cup (a_1, a_2) \cup \cdots \cup (a_{n-1}, a_n) \cup (a_n, \infty)$, all of which are open.
+	\item $E = \{\frac{1}{n} \;|\; n \in \mathbb{N}, n \geq 1\}$ is not closed. $E^c = (-\infty, 0] \cup \bigcup_{n=1}^\infty (\frac{1}{n+1}, \frac{1}{n}) \cup (1, \infty)$ is not open because $B(0, \epsilon) \cap E = \{\frac{1}{n} \;|\; \frac{1}{\epsilon} < n\} \neq \varnothing \implies B(0, \epsilon) \notin E^c$.
+	\item $E = \{0\} \cup \{\frac{1}{n} \;|\; n \geq 1\}$ is closed, as $E^c = (-\infty, 0) \cup \bigcup_{n=1}^\infty (\frac{1}{n+1}, \frac{1}{n}) \cup (1, \infty)$ is open.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Lemma}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item If $E_\alpha \subseteq \mathbb{R}$ is closed $\forall \alpha \in A$, then $\bigcap_{\alpha \in A} E_\alpha$ is closed.
+	\item If $E_i \subseteq \mathbb{R}$ is closed $\forall i \in [n]$ then $\bigcup_{i=1}^n E_i$ is closed.
+	\end{enumerate}
+\end{quote}
+\emph{Proof}: The complement is the union of $E_\alpha^c$ (open by claim), which is open by previous lemma.
+
+\emph{Remark}: Example (7) shows that infinite unions of closed sets need not be closed.
+
+\subsubsection{Limit Points}
+
+\textbf{Definition}: Let $E \subseteq \mathbb{R}$.
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item A point $x \in \mathbb{R}$ is a \emph{limit point} of $E$ iff. $\forall \epsilon > 0.\; (B(x, \epsilon) \cap E) \backslash \{x\} \neq \varnothing$.
+	\item A point $x \in E$ is called \emph{isolated} if it is not a limit point.
+	\end{enumerate}
+\end{quote}
+\emph{Example}: $E = \{\frac{1}{n} \;|\; n \geq 1\}$. 0 is a limit point, but $\frac{1}{n} \in E$ is isolate, since $B(\frac{1}{n}, \frac{1}{n(n+1)}) \cap E = \{\frac{1}{n}\}$.\\
+
+\textbf{Theorem}: Let $E \subseteq \mathbb{R}$. $E$ is closed $\iff$ every limit point of $E$ is contained in $E$.
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+$\implies$:\\
+Assume $E$ is closed and $x \in \mathbb{R}$ is a limit point of $E$. If $x \in E^c$ then, since $E^c$ is open, $\exists \epsilon > 0.\; B(x, \epsilon) \subseteq E^c \implies B(x, \epsilon) \cap E = \varnothing$. But this contradicts the fact that $x$ is a limit point of $E$; thus $x \in E$.
+
+$\Longleftarrow$:\\
+Suppose $E$ is not closed; then $E^c$ is not open and so $\forall \epsilon > 0.\; \exists x \in E^c.\; B(x, \epsilon) \cap E \neq \varnothing$. Since $x \in E^c$, $(B(x, \epsilon) \cap E) \backslash \{x\} = B(x, \epsilon) \cap E \neq \varnothing$ and hence $x$ is a limit point of $E$. Then $x \in E \cap E^c$, a contradiction; and $E$ is closed.
+\end{quote}
+
+\textbf{Definition}: Let $\{x_n\}_{n=l}^\infty \subseteq S$ for some set $S$. We say $\{x_n\}$ is \emph{eventually constant} if\\
+$\exists N \geq l.\; x_n = x_N\; (\forall n \geq N)$. 
+
+\textbf{Proposition}: Let $E \subseteq \mathbb{R}$. Then $x$ is a limit point of $E \iff \exists \{x_n\}_{n=1}^\infty \subseteq E$ such that the sequence is not eventually constant and $x_n \to x$ as $n \to \infty$.
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+$\implies$:\\
+Suppose $x$ is a limit point of $E$, i.e. $\forall \epsilon > 0.\; (B(x, \epsilon) \cap E) \backslash \{x\} \neq \varnothing$. Set $r_1 = 1$ and choose $x_1 \in E$ such that $x_1 \in (B(x, r) \cap E) \backslash \{x\}$.\\
+Set $r_n = \min(\frac{1}{n}, |x-x_{n-1}|)$ and choose $x_n \in (B(x_1, r_n) \cap E) \backslash \{x\}$.
+
+Then $\forall n \geq 1.\; \{x_n\}_{n=1}^\infty \subseteq E$ and $|x-x_{n-1}| < |x-x_n|\l$ and $|x-x_n| < \frac{1}{n}$. It follows $\{x_n\}$ is not eventually constant, and $x_n \to x$ as $n \to \infty$.
+
+$\Longleftarrow$:\\
+Let $\epsilon > 0$. $\exists N \geq 1.\; n \geq N \implies |x-x_n| < \epsilon$. Then $\{x_n \;|\; n \geq N\} \subseteq B(x, \epsilon) \cap E$. If $\{x_n \;|\; n \geq N\} = \{x\}$ then $\{x_n\}$ is eventually constant, a contradiction. Hence $\varnothing \neq \{x_n \;|\; n \geq N\} \backslash \{x\} \subseteq (B(x, \epsilon) \cap E) \backslash \{x\} \implies (B(x, \epsilon) \cap E) \backslash \{x\} \neq \varnothing$, and hence $x$ is a limit point.
+\end{quote}
 
 \end{document}
