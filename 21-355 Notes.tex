@@ -745,7 +745,7 @@ So $n \geq N \implies -\epsilon < a_n - a \leq 0 \implies |a_n - a| < \epsilon$.
 
 \textbf{Lemma}: Suppose that $\{a_n\}$ is bounded. Set $S_m = \sup \{a_n \;|\; n \geq m\}$ and $I_m = \inf \{a_n \;|\; n \geq m\}$. Then $S_m, I_m \in \mathbb{R}$ are well-defined $\forall m \geq l$; $\{S_m\}$ is non-increasing; and $\{I_m\}$ is non-decreasing. Both sequences are bounded.
 
-\textbf{Definition}: Suppose $\{a_n\} \subseteq \mathbb{R}$ is bounded. We set $\lim_{n \to \infty} \sup a_n = \lim_{m \to \infty} S_m \in \mathbb{R}$ and $\lim_{n \to \infty} \inf a_n = \lim_{m \to \infty} I_m \in \mathbb{R}$. Both limits exist by the lemma and previous theorem. We know that $\lim_{n \to \infty} \inf a_n \leq \lim_{n \to \infty} \sup a_n$ from HW.
+\textbf{Definition}: Suppose $\{a_n\} \subseteq \mathbb{R}$ is bounded. We set $\limsup_{n \to \infty} a_n = \lim_{m \to \infty} S_m \in \mathbb{R}$ and $\liminf_{n \to \infty} a_n = \lim_{m \to \infty} I_m \in \mathbb{R}$. Both limits exist by the lemma and previous theorem. We know that $\liminf_{n \to \infty} a_n \leq \limsup_{n \to \infty} a_n$ from HW.
 
 \subsection{Subsequences}
 
@@ -859,7 +859,7 @@ So $S_n = \sum_{k=0}^n x^k = (\frac{1-x^{n+1}}{1-x})$. If $|x| < 1$ then $S_n \t
 
 \subsection{Convergence Results}
 
-We develop tool sthat will let us deduce the convergence of a series without knowing its value.
+We develop tools that will let us deduce the convergence of a series without knowing its value.
 
 \textbf{Theorem}: Suppose $\sum_{n=l}^\infty a_n$ converges. Then $a_n \to 0$ as $n \to \infty$.
 
@@ -1048,13 +1048,13 @@ Then if $0 \leq p < q$:
 \begin{quote}\vspace{-0.3cm}
 	\begin{enumerate}
 	\item The sequence $A_n = \sum_{k=0}^n a_k$ is bounded.
-	\item $0 \leq b_{n+1} \leq b_n (\forall n \in \mathbb{N}$
+	\item $0 \leq b_{n+1} \leq b_n (\forall n \in \mathbb{N})$
 	\item $\lim_{n \to \infty} b_n = 0$
 	\end{enumerate}
 \end{quote}
 Then $\sum_{n=0}^\infty a_nb_n$ converges.
 
-\textbf{Corollary (Alternating Series)}: Suppose $0 \leq a_{n+1} \leq a_n, a_n \to 0$ as $n \to \infty$. Then $\sum_{n=l}^\infty (-1)^n a_n$ conveges. Proof follows from Dirichlet Test.
+\textbf{Corollary (Alternating Series)}: Suppose $0 \leq a_{n+1} \leq a_n, a_n \to 0$ as $n \to \infty$. Then $\sum_{n=l}^\infty (-1)^n a_n$ converges. Proof follows from Dirichlet Test.
 
 \textbf{Corollary (Abel's Test)}: Suppose $\sum_{n=l}^\infty a_n$ converges, $b_{n+1} \leq b_n (\forall n \geq l)$ and $b_n \to b$ as $n \to \infty$. Then $\sum_{n=l}^\infty a_nb_n$ converges.
 
@@ -1286,6 +1286,90 @@ Then $\forall n \geq 1.\; \{x_n\}_{n=1}^\infty \subseteq E$ and $|x-x_{n-1}| < |
 
 $\Longleftarrow$:\\
 Let $\epsilon > 0$. $\exists N \geq 1.\; n \geq N \implies |x-x_n| < \epsilon$. Then $\{x_n \;|\; n \geq N\} \subseteq B(x, \epsilon) \cap E$. If $\{x_n \;|\; n \geq N\} = \{x\}$ then $\{x_n\}$ is eventually constant, a contradiction. Hence $\varnothing \neq \{x_n \;|\; n \geq N\} \backslash \{x\} \subseteq (B(x, \epsilon) \cap E) \backslash \{x\} \implies (B(x, \epsilon) \cap E) \backslash \{x\} \neq \varnothing$, and hence $x$ is a limit point.
+\end{quote}
+
+\emph{Corollary}: Let $E \in \mathbb{R}$. The following are equivalent (proof follows from last theorem):
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $E$ is closed.
+	\item If $x \in \mathbb{R}$ is a limit point of $E$, $x \in E$.
+	\item If $\{x_n\}_{n=l}^\infty \subseteq E$ is such that $x_n \to x$ as $n \to \infty$, then $x \in E$.
+	\end{enumerate}
+\end{quote}
+
+\emph{Corollary}: Let $E \subseteq \mathbb{R}$ and $E \neq \varnothing$. Suppose $E$ is closed.
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item If $E$ is bounded above, then $\sup E \in E$, i.e. $\sup E = \max E$.
+	\item If $E$ is bounded below, then $\inf E \in E$, i.e. $\inf E = \min E$.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Definition}: Let $E \subseteq \mathbb{R}$.
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item Let $\mathcal{O}(E) = \{V \subseteq \mathbb{R} \;|\; V \subseteq E$ and $V$ is open$\} \subseteq \mathcal{P}(\mathbb{R})$
+
+	\hspace{0.75cm}$\mathcal{C}(E) = \{C \subseteq \mathbb{R} \;|\; E \subseteq C$ and $C$ is closed$\} \subseteq \mathcal{P}(\mathbb{R})$.
+
+	Note that $\varnothing \in \mathcal{O}(E)$ and $\mathbb{R} \in \mathcal{C}(E)$.
+
+	\item We define $E^0 = \bigcup_{V \in \mathcal{O}(E)} V$, and call this set the \emph{interior} of $E$.\\
+	We define $\bar{E} = \bigcap_{C \in \mathcal{C}(E)} C$, and call this set the \emph{closure} of $E$.
+
+	\item We define $\partial E = E \backslash E^0$ to be the \emph{boundary} of $E$.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Theorem}: Let $E \subseteq \mathbb{R}$. The following hold:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $E^0 \subseteq E \subseteq \bar{E}$
+	\item $E^0$ is open and $\bar{E}, \partial E$ are closed.
+	\item For every $x \in E$, $x \in E^0 \oplus x \in \partial E$.
+	\item $\partial E = \{x \in \mathbb{R} \;|\; \forall \epsilon > 0.\; B(x, \epsilon) \cap E \neq \varnothing$ and $B(x, \epsilon) \cap E^c \neq \varnothing\}$.
+	\item $E$ is open $\iff E = E^0$, $E$ is closed $\iff E = \bar{E}$.
+	\end{enumerate}
+\end{quote}
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item Trivial.
+	\item $E^0$ is an arbitrary union of open sets and thus open; $\bar{E}$ is an arbitrary intersection of closed sets, so it's closed. $\partial E = \bar{E} \backslash E^0 = \bar{E} \cap (\mathbb{R} \backslash E^0)$ is the intersection of two closed sets, so it's closed.
+	\item Trivial.
+	\item Suppose $x \in \partial E$. Show the two properties of the set are satisfied via contradiction. Next, assume $x$ in the set, and show that $x \in \partial E$.
+	\item Trivial.
+	\end{enumerate}
+\end{quote}
+
+\emph{Corollary}: Let $E \subseteq \mathbb{R}$. Then $E$ is closed $\iff \partial E \subseteq E$.
+
+\emph{Proof}: $E$ is closed $\implies E = \bar{E} \implies \partial E \subseteq \bar{E} \subseteq E$. On the other hand, if $\partial E \subseteq E$ then $E \subseteq \bar{E} = E^0 \cup \partial E \subseteq E$, so $E = \bar{E}$.
+
+\textbf{Theorem (Bolzano-Weierstass, Part 2)}: Let $E \subseteq \mathbb{R}$ be infinite and bounded. Then $E$ has a limit point.
+
+\emph{Proof}: Since $E$ is infinite we may construct a non-eventually-constant sequence $\{x_n\}_{n=0}^\infty \subseteq E$. We do so by choosing $x_0 \in E$ arbitrarily, and $x_n \in E \backslash \{x_0, \ldots, x_{n-1}\}$ for any $n \in \mathbb{N}^+$. Since $E$ is bounded, the sequence is too, so B-W implies there exists a convergent subsequence $\{x_{n_k}\}_{k=0}^\infty \subseteq E$. This subsequence is not eventually constant by construction, so its limit is a limit point.
+
+\subsection{Compact Sets}
+
+\textbf{Definition}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item Let $A$ be some index set and assume $\forall \alpha \in A.\; V_\alpha \subseteq \mathbb{R}$. We write $\mathcal{V} = \{V_\alpha\}_{\alpha \in A}$ for the collection of all of these subsets.
+	\item If $E \subseteq \mathbb{R}$ and $E \subseteq \bigcup_{\alpha \in A} V_\alpha$, then we say $\mathcal{V}$ is a \emph{cover} of $E$.
+	\item If $V_\alpha \subseteq \mathbb{R}$ is open $\forall \alpha \in A$ and $\mathcal{V}$ is a cover of $E$, we say $\mathcal{V}$ is an \emph{open cover}.
+	\item Let $\mathcal{V}$ be a cover of $E$. We say $\mathcal{W} = \{V_\alpha\}_{\alpha \in A'}$ is a \emph{subcover} of $E$ if $A' \subseteq A$ and $\mathcal{W}$ is a cover of $E$.
+	\item Let $\mathcal{V}$ be a cover of $E$. If $A$ is finite, then $\mathcal{W} = \{V_\alpha\}_{\alpha \in A'}$ is a \emph{finite subcover} of $E$, if $\mathcal{W}$ is a subcover of $E$.
+	\end{enumerate}
+\end{quote}
+
+\emph{Examples}
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item Every $E \subseteq \mathbb{R}$ admits a cover: $E = \bigcup_{x \in E} \{x\}$.
+	\item Every $E \subseteq \mathbb{R}$ admits an open cover: $E \subseteq \bigcup_{x \in E} B(x, \epsilon)$ for $\epsilon > 0$.
+	\item If $E$ is finite and $\mathcal{V}$ is an open cover, we claim there is a finite open subcover. Indeed, write $E = \{a_i \;|\; 1 \leq i \leq n\}$ and choose $V_{\alpha_i}$ such that $a_i \in V_{\alpha_i}$. Then $E \subseteq \bigcup_{i=1}^n V_{\alpha_i}$ and $\{V_{\alpha_i}\}_{i=1}^n \subseteq \{V_\alpha\}_{\alpha \in A}$. Hence every open cover of a finite set admits a finite open subcover.
+	\end{enumerate}
 \end{quote}
 
 \end{document}
