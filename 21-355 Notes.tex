@@ -22,8 +22,7 @@
 \setlength{\parskip}{5pt plus 1pt}
  
 \pagestyle{fancyplain}
-\rhead{\fancyplain{}{\today}}
-\chead{\fancyplain{}{21-355 Notes}}
+\rhead{\fancyplain{}{21-355 Notes}}
 
 \newcommand{\qeq}{\stackrel{?}{=}}
 
@@ -35,7 +34,8 @@
 		{\Huge 21-355: Real Analysis 1}\\[0.5cm]
 		{\Large Carnegie Mellon University}\\[0.3cm]
 		{\Large Professor Ian Tice - Fall 2013}\\[2cm]
-		 Project \LaTeX'd by Ivan Wang
+		Project \LaTeX'd by Ivan Wang\\[0.2cm]
+		Last Updated: \today
 	\end{center}
 	\vspace*{\fill}
 \end{titlepage}
@@ -325,7 +325,7 @@ We define and propose the trichotomy of order on $\mathbb{Q}$, as per the intege
 	\end{enumerate}
 \end{quote}
 
-\emph{Remark}: Field must have at least 2 elements (0, 1) by (A/M4). To prove field, must prove 5 properties of addition and multiplication (closure, symmetry, associativity, identity, inverse) as well as distributivity.
+\emph{Remark}: Field must have at least 2 elements (0, 1) by (A/M4). To prove field, must prove 5 properties of addition and multiplication (closure, commutativity, associativity, identity, inverse) as well as distributivity.
 
 \textbf{Definition}: Let $E$ be a set; an \emph{order} on $E$ is a relation $<$ satisfying the following:
 \begin{quote}\vspace{-0.3cm}
@@ -781,8 +781,8 @@ If not, then $\phi(k) < N (\forall k \geq l)$; but $k \leq \phi(k) < N (\forall 
 \begin{quote}\vspace{-0.3cm}
 	\begin{enumerate}
 	\item Every subsequence of $\{a_n\}$ is bounded.
-	\item If $\{a_{n_k}\}$ is a subsequence, then $\lim_{k \to \infty} \sup a_{n_k} \leq \limsup_{n \to \infty} a_n$.
-	\item If $\{a_{n_k}\}$ is a subsequence, then $\lim_{n \to \infty} \inf a_n \leq \liminf_{n \to \infty} a_{n_k}$.
+	\item If $\{a_{n_k}\}$ is a subsequence, then $\limsup_{k \to \infty} a_{n_k} \leq \limsup_{n \to \infty} a_n$.
+	\item If $\{a_{n_k}\}$ is a subsequence, then $\liminf_{n \to \infty} a_n \leq \liminf_{k \to \infty} a_{n_k}$.
 	\item There exists a subsequence $\{a_{n_k}\}$ such that $\lim_{k \to \infty} a_{n_k} = \limsup_{n \to \infty} a_n$.
 	\item There exists a subsequence $\{a_{n_k}\}$ such that $\lim_{k \to \infty} a_{n_k} = \liminf_{n \to \infty} a_n$ ($\neq$ (4)).
 	\end{enumerate}
@@ -793,7 +793,7 @@ If not, then $\phi(k) < N (\forall k \geq l)$; but $k \leq \phi(k) < N (\forall 
 	\begin{enumerate}
 	\item Trivial.
 	\item Since $k \leq \phi(k)$, $\{a_{\phi(n)} \;|\; n \geq k\} \subseteq \{a_n \;|\; n \geq k\}$ for every order-preserving $\phi$. Hence $S_k = \sup \{a_{\phi(n)}\} \;|\; n \geq k\} \subseteq \sup \{a_n \;|\; n \geq k\} = T_k$. But:\\
-	$\limsup_{n \to \infty} a_{\phi(n)} = \lim_{k \to \infty} \sup \{a_{\phi(n)} \;|\; n \geq k\} \leq \limsup_{k \to \infty} \{a_n \;|\; n \geq k\} = \limsup_{n \to \infty} a_n$.
+	$\limsup_{n \to \infty} a_{\phi(n)} = \limsup_{k \to \infty} \{a_{\phi(n)} \;|\; n \geq k\} \leq \limsup_{k \to \infty} \{a_n \;|\; n \geq k\} = \limsup_{n \to \infty} a_n$.
 	\item Similar to (2); exercise to reader.
 	\item Too lazy to \LaTeX; exercise to reader. %% Insert proof %%
 	\item Exercise to reader.
@@ -814,7 +814,7 @@ $(2) \implies (3)$\\
 Limsup theorem (4,5) $\implies \exists \{a_{\phi(k)}\}, \{a_{\gamma(k)}\}$ subsequences such that $a_{\phi(k)} \to \limsup_{n \to \infty} a_n, a_{\gamma(k)} \to \liminf_{n \to \infty} a_n$ as $k \to \infty$. By (2) the limits must agree.
 
 $(3) \implies (1)$\\
-%% Insert proof %%
+Limsup theorem (1-3) $\implies \forall \{a_{\phi(k)}\}.\; \liminf_{n \to \infty} a_n \leq \liminf_{k \to \infty} a_{\phi(k)} \leq \limsup_{k \to \infty} a_{\phi(k)} \leq \limsup_{n \to \infty} a_n$. As the first and last are equal, by transitivity it follows all subsequences satisfy $\liminf_{k \to \infty} a_{\phi(k)} = \limsup_{k \to \infty} a_{\phi(k)}$. As $a_n$ is a subsequence of itself, it therefore converges to some $a$ as $n \to \infty$.
 
 \end{quote}
 
@@ -1363,13 +1363,63 @@ Let $\epsilon > 0$. $\exists N \geq 1.\; n \geq N \implies |x-x_n| < \epsilon$. 
 	\end{enumerate}
 \end{quote}
 
-\emph{Examples}
+\emph{Examples}:
 \begin{quote}\vspace{-0.3cm}
 	\begin{enumerate}
 	\item Every $E \subseteq \mathbb{R}$ admits a cover: $E = \bigcup_{x \in E} \{x\}$.
 	\item Every $E \subseteq \mathbb{R}$ admits an open cover: $E \subseteq \bigcup_{x \in E} B(x, \epsilon)$ for $\epsilon > 0$.
 	\item If $E$ is finite and $\mathcal{V}$ is an open cover, we claim there is a finite open subcover. Indeed, write $E = \{a_i \;|\; 1 \leq i \leq n\}$ and choose $V_{\alpha_i}$ such that $a_i \in V_{\alpha_i}$. Then $E \subseteq \bigcup_{i=1}^n V_{\alpha_i}$ and $\{V_{\alpha_i}\}_{i=1}^n \subseteq \{V_\alpha\}_{\alpha \in A}$. Hence every open cover of a finite set admits a finite open subcover.
+
+	\item $E = \{\frac{1}{n} \;|\; n \geq 1\}$. $\mathcal{V} = \{B(\frac{1}{n}, \frac{1}{n(n+1)}\}_{n=1}^\infty$ is an open cover of $E$. Note that $B(\frac{1}{n}, \frac{1}{n(n+1)}) \cap E = \frac{1}{n}$, so there does not exist a finite subcover.
+
+	\item $E = \{0\} \cup \{\frac{1}{n} \;|\; n \geq 1\}$. Suppose $\mathcal{V}$ is an open cover of $E$. Since $0 \in E$, $\exists \alpha_0 \in A.\; 0 \in V_{\alpha_0}$. Since $V_{\alpha_0}$ is open, $\exists \epsilon > 0.\; B(0, \epsilon) \subseteq V_{\alpha_0}$. Then $B(0, \epsilon) \cap E = \{\frac{1}{n} \;||; n \geq N\}$ where $N = \min \{n \in N \;|\; n \geq \frac{1}{\epsilon}\}$. Hence $E \backslash B(0, \epsilon) = \{\frac{1}{n} \;|\; 1 \leq n \leq N\}$. There exist $V_{\alpha_n}$ for $n \in [N]$ such that $\frac{1}{n} \in V_{\alpha_n}$. Then $E \subseteq \bigcup_{n=0}^N V_{\alpha_n}$ and $E$ has a finite subcover.
+
+	\item Let $a < b$ and $E = (a,b)$. Then $\mathcal{V} = \{(a+\frac{1}{n+1}, b - \frac{1}{n+1})\}_{n \in \mathbb{N}}$ is an open cover of $E$. Since these intervals are nested, there cannot be a finite subcover.
 	\end{enumerate}
+\end{quote}
+
+\textbf{Definition}: Let $E \subseteq \mathbb{R}$. We say that $E$ is \emph{compact} if every open cover of $E$ admits a finite subcover.
+
+\emph{Examples}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $\varnothing$ is trivially compact.
+	\item $\mathbb{R}$ is not compact because $\mathcal{V} = \{B(0, n)\}_{n \in \mathbb{N}}$ is an open cover that clearly does not admit a finite subcover of $\mathbb{R}$.
+	\item Any finite set $E \subseteq \mathbb{R}$ is compact.
+	\item $(a,b)$ for $a < b$ is not compact.
+	\item $\{\frac{1}{n} \;|\; n \geq 1\}$ is not compact.
+	\item $\{0\} \cup \{\frac{1}{n} \;|\; n \geq 1\}$ is compact.
+	\end{enumerate}
+\end{quote}
+Notice in each of our examples of compact sets that the set is closed and bounded.
+
+\subsubsection{Heine-Borel Theorem}
+
+\textbf{Theorem}: Let $K \subseteq \mathbb{R}$. Then $K$ is compact $\iff K$ is closed and bounded.
+
+\emph{Proof}:
+
+$\implies$ Suppose $K$ is compact.
+\begin{quote}\vspace{-0.3cm}
+Notice that $\bigcup_{n=1}^\infty B(0, n) = \mathbb{R}$ (since $\mathbb{R}$ is Archimedean) and so $K \subseteq \mathbb{R} = \bigcup_{n=1}^\infty B(0, n)$. Then $\{B(0, n)\}_{n=1}^\infty$ is an open cover of $K$. Since $K$ is compact, $\exists$ a finite subcover : $K \subseteq \bigcup_{i=1}^m B(0, n_i)$ for some $m \in \mathbb{N}$.
+
+Set $r = \max_{i \in [m]} n_i$. Then $K \subseteq \bigcup_{i=1}^m B(0, n_i) \subseteq B(0, r) \implies K$ is bounded.\\
+
+Now we show $K$ is closed. Let $x \in K^C$. For each $y \in K$ we set $r_y = \frac{1}{2}|x-y| > 0$. Then $B(y, r_y) \cap B(x, r_y) = \varnothing \;(\forall y \in K)$. Also, $\{B(y, r_y)\}_{y \in K}$ is an open cover.
+
+$K$ compact $\implies \exists$ a finite subcover: $K \subseteq \bigcup_{i=1}^n B(y_i, r_{y_i})$. Set $r = \min_{i \in [n]} r_i > 0$ and notice that $B(y_i, r_{y_i}) \cap B(y, r) = \varnothing$. Hence $\bigcup_{i=1}^n B(y_i, r_{y_i}) \cap B(x,r) = \varnothing \implies K \cap B(x,r) = \varnothing \implies B(x,r) \subseteq K^C$. This means that $K^C$ is open and so $K$ is closed.
+\end{quote}
+$\Longleftarrow$ \textbf{(Heine-Borel)} Suppose $K$ is closed and bounded. If $K = \varnothing$ we're done, so suppose $K \neq \varnothing$.
+\begin{quote}\vspace{-0.3cm}
+Notice that $K$ bounded $\implies \inf K, \sup K \in \mathbb{R}$, and $K$ closed $\implies \inf K, \sup K \in K$. In particular, $\sup K = \max K, \inf = \min K$. Let $\mathcal{V}$ be an open cover of $K$.
+
+Let $E = \{x \in K \;|\; \mathcal{V} \text{ admits a finite subcover of }K \cap [\inf K, x]\} \subseteq K$. Notice that $K \cap [\inf K, \inf K] = \{\inf K\}$ is a finite set and hence compact; thus $\mathcal{V}$ admits a finite subcover of $K \cap [\inf K, \inf K]$. Hence $\inf K \in E$, and so $E \neq \varnothing$. Clearly $E$ is bounded above by $\sup K$. By LUB property, $\exists \sup E \in \mathbb{R}$ and $\sup E \leq \sup K$.\\
+
+We want to show $\sup E = \sup K = \max E$. Notice that $\forall n \geq 1.\; \exists x_n \in E \subseteq K$ such that $\sup E - \frac{1}{n} < x_n \leq sup E$. Then $x_n \to \sup E$ as $n \to \infty$, and so $\sup E \in K$ (since $K$ is closed).
+
+Write $\mathcal{V} = \{V_\alpha\}_{\alpha \in A}$. Since $\sup E \in K, \exists \alpha_0 \in A$ such that $\sup E \in V_{\alpha_0}$. But $V_{\alpha_0}$ is open so $\exists \epsilon > 0.\; B(\sup E, \epsilon) \subseteq V_{\alpha_0}$. By definition, $\exists x \in E.\; \sup E - \epsilon < x \leq \sup E$. Hence $\mathcal{V}$ admits a finite subcoverof $K \cap [\inf K, x]$, i.e. $K \cap [\inf K, x] \subseteq \bigcup_{i=1}^n V_{\alpha_i}$. Then $K \cap [\inf K, \sup E] \subseteq \bigcup_{i=0}^n V_{\alpha_i} \implies \sup E \in E \implies \sup E = \max E$.
+
+
 \end{quote}
 
 \end{document}
