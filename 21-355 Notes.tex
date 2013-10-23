@@ -1258,7 +1258,7 @@ Then $\bigcap_{n=1}^\infty E_n = \{0\}$ which is closed.
 	\item A point $x \in E$ is called \emph{isolated} if it is not a limit point.
 	\end{enumerate}
 \end{quote}
-\emph{Example}: $E = \{\frac{1}{n} \;|\; n \geq 1\}$. 0 is a limit point, but $\frac{1}{n} \in E$ is isolate, since $B(\frac{1}{n}, \frac{1}{n(n+1)}) \cap E = \{\frac{1}{n}\}$.\\
+\emph{Example}: $E = \{\frac{1}{n} \;|\; n \geq 1\}$. 0 is a limit point, but $\frac{1}{n} \in E$ is isolated, since $B(\frac{1}{n}, \frac{1}{n(n+1)}) \cap E = \{\frac{1}{n}\}$.\\
 
 \textbf{Theorem}: Let $E \subseteq \mathbb{R}$. $E$ is closed $\iff$ every limit point of $E$ is contained in $E$.
 
@@ -1304,6 +1304,8 @@ Let $\epsilon > 0$. $\exists N \geq 1.\; n \geq N \implies |x-x_n| < \epsilon$. 
 	\item If $E$ is bounded below, then $\inf E \in E$, i.e. $\inf E = \min E$.
 	\end{enumerate}
 \end{quote}
+
+\subsubsection{Closure, Interior, and Boundary Sets}
 
 \textbf{Definition}: Let $E \subseteq \mathbb{R}$.
 \begin{quote}\vspace{-0.3cm}
@@ -1415,11 +1417,80 @@ Notice that $K$ bounded $\implies \inf K, \sup K \in \mathbb{R}$, and $K$ closed
 
 Let $E = \{x \in K \;|\; \mathcal{V} \text{ admits a finite subcover of }K \cap [\inf K, x]\} \subseteq K$. Notice that $K \cap [\inf K, \inf K] = \{\inf K\}$ is a finite set and hence compact; thus $\mathcal{V}$ admits a finite subcover of $K \cap [\inf K, \inf K]$. Hence $\inf K \in E$, and so $E \neq \varnothing$. Clearly $E$ is bounded above by $\sup K$. By LUB property, $\exists \sup E \in \mathbb{R}$ and $\sup E \leq \sup K$.\\
 
-We want to show $\sup E = \sup K = \max E$. Notice that $\forall n \geq 1.\; \exists x_n \in E \subseteq K$ such that $\sup E - \frac{1}{n} < x_n \leq sup E$. Then $x_n \to \sup E$ as $n \to \infty$, and so $\sup E \in K$ (since $K$ is closed).
+We want to show $\sup E = \sup K = \max E$. Notice that $\forall n \geq 1.\; \exists x_n \in E \subseteq K$ such that $\sup E - \frac{1}{n} < x_n \leq \sup E$. Then $x_n \to \sup E$ as $n \to \infty$, and so $\sup E \in K$ (since $K$ is closed).
 
 Write $\mathcal{V} = \{V_\alpha\}_{\alpha \in A}$. Since $\sup E \in K, \exists \alpha_0 \in A$ such that $\sup E \in V_{\alpha_0}$. But $V_{\alpha_0}$ is open so $\exists \epsilon > 0.\; B(\sup E, \epsilon) \subseteq V_{\alpha_0}$. By definition, $\exists x \in E.\; \sup E - \epsilon < x \leq \sup E$. Hence $\mathcal{V}$ admits a finite subcoverof $K \cap [\inf K, x]$, i.e. $K \cap [\inf K, x] \subseteq \bigcup_{i=1}^n V_{\alpha_i}$. Then $K \cap [\inf K, \sup E] \subseteq \bigcup_{i=0}^n V_{\alpha_i} \implies \sup E \in E \implies \sup E = \max E$.
 
+Assume for sake of contradiction that $\max E < \max K$. Let $K' = K \backslash \bigcup_{i=0}^n V_{\alpha_i}$. $K'$ is closed since it's the intersection of closed sets. $K'\neq \varnothing$ since otherwise $K \subseteq \bigcup_{i=0}^n V_{\alpha_i} \implies \max E = \max K$.
 
+Let $y = \inf K' = \min K'$ (since $K'$ is closed) and note that $y > \max E$. Then $K \cap [\inf K, y] = K \cap [\inf K, \min K'] \subseteq \bigcup_{i=0}^n V_{\alpha_i} \cup \{y\}$. But since $y \in K' \subseteq K$, $\exists V_{\alpha_{n+1}} \in \mathcal{V}$ such that $y \in V_{\alpha_{n+1}}$. Hence $K \cap [\inf K, y] \subseteq \bigcup_{i=0}^{n+1} V_{\alpha_i} \implies y \in E \implies \max E < y \leq \max E$, a contradiction. We then deduce that $\max E = \max K \implies K = K \cap [\min K, \max K]$ is covered by a finite subcover of $\mathcal{V}$; thus, $K$ is compact.
+\end{quote}
+
+\textbf{Corollary}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item If $K \subseteq \mathbb{R}$ is compact and $E \subseteq \mathbb{R}$ is closed, then $E \cap K$ is compact.
+	\item If $K \subseteq \mathbb{R}$ is compact and $E \subseteq K$ is closed, then $E$ is compact.
+	\item If $K_i \subseteq \mathbb{R}$ is compact for $i \in [n]$, then $\bigcup_{i=1}^n K_i$ is compact.
+	\item If $K_\alpha \subseteq \mathbb{R}$ is compact $\forall \alpha \in A$, then $\bigcap_{\alpha \in A} K_\alpha$ is compact.
+	\end{enumerate}
+\end{quote}
+
+\subsection{Connected Sets}
+
+\textbf{Definition}: We say two sets $A, B \subseteq \mathbb{R}$ are \emph{separated} if $A \cap \bar{B} = \bar{A} \cap B = \varnothing$.\\
+A set $E \subseteq \mathbb{R}$ is \emph{disconnected} if $E = A \cup B$ such that $a \neq \varnothing, B \neq \varnothing$ and $A, B$ are separated.\\
+If a set is $E \subseteq \mathbb{R}$ is not disconnected, we say it's \emph{connected}.
+
+\emph{Examples}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $(0, 1)$ and $[1,2)$ are not separated, though they are disjoint, since $\overline{(0,1)} \cap [1,2) = [0,1] \cap [1,2) = \{1\} \neq \varnothing$.
+	\item $(a,b)$ and $(b,c)$ for $a < b < c$ are separated, since $\overline{(a,b)} \cap (b,c) = \varnothing = (a,b) \cap \overline{(b,c)}$.\\
+	Then $(a,c) \backslash \{b\}$ is disconnected, since $(a,c) \backslash \{b\} = (a,b) \cup (b,c)$.
+	\item Similarly, $\forall a \in \mathbb{R}.\; (-\infty, a)$ an $(a, \infty)$ are separated.\\
+	Then $\mathbb{R} \backslash \{a\} = (-\infty, a) \cup (a, \infty)$ is disconnected.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Theorem}: Let $E \subseteq \mathbb{R}$. Then $E$ is connected $\iff (x,y \in E \text{ and }x < z < y \implies z \in E)$.
+
+\emph{Proof}:\\
+$\neg 2 \implies \neg 1$:
+\begin{quote}\vspace{-0.3cm}
+If (2) is false then $\exists x,y \in E$ and $z \in (x,y)$ such that $z \notin E$. Then $E = L_z \cup R_z$ for $L_z = E \cap (-\infty, z)$ and $R_z = E \cap (z, \infty)$. Since $x \in L_z, y \in R_z$, and $L_z \subseteq (-\infty, z)$ and $R_z \subseteq (z, \infty)$, it follows that $L_z$ and $R_z$ are separated. Hence $E$ is disconnected.
+\end{quote}
+$\neg 1 \implies \neg 2$
+\begin{quote}\vspace{-0.3cm}
+Suppose $E$ is disconnected. Write $E = A \cup B$ with $A, B \neq \varnothing$ and $\bar{A} \cap B = A \cap \bar{B} = \varnothing$. Let $x \in A$ and $y \in B$. Without loss of generality, we assume $x < y$.
+
+Let $z = \sup(A \cap [x,y])$. Clearly $z \in \bar{A}$ and so $z \notin B \implies z \neq y \implies x \leq z \leq y$. If $z \notin A$ then $z \neq x \implies x < z < y$ and $z \notin A \cup B = E$. Otherwise, if $z \in A$, then $z \notin \bar{B}$. $\bar{B}$ is closed, so $\bar{B}^C$ is open; and hence we can find $w$ such that $z < w < y$, $w \notin B$, and $w \notin A$. Then $x < w < y$ and $w \notin A \cup B = E$. In all cases, then, $\neg 2$ is true.
+\end{quote}
+
+\emph{Corollary}: $\mathbb{R}, (-\infty, a), (-\infty, a], (a, \infty), [a, \infty), (a,b), (a,b], [a,b), and [a,b]$ are all connected.
+
+\section{Continuity}
+
+\subsection{Limits of Functions}
+
+\textbf{Definition}: Let $E \subseteq \mathbb{R}$, $f : E \to \mathbb{R}$, and $p \in \mathbb{R}$ be a limit point. Let $q \in \mathbb{R}$.\\
+We say $\lim_{x \to p} f(x) = q$ or $f(x) \to q$ as $x \to p$ iff $\forall \epsilon > 0.\; \exists \delta > 0.\; x \in E \land 0 < |x-p| < \delta \implies |f(x) - q| < \epsilon$.
+
+\emph{Examples}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $E = [0,1], f(x) = x$. Let $p = \frac{1}{2}$. $\lim_{x \to \frac{1}{2}} f(x) = \frac{1}{2}$.
+
+	\emph{Proof}: Let $\epsilon > 0$; choose $\delta = \epsilon > 0$. Then $x \in [0,1]$ and $0 < |x-\frac{1}{2}| < S \implies |f(x) - \frac{1}{2}| < \epsilon$.
+
+	\item $E = [0,1], f(x) = x$ (for $x \neq \frac{1}{2}$), $f(x) = 37$ (for $x = \frac{1}{2}$).
+
+	By the proof of (1), the claim still holds.
+
+	\item $f(x) = x^n$ on $E = (0,1)$ for $2 \leq n \in \mathbb{N}$. 0 is a limit point of $E$; we claim $\lim_{x \to 0} x^n = 0$.
+
+	\emph{Proof}: Let $\epsilon > 0$; choose $\delta = \epsilon^{1/n} > 0$. Then $x \in (0,1)$ and $0 < |x-0| < \delta \implies 0 < x < \delta \implies 0 < x^n < \delta^n = \epsilon \implies |f(x) - 0| = x^n < \epsilon$.
+	\end{enumerate}
 \end{quote}
 
 \end{document}
