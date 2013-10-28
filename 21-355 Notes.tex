@@ -1490,6 +1490,141 @@ We say $\lim_{x \to p} f(x) = q$ or $f(x) \to q$ as $x \to p$ iff $\forall \epsi
 	\item $f(x) = x^n$ on $E = (0,1)$ for $2 \leq n \in \mathbb{N}$. 0 is a limit point of $E$; we claim $\lim_{x \to 0} x^n = 0$.
 
 	\emph{Proof}: Let $\epsilon > 0$; choose $\delta = \epsilon^{1/n} > 0$. Then $x \in (0,1)$ and $0 < |x-0| < \delta \implies 0 < x < \delta \implies 0 < x^n < \delta^n = \epsilon \implies |f(x) - 0| = x^n < \epsilon$.
+
+	\item $\lim_{x \to p} x = p$ whenever $p$ is a limit point of $E$.
+
+	\item If $\forall x \in E.\; f(x) = 1$ then $\lim_{x \to p} f(x) = 1$ whenever $p$ is a limit point of $E$.
+
+	\item Let $E = \mathbb{R}$ and $f(x) = \cos(x)$. From HW6, $|\cos(x) - 1| \leq x^2 e^{x^2}$. We claim $\lim_{x \to 0} \cos(x) = 1$.
+
+	\emph{Proof}: Let $\epsilon > 0$. Choose $\delta = \min(1, \sqrt{\epsilon/e}) > 0$. Then for $x \in \mathbb{R}$, $0 < |x - 0| < \delta \implies |x| < \min(1, \sqrt{\epsilon/e}) \implies |\cos(x) - 1| \leq x^2 e^1$ (since $|x|^2 < \delta \leq 1 \implies e^{|x|^2} \leq e^1$) $\implies |\cos(x) - 1| < \delta^2 e \leq (\sqrt{\epsilon/e})^2 e = \epsilon$.
+
+	\item $E = \{\frac{1}{n} \;|\; n \geq 1\}, p=0$. Let $f(x) = \frac{1}{x}$ for $x \in E$. We claim $\lim_{x \to 0} f(x)$ does not exist.
+
+	\emph{Proof}: Suppose not. Then for $\epsilon = 1.\; \exists \delta > 0.\; x \in E,\; 0 < |x - 0| < \delta \implies |f(x) - q| < 1$. But $x \in E, |x| < \delta \implies x = \frac{1}{n}, \frac{1}{\delta} < n$, and $|f(x) - q| = |\frac{1}{1/n} - q| = |n - q| < 1$, which is a contradiction.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Definition}: Let $f : E \to \mathbb{R}$ for some $E \subseteq \mathbb{R}$. If $A \subseteq E$ we define $f(A) = \{f(x) \;|\; x \in A\} \subseteq \mathbb{R}$ as the \emph{image} of $A$ under $f$. If $B \subseteq \mathbb{R}$ we define $f^{-1}(B) = \{x \in E \;|\; f(x) \in B\}$ as the \emph{pre-image} of $B$ under $f$.
+
+\textbf{Lemma}: Suppose $f : E \to \mathbb{R}$. Then $A \subseteq B \subseteq E \implies f(A) \subseteq f(B)$, and\\
+$A \subseteq B \subseteq \mathbb{R} \implies f^{-1}(A) \subseteq f^{-1}(B) \subseteq E$.
+
+\subsubsection{Divergence Criteria}
+
+\textbf{Theorem (Divergence Criteria)}: Let $E \subseteq \mathbb{R}$, $f : E \to \mathbb{R}$, $p$ be a limit point of $E$, $q \in \mathbb{R}$. The following are equivalent:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $\lim_{x \to p} f(x) = q$
+	\item For every open set $V \subseteq \mathbb{R}$ such that $q \in V$, $\exists$ an open set $U \subseteq \mathbb{R}$ with $p \in U$ such that $f(U \cap E \backslash \{p\}) \subseteq V$. \emph{(Topological characterization)}
+	\item If $\{x_n\}_{n=l}^\infty \subseteq E$ satisfies $x_n \neq p \;(\forall n \geq l)$ and $x_n \to p$ as $n \to \infty$, the sequence $\{f(x_n)\}_{n=l}^\infty \subseteq \mathbb{R}$ converges and $f(x_n) \to q$ as $n \to \infty$. \emph{(Sequential characterization)}
+	\end{enumerate}
+\end{quote}
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+$(1) \implies (2):$\\
+Assume (1) and let $V \subseteq \mathbb{R}$ be open with $q \in V$. Since $V$ is open, $\exists \epsilon > 0.\; B(q, \epsilon) \subseteq V$. Since $\lim_{x \to p} f(x)= q$, $\exists \delta > 0.\; x \in E \land 0 < |x-p| < \delta \implies |f(x) - q| < \delta$. Let $U = B(p, \delta)$ (an open set). Then $x \in U \cap E \backslash \{p\} \implies x \in E \land |x-p| < \delta \implies |f(x) - q| < \epsilon \implies f(x) \in B(q, \epsilon) \subseteq V$. So $f(U \cap E \backslash \{p\}) \subseteq V$ as desired.\\
+
+$(2) \implies (3)$:\\
+Assume (2) and let $\{x_n\}_{n=l}^\infty \subseteq E$ satisfy $x_n \neq p, x_n \to p$. Let $\epsilon > 0$ and set $V = B(q, \epsilon)$ (open). From (2), $\exists$ open $U$ such that $f(U \cap E \backslash \{p\}) \subseteq V$ and $p \in U$. Since $U$ is open, $\exists \delta > 0.\; B(p, \delta) \subseteq U$. Since $x_n \to p$ as $n \to \infty$, $\exists N \geq l.\; n \geq N \implies ) < |x_n - p| < \delta \implies x_n \in U \cap E \backslash \{p\} \implies f(x_n) \in V = B(q, \epsilon)$. Hence $n \geq N \implies |f(x_n) - q| < \epsilon$, and $f(x) \to q$ as $n \to \infty$.\\
+
+$\neg (1) \implies \neg (3)$:\\
+ Suppose (1) is false; then $\exists \epsilon > 0.\; \forall \delta > 0.\; \exists x \in E$ with $0 < |x-p| < \delta$ such that $|f(x) - q| \geq \epsilon$. For $n \in \mathbb{N}, n \geq 1$, set $\delta = \frac{1}{n}$ to find $x_n \in E$ such that $0 < |x_n - p| < \frac{1}{n}$ and $|f(x_n) - q| \geq \epsilon$. Clearly, $\{x_n\}_{n=1}^\infty \subseteq E$ satisfies $x_n \neq p$, $x_n \to p$. But $f(x_n)$ does not converge to $q$. Hence (3) fails.
+\end{quote}
+
+\textbf{Corollary}: If $E \subseteq \mathbb{R}, f : E \to \mathbb{R}$, $p$ is a limit point of $E$, and $\lim_{x \to p} f(x) = q$, then $q$ is unique.
+
+\emph{Proof}: Limits of sequences are unique, so this follows from (3) in Divergent Criteria theorem.\\
+
+\textbf{Corollary (Algebra of limits)}: Let $E \subseteq \mathbb{R}, f,g : E \to \mathbb{R}$, $p$ be a limit point of $E$. Assume $\lim_{x \to p} f(x) = q_1, \lim_{x \to p} g(x) = q_2$. The following hold:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item If $\alpha, \beta \in \mathbb{R}$ then $\lim_{x \to p} (\alpha f(x) + \beta g(x)) = \alpha q_1 + \beta q_2$
+	\item $\lim_{x \to p} f(x)g(x) = q_1 q_2$
+	\item If $q_2 = \lim_{x \to p} g(x) \neq 0$, then $\frac{f}{g} : E \backslash g^{-1}(\{0\}) \to \mathbb{R}$ is well-defined, $p$ is a limit point of $E \backslash g^{-1}(\{0\})$, and $\lim_{x \to p} \frac{f(x)}{g(x)} = \frac{q_1}{q_2}$
+	\end{enumerate}
+\end{quote}
+\emph{Proof}: All follow from the algebra of sequential limits and (3) in the Theorem.
+
+As an application of this, we get a large class of limit examples.
+
+\textbf{Corollary}: Let $P : E \to \mathbb{R}$ be a polynomial, i.e. $P(x) = a_0 + a_1x + \cdots + a_nx^n$ for some $n \in \mathbb{N}, a_i \in \mathbb{R}$ for $i \in [n]$. If $p$ is a limit point of $E$, then $\lim_{x \to p} P(x) = P(p)$.
+
+\emph{Proof}: We know $\lim_{x \to p} 1 = 1$, $\lim_{x \to p} x = p$. Algebra of limits (2) and simple induction show $\lim_{x \to p} x^k = p^k \;(\forall k \in \mathbb{N}^+)$. Then algebra of limits (1) and another induction argument prove $\lim_{x \to p} P(x) = \lim_{x \to p} (a_0 + a_1x + \cdots + a_nx^n) = \lim_{x \to p} (a_0 + a_1p + \cdots + a_n p^n) = P(p)$.
+
+\subsection{Continuous Functions}
+
+\textbf{Definition}: Let $E \subseteq \mathbb{R}, f : E \to \mathbb{R}, p \in E$. We say $f$ is \emph{continuous} at $p$ iff:
+\begin{displaymath}
+\forall \epsilon > 0.\; \exists \delta > 0.\; x \in E \land |x-p| < \delta \implies |f(x) - f(p)| < \epsilon
+\end{displaymath}
+If $f : E \to \mathbb{R}$ is continuous at each $p \in E$ we say $f$ is continuous on $E$.
+
+\emph{Remarks}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item In order to be continuous at $p \in E$, $f$ must be defined at $p$. Contrast this to $\lim_{x \to p} f(x)$, in which case $p$ need only be a limit point of $E$.
+	\item Informally one can think of continuous functions as those approximated well ``near $p$" by $f(p)$, i.e. $f(x) \approx f(p)$ when $x \approx p$.
+	\item In the definition, the value of $\delta$ may depend on the point $p$. If a function is continuous on $E$ then for a given $\epsilon > 0$ the $\delta = \delta(p)$ may vary greatly as $p$ varies.
+	\item If $p \in E$ is isolated (not a limit point of $E$), then $f$ is vacuously continuous at $p$: $x \in E$, $|x-p| < \delta$ for $\delta$ small enough $\implies x = p$.
+	\end{enumerate}
+\end{quote}
+
+\emph{Example}:
+\begin{quote}\vspace{-0.3cm}
+We saw last time that $\lim_{x \to p} P(x) = P(p)$ for all polynomials $P : \mathbb{R} \to \mathbb{R}$. Hence $\forall \epsilon > 0.\; \exists \delta > 0.\; x \in \mathbb{R}, 0 < |x-p| < \delta \implies |P(x) - P(p)| < \epsilon$. Hence $P$ is continuous at $p$.
+\end{quote}
+
+\textbf{Theorem}: Let $E \subseteq \mathbb{R}, f : E \to \mathbb{R}, p \in E$ be a limit point of $E$. Then:
+\begin{displaymath}
+f \text{ is continuous at } p \iff \lim_{x \to p} f(x) = f(p)
+\end{displaymath}
+
+\textbf{Corollary (Algebra of Continuity)}: Let $E \subseteq \mathbb{R}, f, g : E \to \mathbb{R}$, and $p \in E$. Assume that $f, g$ are continuous at $p$. Then the following hold:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item If $\alpha, \beta \in \mathbb{R}$ then $\alpha f + \beta g$ is continuous at $p$.
+	\item $fg$ is continuous at $p$.
+	\item If $g(p) \neq 0$ then $\frac{f}{g} : E \backslash g^{-1}(\{0\}) \to \mathbb{R}$ is well-defined and continuous at $p$.
+	\end{enumerate}
+\end{quote}
+
+\emph{Proof}: If $p$ is isolated, the claim is vacuously true. Assume $p$ is not isolated, i.e. $p$ is a limit point of $E$. Then the last theorem and algebra of limits gives the result.
+
+\textbf{Corollary}: Let $E \in \mathbb{R}, f, g : E \to \mathbb{R}$. If $f,g$ are continuous on $E$, then:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item If $\alpha, \beta \in \mathbb{R}$ then $\alpha f + \beta g$ is continuous on $E$.
+	\item $fg$ is continuous on $E$.
+	\item If $g(x) \neq 0\; (\forall x \in E)$, then $\frac{f}{g}$ is continuous on $E$.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Theorem}: Let $E, F \subseteq \mathbb{R}$, $f : E \to \mathbb{R}, g : F \to \mathbb{R}$. Assume $f(E) \subseteq F$, $f$ is continuous at $p \in E$, and $g$ is continuous at $f(p) \in F$. Then $g \circ f : E \to \mathbb{R}$ (where $(g \circ f)(x) = g(f(x))$) is continuous at $p$. Moreover, if $f$ is continuous on $E$ and $g$ is continuous on $F$, then $g \circ f$ is continuous on $E$.
+
+\emph{Proof}: Let $\epsilon > 0$.
+\begin{quote}\vspace{-0.3cm}
+Since $g$ is continuous at $f(p)$, $\exists \eta > 0.\; y \in F$ and $|y - f(p)| < \eta \implies |g(y) - g(f(p))| < \epsilon$. Since $f$ is continuous at $p$, $\exists \delta > 0.\; x \in E, |x-p| < \delta \implies |f(x) - f(p)| < \eta$.
+
+Since $f(E) \subseteq F$ we know that $x \in E, |x-p| < \delta \implies f(x) \in F, |f(x) - f(p)| < \eta \implies |g(f(x)) - g(f(p))| < \epsilon$. Hence, $g \circ f$ is continuous by definition.
+\end{quote}
+
+\emph{Examples}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item exp, cos, sin : $\mathbb{R} \to \mathbb{R}$ are continuous on $\mathbb{R}$ (proof in HW). YAlso, $\log : (0, \infty) \to \mathbb{R}$ is continuous on $(0, \infty)$.
+	\item Let $\alpha \in \mathbb{R}$ and set $f : (0, \infty) \to \mathbb{R}$ via $f(x) = x^\alpha$. Notice that $f(x) = \exp ( \alpha \log x)$. Since log and exp are continuous, $f(x) = x^\alpha$ is continuous.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Definition}: Let $E \subseteq \mathbb{R}$ and $A \subseteq E$. We say $A$ is \emph{relatively open} in $E$ iff $A = U \cap E$ for some open set $U \subseteq \mathbb{R}$. Similarly, we say $A$ is \emph{relatively closed} in $E$ iff $A = C \cap E$ for some closed $C \subseteq \mathbb{R}$.
+
+\textbf{Proposition}: Let $A \subseteq E \subseteq \mathbb{R}$. The following hold:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $A$ is relatively open in $E \iff \forall x \in A.\; \exists \epsilon > 0.\; B(x, \epsilon) \cap A \subseteq E$.
+	\item $A$ is relatively closed in $E \iff A = B^C \cap E$ for some relatively open $B \subseteq E$.
 	\end{enumerate}
 \end{quote}
 
