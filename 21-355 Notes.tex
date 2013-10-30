@@ -1628,4 +1628,64 @@ Since $f(E) \subseteq F$ we know that $x \in E, |x-p| < \delta \implies f(x) \in
 	\end{enumerate}
 \end{quote}
 
+\textbf{Theorem (Continuity Criteria)}: Let $E \subseteq \mathbb{R}, f : E \to \mathbb{R}$. The following are equivalent:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $f$ is continuous on $E$.
+	\item If $p \in E$ is a limit point of $E$, then $\lim_{x \to p} f(x) = f(p)$.
+	\item If $p \in E$ is a limit point of $E$ and $\{x_n\}_{n=l}^\infty \subseteq E$ satisfies $x_n \to p$ as $n \to \infty$, then $f(x_n) \to f(p)$ as $n \to \infty$.
+	\item If $V \subseteq \mathbb{R}$ is open, then $f^{-1}(V) \subseteq E$ is relatively open in $E$.
+	\item If $C \subseteq \mathbb{R}$ is closed, then $f^{-1}(C) \subseteq E$ is relatively closed in $E$.
+	\end{enumerate}
+\end{quote}
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+$(1) \iff (2) \iff (3)$ follows from the sequential criterion of limits, previous theorem. $(4) \iff (5)$ follows since $f^{-1}(V^C) = (f^{-1}(V))^C \cap E$.
+
+$(1) \implies (4)$:\\
+Let $V \subseteq \mathbb{R}$ be open and choose $p \in f^{-1}(V)$. Since $V$ is open, $\exists \epsilon > 0.\; B(f(p), \epsilon) \subseteq V$. It suffices to show, via previous proposition, that $\exists \delta > 0.\; B(p, \delta) \cap E \subseteq f^{-1}(V)$. Since $f$ is continuous on $E$, $\exists \delta > 0.\; x \in E, |x-p| < \delta \implies |f(x) - f(p)| < \epsilon$. That is, $x \in B(p, \delta) \cap E \implies |f(x) - f(p)| < \epsilon \implies f(x) \in B(f(p), \epsilon) \subseteq V$. Hence $B(p, \delta) \cap E \subseteq f^{-1}(V)$.
+
+$(4) \implies (1)$:\\
+Let $p \in E, \epsilon > 0$, and $V = B(f(p), \epsilon)$. Then $f^{-1}(B(f(p), \epsilon)) \subseteq E$ is relatively open in $E \implies$ (by previous proposition) $\exists \delta > 0.\; B(p, \delta) \cap E \subseteq f^{-1}(B(f(p), \epsilon))$. Then $x \in E$ and $|x-p| < \delta \implies f(x) \in B(f(p), \epsilon) \implies |f(x) - f(p)| < \epsilon$. Since $\epsilon, p$ were arbitrary, we deduce $f$ is continuous on $E$.
+\end{quote}
+
+\subsection{Compactness and Continuity}
+
+\textbf{Theorem}: Suppose $K \subseteq \mathbb{R}$ is compact and $f : K \to \mathbb{R}$ is continuous on $K$. Then $f(K)$ is compact.
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+Note that for $E \subseteq \mathbb{R}$, $f(f^{-1}(E)) \subseteq E$ and $E \subseteq f^{-1}(f(E))$. Let $\{V_\alpha\}_{\alpha \in A}$ be an open cover of $f(K)$. Since $f$ is continuous and $V_\alpha$ is open, $f^{-1}(V_\alpha)$ is relatively open in $K \implies f^{-1}(V_\alpha) = U_\alpha \cap K$ for some open $U_\alpha \subseteq \mathbb{R}$.
+
+Since $\{V_\alpha\}_{\alpha \in A}$ cover $f(K)$, we see that $\{f^{-1}(V_\alpha)\}_{\alpha \in A}$ is a cover of $K$. Then $\{U_\alpha\}_{\alpha \in A}$ is an open cover of $K$. Since $K$ is compact, there exists a finite subcover: $K \subseteq \bigcap_{i=1}^n U_{\alpha_i}$. Then $K \subseteq \bigcup_{i=1}^n U_{\alpha_i} \cap K = \bigcup_{i=1}^n f^{-1}(V_{\alpha_i}) \implies f(K) \subseteq \bigcup_{i=1}^n f(f^{-1}(V_{\alpha_i})) \subseteq \bigcup_{i=1}^n V_{\alpha_i}$. As we have extracted a finite open subcover of $f(K), f(K)$ is compact.
+\end{quote}
+
+\textbf{Extreme Value Theorem}: Let $K \subseteq \mathbb{R}$ be compact and $f : K \to \mathbb{R}$ be continuous. Then $\exists x_0, x_1 \in K$ such that $f(x_0) \leq f(x) \leq f(x_1) \;(\forall x \in K)$. That is, $f(x_0) = \min_{x \in K} f(x) = \min f(K)$ and $f(x_1) = \max_{x \in K} f(x) = \max f(K)$.
+
+\emph{Proof}: From last theorem, we know $f(K)$ is compact, so it's closed and bounded. From a previous theorem, closed and bounded sets contain their infimum and supremum (and thus min, max).\\
+
+\textbf{Definition}: Let $E \subseteq \mathbb{R}$ and $f : E \to \mathbb{R}$. We say $f$ is \emph{uniformly continuous} on $E$ iff:
+\begin{displaymath}\vspace{-0.3cm}
+\forall \epsilon > 0.\; \exists \delta > 0.\; x, y \in E \land |x-y| < \delta \implies |f(x) - f(y)| < \epsilon
+\end{displaymath}
+
+\emph{Remarks}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $f$ is uniformly continuous on $E \implies f$ is continuous on $E$.
+	\item The key difference is that for uniform continuity, $\delta > 0$ works for all points in $E$.
+	\end{enumerate}
+\end{quote}
+
+\emph{Examples}:
+
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item Let $E = (0,1)$ and $f(x) = \frac{1}{x}$. It's trivial that $f$ is continuous on $E$, but it is not uniformly continuous.
+
+	\emph{Proof}: Suppose it is; then for $\epsilon = \frac{1}{2}, \exists \delta > 0.\; x,y \in (0,1) \land |x-y| < \delta \implies |f(x) - f(y)| < \frac{1}{2}$. Choose $N \in \mathbb{N}$ such that $\frac{1}{\sqrt{\delta}} < N$. Then $x = \frac{1}{n}, y = \frac{1}{n+1}$ satisfy $|x-y| = \frac{1}{n(n+1)} \leq \frac{1}{n^2} < \delta$ if $n \geq N$. Then $\frac{1}{2} > |f(x) - f(y)| = |n - (n+1)| = 1$, a contradiction.
+	\end{enumerate}
+\end{quote}
+
 \end{document}
