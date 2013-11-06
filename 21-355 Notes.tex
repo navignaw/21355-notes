@@ -1688,4 +1688,118 @@ Since $\{V_\alpha\}_{\alpha \in A}$ cover $f(K)$, we see that $\{f^{-1}(V_\alpha
 	\end{enumerate}
 \end{quote}
 
+\textbf{Definition}: A function $f : E \to \mathbb{R}$ is \emph{Lipschitz} if $\forall x,y \in E.\; \exists k > 0.\; |f(x) - f(y)| \leq k|x-y|$.
+
+\textbf{Claim}: If $f$ is Lipschitz, it is uniformly continuous. Proof: let $\delta = \frac{\epsilon}{k}$.
+
+\textbf{Theorem}: Let $K \subseteq \mathbb{R}$ be compact and $f : K \to \mathbb{R}$ be continuous. Then $f$ is uniformly continuous on $K$.
+
+\subsection{Continuity and Connectedness}
+
+\textbf{Theorem}: Let $E \subseteq \mathbb{R}$ be connected and $f : E \to \mathbb{R}$ be continuous on $E$. If $X \subseteq E$ is connected, then $f(X)$ is connected.
+
+\textbf{Intermediate Value Theorem}: Let $a < b \in \mathbb{R}$. Suppose $f : [a,b] \to \mathbb{R}$ is continuous. If $f(a) < c < f(b)$ or $f(b) > c > f(a)$ for some $c \in \mathbb{R}$, then $\exists x \in (a,b).\; f(x) = c$.
+
+\subsection{Discontinuities}
+
+\textbf{Lemma}: If $p$ is a limit point of $E \subseteq \mathbb{R}$ then $p$ is a limit point of $E_p^+ = E \cap (p, \infty)$ or $E_p^- = E \cap (-\infty, p)$.
+
+\textbf{Definition}: Let $E \subseteq \mathbb{R}$, $f : E \to \mathbb{R}$, $p$ be a limit point of $E$, $q \in \mathbb{R}$.
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item If $p$ is a limit point of $E_p^-$, we say $\lim_{x \to p^-} f(x) = q \iff \forall \epsilon > 0.\; \exists \delta > 0.\; x \in E_p^-$, $0 < p - \delta \implies |f(x) - q| < \epsilon$.
+	\item If $p$ is a limit point of $E_p^+$, then $\lim_{x \to p^+} f(x) = q \iff \forall \epsilon > 0.\; \exists \delta > 0.\; x \in E_p^+$, $0 < x-p < \delta \implies |f(x) - q| < \epsilon$.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Proposition}: If $p$ is not a limit point of $E_p^+$ then $\lim_{x \to p} f(x) = \lim_{x \to p^-} f(x)$. If $p$ is not a limit point of $E_p^-$ then $\lim_{x \to p} f(x) = \lim_{x \to p^+} f(x)$.
+
+\textbf{Proposition}: If $p$ is both a limit point of either $E_p^+$ or $E_p^-$, then
+\begin{displaymath}
+\lim_{x \to p} f(x) = q \iff \lim_{x \to p^-} f(x) = \lim_{x \to p^+} f(x) = q
+\end{displaymath}
+
+\textbf{Definition}: Suppose $E \subseteq \mathbb{R}$, $f : E \to \mathbb{R}$, $p \in E$ is a limit point of $E$. Suppose further that $p$ is not a point of continuity of $f$.
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item We say $f$ has a \emph{simple discontinuity} of $p$ if\\
+	$p$ is not a limit point of $E_p^+$ and $\lim_{x \to p^-} f(x)$ exists,\\
+	$p$ is not a limit point of $E_p^-$ and $\lim_{x \to p^+} f(x)$ exists, or\\
+	$p$ is a limit point of $E_p^+$ and $E_p^-$ and $\lim_{x \to p^+} f(x)$, $\lim_{x \to p^-} f(x)$ both exist.
+
+	\item Otherwise, we say $f$ has an \emph{essential discontinuity} of $p$.
+	\end{enumerate}
+\end{quote}
+
+\subsection{Monotone Functions}
+
+\textbf{Definition}: Let $E \subseteq \mathbb{R}$ and $f : E \to \mathbb{R}$. We say:\\
+$f$ is \emph{non-decreasing} (increasing) if $x,y \in E$ and $x < y \implies f(x) \leq f(y)$ ($f(x) < f(y)$), and\\
+$f$ is \emph{non-increasing} (decreasing) if $x,y \in E$ and $x < y \implies f(y) \leq f(x)$ ($f(y) < f(x)$).\\
+If $f$ is non-increasing or non-decreasing, $f$ is \emph{monotone}.
+
+\textbf{Theorem}: Suppose $f : (a,b) \to \mathbb{R}$ is monotone, and let $p \in (a,b)$. Then $\lim_{x \to p^-} f(x)$ and $\lim_{x \to p^+} f(x)$ both exist. Moreover, if $f$ is non-decreasing, then
+\begin{displaymath}\lim_{x \to p^-} f(x) = \sup f((a,p)) \leq f(p) \leq \inf f((p,b)) = \lim_{x \to p^+} f(x)\end{displaymath}
+
+\textbf{Corollary}: If $f : (a,b) \to \mathbb{R}$ is monotone, then $f$ has no essential discontinuities.
+
+\emph{Example}: $f(x) = \lfloor x \rfloor$ is non-decreasing and $f$ has countably many simple discontinuities.
+
+\textbf{Theorem}: If $f : (a,b) \to \mathbb{R}$ is monotone, then $f$ has at most countably many simple discontinuities.
+
+
+\section{Differentiation}
+
+\subsection{The Derivative}
+
+\textbf{Definition}: Assume $f : [a,b] \to \mathbb{R}$ for $a < b \in \mathbb{R}$. For all $x \in [a,b]$, the function $\phi : (a,b) \backslash \{x\} \to \mathbb{R}$ via $\phi(t) = \frac{f(t) - f(x)}{t - x}$ is well-defined, and $x$ is a limit point of $(a,b) \backslash \{x\}$. If $\lim_{t \to x} \phi(t)$ exists we write $f'(x) = \lim_{t \to x} \phi(t)$ and say that $f$ is \emph{differentiable} at $x$.
+
+We define $f' : \{x \in [a,b] \;|\; x \text{ is differentiable at }x\} \to \mathbb{R}$ to be the \emph{derivative} of $f$. If $f$ is differentiable $\forall x \in E \subseteq [a,b]$, we say $f$ is differentiable on $E$.
+
+\textbf{Definition (General)}: Let $E \subseteq \mathbb{R}$, $f : E \to \mathbb{R}$, and $x \in E$ be a limit point of $E$. Define $\phi : E \backslash \{x\} \to \mathbb{R}$ by $\phi(t) = \frac{f(t) - f(x)}{t-x}$. If $\lim_{t \to x} \phi(t)$ exists we say $f$ is differentiable at $x$, and write $f'(x) = \lim_{t \to x} \phi(t)$.\\
+
+\textbf{Proposition (locality of derivative)}: Suppose $f : E \to \mathbb{R}$, $g : F \to \mathbb{R}$, $x \in E \cap F$ is a limiit point of $E \cap F$, and that $f$ and $g$ are differentiable at $x$. If $f = g$ on $E \cap F$ then $f'(x) = g'(x)$. This shows that $f'(x)$ only depends on the value of $f$ ``near $x$".
+
+\textbf{Proposition (Newtonian approximation)}: Let $f : E \to \mathbb{R}$, $x \in E$ be a limit point of $E$, and $L \in \mathbb{R}$. Then the following are equivalent:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $f$ is differentiable at $x$ and $f'(x) = L$
+	\item $\forall \epsilon > 0.\; \exists \delta > 0.\; t \in E \land |x-t| < \delta \implies |f(t) - (f(x) + L(t-x))| < \epsilon|t-x|$
+	\end{enumerate}
+	Proof follows from definition of $\lim_{t \to x} \phi(t)$. Newton's approximation says differentiable functions are those that can be ``well-approximated" by affine functions $\alpha + \beta x$. Continuous functions are those well-approximated by constants, while differentiable functions are well-approximated by the ``next" simplest function.
+\end{quote}
+
+\textbf{Theorem}: Suppose $f : E \to \mathbb{R}$, $x \in E$ is a limit point of $E$, and $f$ is differentiable at $x$. Then $f$ is continuous at $x$.
+
+\emph{Proof}: By definition, if $t \in E \backslash \{x\}$ then $f(t) - f(x) = \phi(t) (t-x)$. Then $f(t) = f(x) + \phi(t)(t-x)$ and hence $\lim_{t \to x}f(t) = f(x) + \lim_{t \to x} \phi(t) (t-x) = f(x) + f'(x) 0 = f(x)$. By the limit chracterization of continuity, we deduce that $f$ is continuous at $x$.
+
+\emph{Remark}: The converse fails. Let $f(x) = |x|$ on $\mathbb{R}$. Since $||x|-|y|| \leq |x-y|$, $f$ is Lipschitz and hence uniformly continuous. However, for $x = 0$, $t > 0 \implies \phi(t) = \frac{|t|-0}{t-0} = 1$ and $t < 0 \implies \phi(t) = \frac{-t-0}{t-0} = -1$. Then $\lim_{t \to 0^-} \phi(t) = -1 \neq \lim_{t \to 0^+} \phi(t) = 1$, so $f'(0)$ does not exist.\\
+
+\textbf{Theorem (Algebra of Derivatives)}: Let $f, g : E \to \mathbb{R}$ be differentiable at $x \in E$. Then:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $f + g : E \to \mathbb{R}$ is differentiable at $x$ and $(f+g)'(x) = f'(x) + g'(x)$
+	\item $fg : E \to \mathbb{R}$ is differentiable at $x$ and $(fg)'(x) = f(x)g'(x) + f'(x)g(x)$
+	\item If $g(x) \neq 0$ then $\frac{f}{g} : E \backslash g^{-1}(\{0\}) \to \mathbb{R}$ is differentiable at $x$ and $(\frac{f}{g})'(x) = \frac{g(x)f'(x) - f(x)g'(x)}{g(x)^2}$
+	\end{enumerate}
+\end{quote}
+
+\emph{Examples}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $f(x) = \alpha + \beta x$ on $\mathbb{R} \implies f'(x) = \lim_{t \to x} \frac{f(t) - f(x)}{t-x} = \beta$ $(\forall x \in \mathbb{R})$.
+	\item $f(x) = x^n$ for $n \in \mathbb{N} \implies f'(x) = nx^{n-1}$. Proof by induction.
+	\item Every polynomial $P(x) = \sum_{n=0}^N a_n x^n$ is differentiable, and $P'(x) = \sum_{n=0}^N na_n x^{n-1}$.
+	\item $R(x) = \frac{P(x)}{Q(x)}$ is dfiferentiable when $P, Q$ are polynomials at points $p \in \mathbb{R}$ where $Q(p) \neq 0$.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Theorem (Chain Rule)}: Suppose $f : E \to \mathbb{R}$ is differentiable at $x \in E$, $f(E) \subseteq F$, and $g : F \to \mathbb{R}$ is differentiable at $f(x) \in F$. Then $g \circ f : E \to \mathbb{R}$ is differentiable at $x$ and $(g \circ f)'(x) = g'(f(x)) f'(x)$.
+
+\subsection{Mean Value Theorems}
+
+\textbf{Definition}: Let $f : E \to \mathbb{R}$. We say that $f$ has a \emph{local maximum} at $x \in E$ if $\exists \delta > 0.\; t \in E$ and $|x-t| < \delta \implies f(t) \leq f(x)$. We say $f$ has a \emph{local minimum} at $x \in E$ if $-f$ has a local maximum.
+
+If $f$ has either a local max or min at $x \in E$, we say $f$ has a \emph{local extremum} at $x$.
+
 \end{document}
