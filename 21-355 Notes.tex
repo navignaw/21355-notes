@@ -1802,4 +1802,60 @@ We define $f' : \{x \in [a,b] \;|\; x \text{ is differentiable at }x\} \to \math
 
 If $f$ has either a local max or min at $x \in E$, we say $f$ has a \emph{local extremum} at $x$.
 
+\subsection{???}
+
+%% Missing lecture 11/8/13
+
+\textbf{Theorem (Darboux)}: Suppose $f : [a,b] \to \mathbb{R}$ is differentiable on $[a,b]$ and $f'(a) < \gamma < f'(b)$. Then $\exists x \in (a,b).\; f'(x) = \gamma$.
+
+\textbf{Corollary}: If $f : [a,b] \to \mathbb{R}$ is differentiable on $[a,b]$, then $f'$ has no simple discontinuities.
+
+\subsection{L'H\^{o}pital's Rule}
+
+\textbf{Theorem}: Suppose $f,g : [a,b] \to \mathbb{R}$ are continuous on $[a,b]$, differentiable on $(a,b)$, and $g'(x) \neq 0$ $(\forall x \in (a,b))$. Assume that $\lim_{x \to a} \frac{f'(x)}{g'(x)} = L$. If $f(a) = g(a) = 0$, then $\lim_{x \to a} \frac{f(x)}{g(x)} = L$.
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+We claim first that $g(x) \neq 0$ for $x \in (a,b]$. Otherwise, $g(x) = 0$ for some $x \in (a,b] \implies 0 = \frac{g(x) - g(a)}{x-a} = g'(z)$ for some $z \in (a,x)$, a contradiction. So $\frac{f}{g} : (a, b] \to \mathbb{R}$ is well-defined.
+
+Let $\{x_n\}_{n=l}^\infty \subseteq (a,b]$ satisfy $x_n \to a$ as $n \to \infty$. We claim that $\lim_{n \to \infty} \frac{f(x_n)}{g(x_n)} = L$. Once this is established, the sequential characterization of limits yields the desired result.
+
+To prove the claim, we apply Cauchy's Mean Value Theorem on $[a, x_n]$: $\exists y_n \in (a, x_n)$ such that $f'(y_n) g(x_n) = f'(y_n)(g(x_n) - g(a)) = g'(x_n) (f(x_n) - f(a)) = g'(x_n) f(x_n)$. Then $\forall n \geq l.\; \frac{f(x_n)}{g(x_n)} = \frac{f'(x_n)}{g'(x_n)}$. Since $a < y_n < x_n$, the squeeze lemma implies $y_n \to a$. Hence $\lim_{n \to \infty} \frac{f(x_n)}{g(x_n)} = \lim_{n \to \infty} \frac{f'(x_n)}{g'(x_n)} = \lim_{x \to a} \frac{f'(x)}{g'(x)} = L$.
+\end{quote}
+
+\textbf{Remarks}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item The theorem is also true if we take limits at $t$.
+	\item If $f,g : (a,b] \to \mathbb{R}$ and $\lim_{x \to a} f(x) = \lim_{x \to a} g(x) = 0$, then the theorem still works.
+	\end{enumerate}
+\end{quote}
+
+\subsection{Higher Derivatives and Taylor's Theorem}
+
+\textbf{Definition}: Suppose $f : E \to \mathbb{R}$ is differentiable at $x \in E$, and $x$ is a limit point of $\{y \in E \;|\; f'(x) \text{ exists}\}$. We say $f$ is twice differentiable at $x$ if $f' : \{y \in E \;|\; f'(y) \text{ exists}\} \to \mathbb{R}$ is differentiable at $x$; and $f''(x) = f^{(2)}(x) = (f')'(x)$. Similarly, for $n \in \mathbb{N}$ with $n > 2$, we say $f$ is $n$-times differentiable at $x$ if $x$ is a limit point of $\{y \in E \;|\; f^{(n-1)}(y) \text{ exists}\}$ and $f^{(n-1)}$ is differentiable at $x$, in which case $f^{(n)}(x) = (f^{(n-1)})'(x)$.
+
+If $f^{(n)}$ exists $\forall n \in \mathbb{N}$, $n \geq 1$ we say $f$ is infinitely differentiable at $x$.
+
+\textbf{Theorem (Taylor)}: Suppose $f : [a,b] \to \mathbb{R}$. Assume $f^{(n-1)}$ is continuous on $[a,b]$ and $f^(n)$ exists on $(a,b)$. Let $x,y \in [a,b]$ with $x \neq y$. Then $\exists z \in (\min\{x,y\}, \max\{x,y\})$ such that
+\begin{displaymath}
+f(y) = \sum_{k=0}^{n-1} \frac{f^{(k)}(x)}{k!} (y-x)^k + \frac{f^{(n)}(z)}{n!} (y-x)^n
+\end{displaymath}
+(called the Taylor polynomial or Taylor approximation).
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+Suppose $x < y$ ($y < x$ is handled without loss of generality). Let $P(t) = \sum_{k=0}^{n-1} \frac{f^{(k)}(x)}{k!} (t-x)^k$, and set $M = \frac{f(y) - P(y)}{(y-x)^n}$. It suffices to prove that $M = \frac{f^{(n)}(z)}{n!}$ for some $z \in (x,y)$.
+
+Define $g(t) = f(t) - P(t) - M(t-x)^n$, and notice that $g^{(n)}(t) = f^{(n)}(t) - n!M$. As such, it suffices to show that $g^{(n)}(z) = 0$ for some $z \in (x,y)$.
+
+By construction, $g^{(k)}(x) = 0$ $(\forall k = 0, \ldots, n-1)$, and $g(y) = 0$ (by choice of $M$). By Mean Value Theorem, $\exists x_i \in (x,y).\; g'(x_1) = \frac{g(y) - g(x)}{y-x} = 0$. Similarly, $\exists x_2 \in (x, x_1).\; g''(x_2) = \frac{g'(x_1) - g'(x)}{x-1 - x} = 0$. Iterating, we eventually find $x_{n-1} \in (x,y).\; g^{(n-1)}(x_{n-1}) = 0$. Then $0 = g^{(n)}(z) = \frac{g^{(n-1)}(x_{n-1}) - g^{(n-1)}(x)}{x_{n-1} - x} = 0$ for some $z \in (x, x_{n-1})$.
+\end{quote}
+
+\section{Riemann-Stieltjes Integration}
+
+\subsection{The R-S Integral}
+
+\textbf{Definition}: Let $a,b \in \mathbb{R}$ with $a \leq b$. A partition of $[a,b]$ is a finite ordered set $P = \{x_0, \ldots, x_n\}$ such that $a = x_0 \leq x_1 \leq \cdots \leq x_n = b$. Write $\mathcal{P}[a,b] = \{P \;|\; P \text{ is a partition of }[a,b]\}$. For brevity we'll write $\mathcal{P} = \mathcal{P}[a,b]$.
+
 \end{document}
