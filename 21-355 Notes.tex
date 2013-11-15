@@ -1856,6 +1856,52 @@ By construction, $g^{(k)}(x) = 0$ $(\forall k = 0, \ldots, n-1)$, and $g(y) = 0$
 
 \subsection{The R-S Integral}
 
-\textbf{Definition}: Let $a,b \in \mathbb{R}$ with $a \leq b$. A partition of $[a,b]$ is a finite ordered set $P = \{x_0, \ldots, x_n\}$ such that $a = x_0 \leq x_1 \leq \cdots \leq x_n = b$. Write $\mathcal{P}[a,b] = \{P \;|\; P \text{ is a partition of }[a,b]\}$. For brevity we'll write $\mathcal{P} = \mathcal{P}[a,b]$.
+\textbf{Definition}: Let $a,b \in \mathbb{R}$ with $a \leq b$. A partition of $[a,b]$ is a finite ordered set $P = \{x_0, \ldots, x_n\}$ such that $a = x_0 \leq x_1 \leq \cdots \leq x_n = b$. Write $\Pi[a,b] = \{P \;|\; P \text{ is a partition of }[a,b]\}$. For brevity we'll write $\Pi = \Pi[a,b]$.
+
+\textbf{Universal Assumptions}: Throughout $\S 7$ we will always assume that:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $f : [a,b] \to \mathbb{R}$ is bounded: $\forall x \in [a,b].\; m \leq f(x) \leq M$, where $m = \inf f([a,b]), M = \sup f([a,b])$
+	\item $\alpha : [a, b] \to \mathbb{R}$ (the integrator or weight function) is non-decreasing (in particular, $\alpha$ is also bounded)
+	\end{enumerate}
+\end{quote}
+
+\textbf{Definition}: For each $P \in \Pi[a,b]$ we associate to $f$ the following quantities ($P = \{x_0, \ldots, x_n\}$):
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $m_i = \inf \{f(x) \;|\; x \in [x_{i-1}, x_i]\}$ for $i \in [n]$
+	\item $M_i = \sup \{f(x) \;|\; x \in [x_{i-1}, x_i]\}$ for $i \in [n]$
+	\item $\Delta \alpha_i = \alpha(x_i) - \alpha(x_{i-1}) \geq 0$ for $i \in [n]$
+	\end{enumerate}
+
+	We write $U(P, f, \alpha) = \sum_{i=1}^n M_i \Delta \alpha_i$, $L(P, f, \alpha) = \sum_{i=1}^n m_i \Delta \alpha_i$.\\
+$U$ is the upper Riemann-Stieltjes sum, and $L$ is the lower R-S sum.
+\end{quote}
+
+\emph{Remark}: Clearly $m(\alpha(b) - \alpha(a)) = \sum_{i=1}^n m(\alpha(x_i) - \alpha(x_{i-1})) = \sum_{i=1}^n m \Delta \alpha_i \leq \sum_{i=1}^n M_i \Delta \alpha_i \leq M \sum_{i=1}^n \Delta \alpha_i = M(\alpha(b) - \alpha(a))$. Hence $\forall P \in \Pi[a,b].\; m(\alpha(b) - \alpha(a)) \leq L(P, f, \alpha) \leq U(P, f, \alpha) \leq M(\alpha(b) - \alpha(a))$.\\
+
+\textbf{Definition of Integral}: We define
+\begin{quote}\vspace{-0.3cm}
+$\underline{\int_a^b} f d\alpha = \sup \{L(P, f, \alpha) \;|\; P \in \Pi[a,b]\}$, and $\overline{\int_a^b} f d\alpha = \inf \{U(P, f, \alpha) \;|\; P \in \Pi[a,b]\}$. Both are well-defined by the remark.
+
+If $\underline{\int_a^b} f d\alpha = \overline{\int_a^b} f d\alpha$ then we say $f$ is R-S integrable with respect to $\alpha$, and write\\ $\int_a^b f d\alpha = \underline{\int_a^b} f d\alpha = \overline{\int_a^b} f d\alpha$.\\
+
+We write $\mathcal{R}([a,b]; \alpha) = \{f : [a,b] \to \mathbb{R} \;|\; f \text{ is bounded, } f \text{ is R-S integrable with respect to }\alpha\}$. When $\alpha(x) = x$, $\int_a^b f dx$ is the Riemann integral and we write $\mathcal{R}([a,b])$.
+
+\emph{Heuristics}: The function $\alpha$ assigns different weights to different points in $[a,b]$. The intuition is that $\int_a^b f d\alpha$ is a ``weighted Riemann integral". If $\alpha$ is continuous then we have a geometric interpretation of $\int_a^b f d \alpha$: consider the curve in $\mathbb{R}^2$ parameterized by $(x(t), y(t)) = (\alpha(t), f(t))$; $\int_a^b f d\alpha =$ area under this curve.
+\end{quote}
+
+\textbf{Lemma}: Let $f(x) = C$ ($\forall x \in [a,b]$). Then $f \in \mathcal{R}([a,b], \alpha)$ and $\int_a^b f d\alpha = C(\alpha(b) - \alpha(a))$.
+
+\emph{Proof}: For any $P \in \Pi[a,b]$ we have $m_i = M_i = C$. Hence $U(P, f, \alpha) = L(P, f, \alpha) = \sum_{i=1}^n C \Delta \alpha_i = C(\alpha(b) - \alpha(a))$. So $\underline{\int_a^b} f d\alpha = \sup \{(L(P, f, \alpha)\} = C(\alpha(b) - \alpha(a)) = \inf \{U(P, f, \alpha\} = \overline{\int_a^b} f d\alpha$.
+
+\textbf{Definition}: If $P, P' \in \Pi[a,b]$ and every point in $P$ is in $P'$, we say $P'$ is a \emph{refinement} of $P$.\\
+If $P_1, P_2 \in \Pi[a,b]$ we define the \emph{common refinement} $P_1 \# P_2 \in \Pi[a,b]$ by $P_1 \# P_2 = P_1 \cup P_2$, ordered appropriately.
+
+\textbf{Proposition}: If $P, P' \in \Pi[a,b]$ and $P'$ is a refinement of $P$, then $L(P, f, \alpha) \leq L(P', f \alpha) \leq U(P', f, \alpha) \leq U(P, f, \alpha)$.\\
+
+\textbf{Theorem}: $\underline{\int_a^b} f d\alpha \subseteq \overline{\int_a^b} f d \alpha$.
+
+\emph{Proof}: Let $P_1, P_2 \in \Pi[a,b]$. Then $L(P_1, f, \alpha) \leq L(P_1 \# P_2, f, \alpha) \leq U(P_1 \# P_2, f, \alpha) \leq U(P-2, f, \alpha)$ by last proposition. Hence $\underline{\int_a^b} f d\alpha = \sup\{L(P_1, f, \alpha) \;|\; P_1 \in \Pi[a,b]\} \leq U(P_2, f, \alpha)$. Then $\underline{\int_a^b} f d\alpha \leq \inf \{U(P_2, f, \alpha) \;|\; P_2 \in \Pi[a,b]\} = \overline{\int_a^b} f d\alpha$.
 
 \end{document}
