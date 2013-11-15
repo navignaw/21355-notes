@@ -1282,7 +1282,7 @@ $\implies$:\\
 Suppose $x$ is a limit point of $E$, i.e. $\forall \epsilon > 0.\; (B(x, \epsilon) \cap E) \backslash \{x\} \neq \varnothing$. Set $r_1 = 1$ and choose $x_1 \in E$ such that $x_1 \in (B(x, r) \cap E) \backslash \{x\}$.\\
 Set $r_n = \min(\frac{1}{n}, |x-x_{n-1}|)$ and choose $x_n \in (B(x_1, r_n) \cap E) \backslash \{x\}$.
 
-Then $\forall n \geq 1.\; \{x_n\}_{n=1}^\infty \subseteq E$ and $|x-x_{n-1}| < |x-x_n|\l$ and $|x-x_n| < \frac{1}{n}$. It follows $\{x_n\}$ is not eventually constant, and $x_n \to x$ as $n \to \infty$.
+Then $\forall n \geq 1.\; \{x_n\}_{n=1}^\infty \subseteq E$ and $|x-x_{n-1}| < |x-x_n|$ and $|x-x_n| < \frac{1}{n}$. It follows $\{x_n\}$ is not eventually constant, and $x_n \to x$ as $n \to \infty$.
 
 $\Longleftarrow$:\\
 Let $\epsilon > 0$. $\exists N \geq 1.\; n \geq N \implies |x-x_n| < \epsilon$. Then $\{x_n \;|\; n \geq N\} \subseteq B(x, \epsilon) \cap E$. If $\{x_n \;|\; n \geq N\} = \{x\}$ then $\{x_n\}$ is eventually constant, a contradiction. Hence $\varnothing \neq \{x_n \;|\; n \geq N\} \backslash \{x\} \subseteq (B(x, \epsilon) \cap E) \backslash \{x\} \implies (B(x, \epsilon) \cap E) \backslash \{x\} \neq \varnothing$, and hence $x$ is a limit point.
@@ -1802,9 +1802,55 @@ We define $f' : \{x \in [a,b] \;|\; x \text{ is differentiable at }x\} \to \math
 
 If $f$ has either a local max or min at $x \in E$, we say $f$ has a \emph{local extremum} at $x$.
 
-\subsection{???}
+\textbf{Theorem}: Suppose $f : E \to \mathbb{R}$ is differentiable at $x \in E$ and $x$ is a limit point of both $E_x^+$ and $E_x^-$. If $f$ has a local extremum at $x$, then $f'(x) = 0$.
 
-%% Missing lecture 11/8/13
+\emph{Proof}: It suffices to assume that $f$ has a local max at $x$. Let $\delta > 0$ such that $t \in E$ and $|x-t| < \delta \implies f(t) \leq f(x)$. Then $t \in E, 0 < x-t < \delta \implies \frac{f(t) - f(x)}{t-x} \geq 0$ and $0 < t-x < \delta \implies \frac{f(t) - f(x)}{t-x} \leq 0$. So $\lim_{t \to x^-} \frac{f(t) - f(x)}{t - x} = f'(x) \geq 0$, $\lim_{t \to x^-} \frac{f(t) - f(x)}{t - x} = f'(x) \leq 0$, and thus $f'(x) = 0$.
+
+\emph{Remark}: The result is false if $x$ is not a limit point of either $E_x^+$ or $E_x^-$. Consider $f(x) = x$ on $E = [0,1]$; $f$ has a local min at $x = 0$, local max at $x = 1$, but $f'(x) = 1 \forall x \in [0, 1]$.\\
+
+\textbf{Theorem (Monotonicity part 1)}: Let $f : E \to \mathbb{R}$ be differentiable at $x \in E$.
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item If $f$ is non-decreasing on $E$, then $f'(x) \geq 0$.
+	\item If $f$ is non-increasing on $E$, then $f'(x) \leq 0$.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Cauchy's Mean Value Theorem}: Suppose that $f, g : [a,b] \to \mathbb{R}$ are continuous on $[a,b]$, differentiable on $(a,b)$. Then $\exists x \in (a,b).\; (g(b) - g(a)) f'(x) = (f(b) - f(a)) g'(x)$.
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+Consider $h : [a,b] \to \mathbb{R}$ via $h(x) = (g(b) - g(a)) f(x) - (f(b) - f(a)) g(x)$. To prove the result, it suffices to find $x \in (a,b)$ such that $h'(x) = 0$ (since $h$ is cont, diff on $[a,b]$ and $(a,b)$).
+
+Notice that $h(a) = g(b) f(a) - g(a) f(b) = h(b)$.
+
+If $h$ is constant, then $h'(x) = 0$ trivially and we're done. Assume $h$ is not constant; then $\exists t \in (a,b).\; h(t) > h(a)$ or $h(t) < h(a)$.
+
+If $h(t) \geq h(a)$, then Extreme Value Theorem guarantees that $\exists x \in (a,b).\; h(x) = \max h([a,b])$ and Local Extremum Theorem $\implies h'(x) = 0$.
+
+If $h(t) < h(a)$ then EVT guarantees $\exists x \in (a,b).\; h(x) = \min h([a,b])$ and LET $\implies h'(x) = 0$.
+\end{quote}
+
+\textbf{Corollary (Mean Value Theorem)}: If $f : [a,b] \to \mathbb{R}$ is cont and diff on $[a,b], (a,b)$ then $\exists x \in (a,b).\; f(b) - f(a) = f'(x) (b-a)$. \emph{Proof}: Set $g(x) = x$.
+
+\textbf{Corollary (Monotonicity part 2)}: Suppose $f : (a,b) \to \mathbb{R}$ is differentiable on $(a,b)$. The following hold:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $\forall x \in (a,b).\; f'(x) > 0 \implies f$ is increasing.
+	\item $\forall x \in (a,b).\; f'(x) \geq 0 \implies f$ is non-decreasing.
+	\item $\forall x \in (a,b).\; f'(x) = 0 \implies f$ is constant.
+	\item $\forall x \in (a,b).\; f'(x) \leq 0 \implies f$ is non-increasing.
+	\item $\forall x \in (a,b).\; f'(x) < 0 \implies f$ is decreasing.
+	\end{enumerate}
+\end{quote}
+
+\emph{Proof}: by MVT, if $a < x_1 < x_2 < b$, then $f(x_2) - f(x_1) = f'(x) (x_2 - x_1)$.
+
+\subsection{Darboux's Theorem}
+
+\textbf{Definition}: We say a function $g : \mathbb{R} \to \mathbb{R}$ is periodic with period $p > 0$ if $g(x+p) = g(x)$ ($\forall x \in \mathbb{R}$).
+
+
 
 \textbf{Theorem (Darboux)}: Suppose $f : [a,b] \to \mathbb{R}$ is differentiable on $[a,b]$ and $f'(a) < \gamma < f'(b)$. Then $\exists x \in (a,b).\; f'(x) = \gamma$.
 
@@ -1891,7 +1937,7 @@ We write $\mathcal{R}([a,b]; \alpha) = \{f : [a,b] \to \mathbb{R} \;|\; f \text{
 \emph{Heuristics}: The function $\alpha$ assigns different weights to different points in $[a,b]$. The intuition is that $\int_a^b f d\alpha$ is a ``weighted Riemann integral". If $\alpha$ is continuous then we have a geometric interpretation of $\int_a^b f d \alpha$: consider the curve in $\mathbb{R}^2$ parameterized by $(x(t), y(t)) = (\alpha(t), f(t))$; $\int_a^b f d\alpha =$ area under this curve.
 \end{quote}
 
-\textbf{Lemma}: Let $f(x) = C$ ($\forall x \in [a,b]$). Then $f \in \mathcal{R}([a,b], \alpha)$ and $\int_a^b f d\alpha = C(\alpha(b) - \alpha(a))$.
+\textbf{Lemma}: Let $f(x) = C$ ($\forall x \in [a,b]$). Then $f \in \mathcal{R}([a,b]; \alpha)$ and $\int_a^b f d\alpha = C(\alpha(b) - \alpha(a))$.
 
 \emph{Proof}: For any $P \in \Pi[a,b]$ we have $m_i = M_i = C$. Hence $U(P, f, \alpha) = L(P, f, \alpha) = \sum_{i=1}^n C \Delta \alpha_i = C(\alpha(b) - \alpha(a))$. So $\underline{\int_a^b} f d\alpha = \sup \{(L(P, f, \alpha)\} = C(\alpha(b) - \alpha(a)) = \inf \{U(P, f, \alpha\} = \overline{\int_a^b} f d\alpha$.
 
@@ -1903,5 +1949,47 @@ If $P_1, P_2 \in \Pi[a,b]$ we define the \emph{common refinement} $P_1 \# P_2 \i
 \textbf{Theorem}: $\underline{\int_a^b} f d\alpha \subseteq \overline{\int_a^b} f d \alpha$.
 
 \emph{Proof}: Let $P_1, P_2 \in \Pi[a,b]$. Then $L(P_1, f, \alpha) \leq L(P_1 \# P_2, f, \alpha) \leq U(P_1 \# P_2, f, \alpha) \leq U(P-2, f, \alpha)$ by last proposition. Hence $\underline{\int_a^b} f d\alpha = \sup\{L(P_1, f, \alpha) \;|\; P_1 \in \Pi[a,b]\} \leq U(P_2, f, \alpha)$. Then $\underline{\int_a^b} f d\alpha \leq \inf \{U(P_2, f, \alpha) \;|\; P_2 \in \Pi[a,b]\} = \overline{\int_a^b} f d\alpha$.
+
+\subsection{Integrability Criteria}
+
+\textbf{Theorem (Riemann)*}: $f \in \mathcal{R}([a,b]; \alpha) \iff \forall \epsilon > 0.\; \exists P \in \Pi[a,b].\; U(P, f, \alpha) - L(P, f, \alpha) < \epsilon$.
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+$(1) \implies (2)$:\\
+Let $\epsilon > 0$. By definition, $\exists P_1, P_2 \in \Pi[a,b].\; \underline{\int_a^b} f d\alpha - \frac{\epsilon}{2} < L(P_1, f, \alpha)$, and $U(P_2, f, \alpha) \leq \overline{\int_a^b} f d\alpha + \frac{\epsilon}{2}$. Let $P = P_1 \# P_2$. Then $U(P_1, f, \alpha) \leq U(P_2, f, \alpha) < \overline{\int_a^b} f d\alpha + \frac{\epsilon}{2}$. Hence $U(P, f, \alpha) - L(P, f , \alpha) < \epsilon$.
+
+$(2) \implies (1)$:\\
+For any partition $P \in \Pi[a,b]$ we know $\overline{\int_a^b} f d\alpha \leq U(P_1, f, \alpha)$ and $L(P, f, \alpha) \leq \underline{\int_a^b} f d\alpha$. We also know $\underline{\int_a^b} f d\alpha \leq \overline{\int_a^b} f d\alpha$. Then (2) implies that for $\epsilon > 0$ we have $P \in \Pi[a,b].\; U(P_1, f, \alpha) - L(P_1, f, \alpha) < \epsilon$. But then $0 \leq \overline{\int_a^b} f d\alpha - \underline{\int_a^b} f d\alpha < \epsilon$ ($\forall \epsilon > 0$) and so $\underline{\int_a^b} f d\alpha = \overline{\int_a^b} f d\alpha \implies f \in \mathcal{R}([a,b]; \alpha)$.
+\end{quote}
+
+\textbf{Lemma}: Let $P \in \Pi[a,b]$. The following are true:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item If $P'$ is a refinement of $P$, then $U(P', f, \alpha) - L(P', f, \alpha) \leq U(P, f, \alpha) - L(P, f, \alpha)$.
+	\item If $s_i, t_i \in [x_{i-1}, x_i]$ ($\forall i \in [n]$), then $0 \leq \sum_{i=1}^n |f(s_i) - f(t_i)| \Delta \alpha_i \leq U(P, f, \alpha) - L(P, f, \alpha)$.
+	\item If $f \in \mathcal{R}([a,b]; \alpha)$, then $t_i \in [x_{i-1}, x_i] \implies |\sum_{i=1}^n f(t_i) \Delta \alpha_i - \int_a^b f d\alpha| \leq U(P, f, \alpha) - L(P, f, \alpha)$.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Theorem}: If $f$ is continuous on $[a,b]$, then $f \in \mathcal{R}([a,b]; \alpha)$.
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+Note that EVT implies $f$ is bounded. Let $\epsilon > 0$ and choose $k > 0$ so $k(\alpha(b) - \alpha(a)) < \epsilon$. Since $f$ is cont on compact $[a,b]$, $f$ is uniformly continuous. Then $\exists \delta > 0.\; x,y \in [a,b]$ and $|x-y| < \delta \implies |f(x) - f(y)| < k$.
+
+Choose a partition $P \in \Pi[a,b]$ such that $x_i - x_{i-1} < \delta$ ($\forall i \in [n]$). Then by EVT,\\ $\exists s_i, t_i \in [x_{i-1}, x_i]$ such that $m_i = f(s_i), M_i = f(t_i)$. Then $U(P, f, \alpha) - L(P, f, \alpha) = \sum_{i=1}^n (M_i - m_i) \Delta \alpha_i =$ $\sum_{i=1}^n (f(t_i) - f(s_i)) \Delta \alpha_i \leq \sum_{i=1}^n k \Delta \alpha_i = k \sum_{k=1}^n \Delta \alpha_i =$\\ $k (\alpha(b) - \alpha(a)) < \epsilon$. Since $\epsilon > 0$ was arbitrary, we deduce Riemann's Theorem that $f \in \mathcal{R}([a,b]; \alpha)$.
+\end{quote}
+
+\textbf{Theorem}: Suppose that $f$ is monotone and $\alpha$ is continuous on $[a,b]$; then $f \in \mathcal{R}([a,b]; \alpha)$.
+
+\emph{Remarks}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item If $\alpha = x$, then all monotone functions $f$ are in $\mathcal{R}([a,b])$, i.e. all monotone functions are Riemann integrable.
+	\item Monotone functions don't have to be continuous, so $\exists f$ with simple discontinuities in $\mathcal{R}([a,b]; \alpha)$ when $\alpha$ is continuous.
+	\item Monotone functions can have countably infinite sets of discontinuity; R-S integrals can handle infinite discontinuities.
+	\end{enumerate}
+\end{quote}
 
 \end{document}
