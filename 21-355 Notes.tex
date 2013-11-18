@@ -1983,6 +1983,23 @@ Choose a partition $P \in \Pi[a,b]$ such that $x_i - x_{i-1} < \delta$ ($\forall
 
 \textbf{Theorem}: Suppose that $f$ is monotone and $\alpha$ is continuous on $[a,b]$; then $f \in \mathcal{R}([a,b]; \alpha)$.
 
+\emph{Proof}:
+\begin{quote}
+Since $\alpha$ is continuous, $\alpha([a,b])$ is connected. Then for every $n \in \mathbb{N}$ with $n \geq 1$, we know $\alpha(a) + \frac{i}{n}(\alpha(b) - \alpha(a)) \in \alpha([a,b])$ for $i \in [n]$. In particular, $\exists x_i \in [a,b]$ such that $\alpha(x_i) = \alpha(a) + \frac{i}{n} (\alpha(b) - \alpha(a))$. Since $\alpha$ is non-decreasing, we may choose these $x_i$ such that $a = x_0 \leq x_1 \leq \cdots \leq x_n = b$. Then $P_n = \{x_0, x_1, \ldots, x_n\}$ is a partition of $[a,b]$.
+
+Assume $f$ is non-decreasing (the case of $f$ non-increasing is similar). Let $\epsilon > 0$.
+
+Since $f$ is non-decreasing, $f(x_i) = M_i$, $f(x_{i-1}) = m_i$ for $i \in [n]$. Then
+\begin{align*}
+U(P_n, f, \alpha) - L(P_n, f, \alpha) &= \sum_{i=1}^n (M_i - m_i) \Delta \alpha_i\\
+&= \sum_{i=1}^n (f(x_i) - f(x_{i-1})) \Delta \alpha_i\\
+&= \sum_{i=1}^n (f(x_i) - f(x_{i-1})) \frac{(\alpha(b) - \alpha(a))}{n}\\
+&= \frac{\alpha(b) - \alpha(a)}{n} (f(b) - f(a))
+\end{align*}
+
+Choose $n$ such that $n > \frac{(\alpha(b) - \alpha(a))(f(b) - f(a))}{\epsilon}$. Then $U(P_n, f, \alpha) - L(P_n, f, \alpha) < \epsilon$.
+\end{quote}
+
 \emph{Remarks}:
 \begin{quote}\vspace{-0.3cm}
 	\begin{enumerate}
@@ -1991,5 +2008,33 @@ Choose a partition $P \in \Pi[a,b]$ such that $x_i - x_{i-1} < \delta$ ($\forall
 	\item Monotone functions can have countably infinite sets of discontinuity; R-S integrals can handle infinite discontinuities.
 	\end{enumerate}
 \end{quote}
+
+Next, we show that R-S integration can handle more general discontinuities.
+
+\textbf{Theorem}: Suppose that $f$ is continuous on $[a,b] \backslash E$, where $E \subseteq [a,b]$ is finite. Assume that $\alpha$ is continuous on $E$; then $f \in \mathcal{R}([a,b]; \alpha)$.
+
+\emph{Remark}: There is a much more powerful version known as Lebesgue's Theorem, which says that:
+\begin{center}
+$f \in \mathcal{R}([a,b]; \alpha) \iff$ ($E = \{x \in [a,b] \;|\; f$ is not continuous at $x\} \implies E$ is $\alpha$-null)
+\end{center}
+\begin{quote}
+Here, a set $E$ is $\alpha$-null if $\forall \epsilon > 0.\; \exists$ intervals $(u_j, v_j) \subseteq \mathbb{R}$ for $j \geq 1 \in \mathbb{N}$ such that $E \subseteq \bigcup_{j=1}^\infty (u_j, v_j)$ and $\sum_{j=1}^\infty \alpha(v_j) - \alpha(u_j) < \epsilon$.
+
+In particular, if $\alpha(x) = x$, then all countable sets are $\alpha$-null, and hence if $f$ has discontinuities only on a countable set, then $f \in \mathcal{R}([a,b])$.
+\end{quote}
+
+\textbf{Theorem}: Let $i \in \mathbb{R}$. Then the following are equivalent:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $f \in \mathcal{R}([a,b]; \alpha)$ and $\int_a^b f d\alpha = I$
+	\item $\forall \epsilon > 0.\; \exists P \in \Pi[a,b].\; (t_i \in [x_{i-1}, x_i] \forall i \in [n] \implies |\sum_{i=1}^n f(t_i) \Delta \alpha_i - I| < \epsilon)$.
+	\end{enumerate}
+\end{quote}
+
+\subsection{Properties of $\mathcal{R}([a,b]; \alpha)$}
+
+\textbf{Theorem}: If $f_1, f_2 \in \mathcal{R}([a,b]; \alpha)$ and $c_1, c_2 \in \mathbb{R}$, then\\
+$c_1 f_1 + c_2 f_2 \in \mathcal{R}([a,b]; \alpha)$ and $\int_a^b (c_1 f_1 + c_2 f_2) d\alpha = c_1 \int_a^b f_1 d\alpha + c_2 \int_a^b f_2 d\alpha$.
+
 
 \end{document}
