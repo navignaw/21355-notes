@@ -1939,7 +1939,7 @@ We write $\mathcal{R}([a,b]; \alpha) = \{f : [a,b] \to \mathbb{R} \;|\; f \text{
 
 \textbf{Lemma}: Let $f(x) = C$ ($\forall x \in [a,b]$). Then $f \in \mathcal{R}([a,b]; \alpha)$ and $\int_a^b f d\alpha = C(\alpha(b) - \alpha(a))$.
 
-\emph{Proof}: For any $P \in \Pi[a,b]$ we have $m_i = M_i = C$. Hence $U(P, f, \alpha) = L(P, f, \alpha) = \sum_{i=1}^n C \Delta \alpha_i = C(\alpha(b) - \alpha(a))$. So $\underline{\int_a^b} f d\alpha = \sup \{(L(P, f, \alpha)\} = C(\alpha(b) - \alpha(a)) = \inf \{U(P, f, \alpha\} = \overline{\int_a^b} f d\alpha$.
+\emph{Proof}: For any $P \in \Pi[a,b]$ we have $m_i = M_i = C$. Hence $U(P, f, \alpha) = L(P, f, \alpha) = \sum_{i=1}^n C \Delta \alpha_i = C(\alpha(b) - \alpha(a))$. So $\underline{\int_a^b} f d\alpha = \sup \{(L(P, f, \alpha)\} = C(\alpha(b) - \alpha(a)) = \inf \{U(P, f, \alpha)\} = \overline{\int_a^b} f d\alpha$.
 
 \textbf{Definition}: If $P, P' \in \Pi[a,b]$ and every point in $P$ is in $P'$, we say $P'$ is a \emph{refinement} of $P$.\\
 If $P_1, P_2 \in \Pi[a,b]$ we define the \emph{common refinement} $P_1 \# P_2 \in \Pi[a,b]$ by $P_1 \# P_2 = P_1 \cup P_2$, ordered appropriately.
@@ -1948,7 +1948,7 @@ If $P_1, P_2 \in \Pi[a,b]$ we define the \emph{common refinement} $P_1 \# P_2 \i
 
 \textbf{Theorem}: $\underline{\int_a^b} f d\alpha \subseteq \overline{\int_a^b} f d \alpha$.
 
-\emph{Proof}: Let $P_1, P_2 \in \Pi[a,b]$. Then $L(P_1, f, \alpha) \leq L(P_1 \# P_2, f, \alpha) \leq U(P_1 \# P_2, f, \alpha) \leq U(P-2, f, \alpha)$ by last proposition. Hence $\underline{\int_a^b} f d\alpha = \sup\{L(P_1, f, \alpha) \;|\; P_1 \in \Pi[a,b]\} \leq U(P_2, f, \alpha)$. Then $\underline{\int_a^b} f d\alpha \leq \inf \{U(P_2, f, \alpha) \;|\; P_2 \in \Pi[a,b]\} = \overline{\int_a^b} f d\alpha$.
+\emph{Proof}: Let $P_1, P_2 \in \Pi[a,b]$. Then $L(P_1, f, \alpha) \leq L(P_1 \# P_2, f, \alpha) \leq U(P_1 \# P_2, f, \alpha) \leq U(P_2, f, \alpha)$ by last proposition. Hence $\underline{\int_a^b} f d\alpha = \sup\{L(P_1, f, \alpha) \;|\; P_1 \in \Pi[a,b]\} \leq U(P_2, f, \alpha)$. Then $\underline{\int_a^b} f d\alpha \leq \inf \{U(P_2, f, \alpha) \;|\; P_2 \in \Pi[a,b]\} = \overline{\int_a^b} f d\alpha$.
 
 \subsection{Integrability Criteria}
 
@@ -1978,7 +1978,7 @@ For any partition $P \in \Pi[a,b]$ we know $\overline{\int_a^b} f d\alpha \leq U
 \begin{quote}\vspace{-0.3cm}
 Note that EVT implies $f$ is bounded. Let $\epsilon > 0$ and choose $k > 0$ so $k(\alpha(b) - \alpha(a)) < \epsilon$. Since $f$ is cont on compact $[a,b]$, $f$ is uniformly continuous. Then $\exists \delta > 0.\; x,y \in [a,b]$ and $|x-y| < \delta \implies |f(x) - f(y)| < k$.
 
-Choose a partition $P \in \Pi[a,b]$ such that $x_i - x_{i-1} < \delta$ ($\forall i \in [n]$). Then by EVT,\\ $\exists s_i, t_i \in [x_{i-1}, x_i]$ such that $m_i = f(s_i), M_i = f(t_i)$. Then $U(P, f, \alpha) - L(P, f, \alpha) = \sum_{i=1}^n (M_i - m_i) \Delta \alpha_i =$ $\sum_{i=1}^n (f(t_i) - f(s_i)) \Delta \alpha_i \leq \sum_{i=1}^n k \Delta \alpha_i = k \sum_{k=1}^n \Delta \alpha_i =$\\ $k (\alpha(b) - \alpha(a)) < \epsilon$. Since $\epsilon > 0$ was arbitrary, we deduce Riemann's Theorem that $f \in \mathcal{R}([a,b]; \alpha)$.
+Choose a partition $P \in \Pi[a,b]$ such that $x_i - x_{i-1} < \delta$ ($\forall i \in [n]$). Then by EVT,\\ $\exists s_i, t_i \in [x_{i-1}, x_i]$ such that $m_i = f(s_i), M_i = f(t_i)$. Then $U(P, f, \alpha) - L(P, f, \alpha) = \sum_{i=1}^n (M_i - m_i) \Delta \alpha_i =$ $\sum_{i=1}^n (f(t_i) - f(s_i)) \Delta \alpha_i \leq \sum_{i=1}^n k \Delta \alpha_i = k \sum_{k=1}^n \Delta \alpha_i =$\\ $k (\alpha(b) - \alpha(a)) < \epsilon$. Since $\epsilon > 0$ was arbitrary, we deduce via Riemann's Theorem that $f \in \mathcal{R}([a,b]; \alpha)$.
 \end{quote}
 
 \textbf{Theorem}: Suppose that $f$ is monotone and $\alpha$ is continuous on $[a,b]$; then $f \in \mathcal{R}([a,b]; \alpha)$.
@@ -2023,11 +2023,11 @@ Here, a set $E$ is $\alpha$-null if $\forall \epsilon > 0.\; \exists$ intervals 
 In particular, if $\alpha(x) = x$, then all countable sets are $\alpha$-null, and hence if $f$ has discontinuities only on a countable set, then $f \in \mathcal{R}([a,b])$.
 \end{quote}
 
-\textbf{Theorem}: Let $i \in \mathbb{R}$. Then the following are equivalent:
+\textbf{Theorem}: Let $I \in \mathbb{R}$. Then the following are equivalent:
 \begin{quote}\vspace{-0.3cm}
 	\begin{enumerate}
 	\item $f \in \mathcal{R}([a,b]; \alpha)$ and $\int_a^b f d\alpha = I$
-	\item $\forall \epsilon > 0.\; \exists P \in \Pi[a,b].\; (t_i \in [x_{i-1}, x_i] \forall i \in [n] \implies |\sum_{i=1}^n f(t_i) \Delta \alpha_i - I| < \epsilon)$.
+	\item $\forall \epsilon > 0.\; \exists P \in \Pi[a,b].\; (\forall i \in [n].\; t_i \in [x_{i-1}, x_i] \implies |\sum_{i=1}^n f(t_i) \Delta \alpha_i - I| < \epsilon)$.
 	\end{enumerate}
 \end{quote}
 
@@ -2036,5 +2036,131 @@ In particular, if $\alpha(x) = x$, then all countable sets are $\alpha$-null, an
 \textbf{Theorem}: If $f_1, f_2 \in \mathcal{R}([a,b]; \alpha)$ and $c_1, c_2 \in \mathbb{R}$, then\\
 $c_1 f_1 + c_2 f_2 \in \mathcal{R}([a,b]; \alpha)$ and $\int_a^b (c_1 f_1 + c_2 f_2) d\alpha = c_1 \int_a^b f_1 d\alpha + c_2 \int_a^b f_2 d\alpha$.
 
+\emph{Remark}: This theorem gives us two important consequences:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $\mathcal{R}([a,b]; \alpha)$ is a linear space;
+	\item The integral is a linear function, i.e. $\int_a^b d\alpha : \mathcal{R}([a,b]; \alpha) \to \mathbb{R}$ given by $f \mapsto \int_a^b f d\alpha$ is a linear map.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Theorem}: Suppose $f \in \mathcal{R}([a,b]; \alpha_i)$ for $i \in \{1,2\}$. Let $c_1, c_2 \geq 0$. Then $f \in \mathcal{R}([a,b]; c_1 \alpha_1 + c_2 \alpha_2)$ and $\int_a^b f d(c_1 \alpha_1 + c_2 \alpha_2) = c_1 \int_a^b f d\alpha_1 + c_2 \int_a^b f d\alpha_2$.
+
+\textbf{Theorem}: Suppose $f \in \mathcal{R}([a,b]; \alpha)$. Let $c \in (a,b)$; then $f \in \mathcal{R}([a,c]; \alpha)$ and $f \in \mathcal{R}([c,b]; \alpha)$; i.e. $\int_a^b f d\alpha = \int_a^c f d\alpha + \int_c^b f d\alpha$.
+
+\textbf{Theorem}: Suppose $f \in \mathcal{R}([a,b]; \alpha)$ and $g : [m = \inf f, M = \sup f] \to \mathbb{R}$ is continuous on $[m, M]$. Then $g \circ f \in \mathcal{R}([a,b]; \alpha)$.
+
+\textbf{Theorem}: Suppose $f, g \in \mathcal{R}([a,b]; \alpha)$. Then $fg \in \mathcal{R}([a,b]\; \alpha)$.
+
+\emph{Proof}: The function $\psi : \mathbb{R} \to \mathbb{R}$ where $\phi(x) = x^2$ is cont. on $\mathbb{R}$. By the last theorem, if $h \in \mathcal{R}([a,b]; \alpha)$ then $h^2 \in \mathcal{R}([a,b]; \alpha)$. Note that $fg = \frac{1}{4}(f+g)^2 - \frac{1}{4} (fg)^2 \in \mathcal{R}([a,b]; \alpha)$ since $f \pm g \in \mathcal{R}([a,b]; \alpha)$.
+
+This result shows that $\mathcal{R}([a,b]; \alpha)$ has even more structure than a linear space; it is an algebra, i.e. a vector space closed under product.
+
+\subsection{Integration and Order}
+
+\textbf{Theorem}: Suppose $f_1, f_2 \in \mathcal{R}([a,b]; \alpha)$ and $\forall x \in [a,b].\; f_1(x) \leq f_2(x)$. Then $\int_a^b f_1 d\alpha \leq \int_a^b f_2 d\alpha$.
+
+\textbf{Theorem}: Let $f \in \mathcal{R}([a,b]; \alpha)$. Then $|f| \in \mathcal{R}([a,b]; \alpha)$ and $|\int_a^b f d\alpha| \leq \int_a^b |f| d\alpha$.
+
+\emph{Proof}: $\psi : \mathbb{R} \to \mathbb{R}$ where $\psi(x) = |x|$ is continuous on $\mathbb{R}$, so the composition theorem guarantess that $|f| \in \mathcal{R}([a,b]; \alpha)$. Let $c = 1$ if $\int_a^b f d\alpha \geq 0$ and $-1$ otherwise. Then $|\int_a^b f d\alpha| = c\int_a^b f d\alpha = \int_a^b cf d\alpha$, but $cf \leq |cf| = |c||f| = |f|$ so the last theorem gives the desired result.
+
+\textbf{Definition}: Given a function $f : E \to \mathbb{R}$ ($E \subseteq \mathbb{R}$ we define the \emph{positive part} of $f$ as $f^+ : E \to [0, \infty)$ given by $f^+(x) = \max \{f(x), 0\}$. Similarly, $f^- : E \to [0, \infty)$ via $f^-(x) = \max \{-f(x), 0\} = (-f)^+(x)$.
+
+\textbf{Lemma}: $f = f^+ - f^-$ and $|f| = f^+ + f^-$. Proof is trivial.
+
+\textbf{Theorem}: Let $f \in \mathcal{R}([a,b]; \alpha)$. Then $f^+, f^- \in \mathcal{R}([a,b]; \alpha)$.
+
+\emph{Proof}: $f^+ = \frac{f+|f|}{2}$, $f^- = \frac{f-|f|}{2}$.
+
+This leads to a theorem $f, g \in \mathcal{R}([a,b]; \alpha) \implies f \land g, f \lor g \in \mathcal{R}([a,b]; \alpha)$, where $(f \land g)(x) = \min\{f(x), g(x)\}$ and $(f \lor g)(x) = \max \{f(x), g(x)\}$. (Proof on HW.)
+
+\subsection{Fundamental Theorem of Calculus}
+
+\textbf{Lemma}: Suppose $f \in \mathcal{R}([a,b]; \alpha)$. Define $F : [a,b] \to \mathbb{R}$ via $F(x) = \int_a^x f d\alpha$. Let $M = \sup \{|f(x)| \;|\; x \in [a,b]\}$. Then $|F(x) - F(y)| \leq M|\alpha(x) - \alpha(y)|$ ($\forall x,y \in [a,b]$).
+
+\textbf{Theorem}: Suppose $f \in \mathcal{R}([a,b]; \alpha)$ and define $F(x) = \int_a^x f d\alpha$. The following hold:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item If $\alpha$ is continuous at a point $x \in [a,b]$, then $F$ is continuous at $x$.
+	\item If $\alpha$ is continuous on $[a,b]$, then $F$ is uniformly continuous at $[a,b]$.
+	\item If $\alpha$ is Lipschitz on $[a,b]$ ($|\alpha(x) - \alpha(y)| \leq K|x-y|.\; \forall x,y \in [a,b]$), then $F$ is Lipschitz.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Theorem (FTC1)}: Assume that $f$ is continuous at $x \in [a,b]$ and that $\alpha$ is differentiable at $x$. Let $F(s) = \int_a^b f d\alpha$. Then $F$ is differentiable at $x$ and $F'(x) = f(x) \alpha'(x)$.
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+For $t \in [a,b] \backslash \{x\}$ set $u = \min\{t, x\}$, $v = \max \{t, x\}$. Then:
+\begin{align*}
+\frac{F(t) - F(x)}{t-x} - f(x)\left(\frac{\alpha(t) - \alpha(x)}{t-x}\right) &= \frac{1}{v-u} \int_u^v (f - f(x)) d\alpha
+\intertext{Hence}
+\left|\frac{F(t) - F(x)}{t-x} - f(x) \alpha'(x)\right| &\leq \frac{1}{v-u} \left|\int_u^v (f-f(x)) d\alpha\right| + \left|f(x)(\frac{\alpha(t) - \alpha(x)}{t-x}) - f(x) \alpha'(x)\right|\\
+&\leq \frac{1}{v-u} \int_u^v |f-f(x)| d\alpha + |f(x)| \left|\frac{\alpha(t) - \alpha(x)}{t-x} - \alpha'(x)\right|
+\end{align*}
+
+Let $\epsilon > 0$. Since $f$ is cont. at $x$ and $\alpha$ is diff. at $x$, we can find $\delta > 0$ such that
+\begin{displaymath}
+|x-y| < \delta \implies |f(y) - f(x)| < \frac{\epsilon}{2(1+|\alpha'(x)|)} \;\land\; \left|\frac{\alpha(y) - \alpha(x)}{y-x} - \alpha'(x)\right| < \min \{1, \frac{\epsilon}{2(1+|f(x)|)}\}
+\end{displaymath}
+
+Then, if $|x-t| < \delta$ we can deduce:
+\begin{align*}
+\left|\frac{F(t) - F(x)}{t-x} - f(x) \alpha'(x)\right| &\leq \frac{1}{v-u} \int_u^v \frac{\epsilon}{2(1+|\alpha'(x)|)} d\alpha + |f(x)| \frac{\epsilon}{2(1+|f(x)|)}\\
+&= \frac{\epsilon}{2(1+|\alpha'(x)|)} |\frac{\alpha(t) - \alpha(x)}{t-x}| + \frac{\epsilon}{2}\\
+&\leq \frac{\epsilon}{2(1+|\alpha'(x)|)} (1 + |\alpha'(x)|) + \frac{\epsilon}{2} < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon
+\end{align*}
+
+Hence, $F$ is differentiable at $x$ and $F'(x) = f(x) \alpha'(x)$.
+\end{quote}
+
+\textbf{Theorem (FTC2)}: If $f \in \mathcal{R}([a,b])$ and $\exists F : [a,b] \to \mathbb{R}$ that is continuous on $[a,b]$ and differentiable on $(a,b)$ and $\forall x \in (a,b).\; F'(x) = f(x)$, then $\int_a^b f dx = F(b) - F(a)$.
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+Let $\epsilon > 0$. Then $\exists P \in \Pi[a,b]$ such that $|\sum_{i=1}^n f(t_1) \Delta x_i - \int_a^b f dx| < \epsilon$ for any $t_i \in [x_{i-1}, x_i]$ for $i \in [n]$.
+
+The Mean Value Theorem guarantees that $\exists t_i \in [x_{i-1}, x_i]$ such that $F(x_i) - F(x_{i-1}) = (x_i - x_{i-1}) F'(t_i) = f(t_i) \Delta x_i$. Hence:
+\begin{displaymath}
+\left|F(b) - F(a) - \int_a^b f dx\right| = \left|\sum_{i=1}^n F(x_i) - F(x_{i-1}) - \int_a^b f dx\right| = \left|\sum_{i=1}^n f(t_i) \Delta x_i - \int_a^b f dx\right| < \epsilon
+\end{displaymath}
+Since this is true $\forall \epsilon > 0$, we deduce $\int_a^b f dx = F(b) - F(a)$.
+\end{quote}
+
+\textbf{Theorem (Integration by Parts)}: Suppose $f, g : [a,b] \to \mathbb{R}$ are differentiable on $[a,b]$, and $f', g' \in \mathcal{R}([a,b])$. Then $\int_a^b f'g dx = f(b)g(b) - f(a)g(a) - \int_a^b fg' dx$.
+
+\emph{Proof}: Let $h(x) = f(x)g(x)$. Then $h'(x) = f(x)g'(x) + f'(x)g(x)$, and $h' \in \mathcal{R}([a,b])$ (since $f,g$ diff. $\implies f,g$ cont). Applying FTC2 to $h$ yields the desired result.
+
+\subsection{Advanced Results in R-S Integration}
+
+\textbf{Theorem}: Suppose $\alpha$ is diff. on $[a,b]$ and $\alpha' \in \mathcal{R}([a,b])$. Then:
+\begin{displaymath}
+f \in \mathcal{R}([a,b]; \alpha) \iff fa' \in \mathcal{R}([a,b]) \text{ and } \int_a^b f dx = \int_a^b f \alpha' dx
+\end{displaymath}
+
+\emph{Proof}: Write $K = \sup |f|$. For any $P \in \Pi[a,b]$ we know for $t_i, s_i \in [x_{i-1}, x_i]$ for $i \in [n]$,
+\begin{displaymath}
+\sum_{i=1}^n |\alpha'(s_i) - \alpha'(t_i)| \Delta x_i \leq U(P, \alpha', x) - L(P, \alpha', x)
+\end{displaymath}
+\begin{quote}\vspace{-0.3cm}
+(since $\alpha' \in \mathcal{R}([a,b])$). The Mean Value Theorem allows us to find $s_i \in (x_{i-1}, x_i)$ such that $\Delta \alpha_i = \alpha(x_i) - \alpha(x_{i-1}) = \alpha'(s_i) (x_i - x_{i-1}) = \alpha'(s_i) \Delta x_i$. Then for any choice of $t_i \in [x_{i-1}, x_i]$, we may estimate
+\begin{align*}
+\left|\sum_{i=1}^n f(t_i) \Delta \alpha_i - \sum_{i=1}^n f(t_i) \alpha'(t_i) \Delta x_i \right| &= \left|\sum_{i=1}^n f(t_i) \alpha'(s_i) \Delta x_i - \sum_{i=1}^n f(t_i) \alpha'(t_i) \Delta x_i\right|\\
+&= \left|\sum_{i=1}^n f(t_i) (\alpha'(s_i) - \alpha'(t_i)) \Delta x_i\right|\\
+&\leq K \sum_{i=1}^n |\alpha'(s_i) - \alpha'(t_i)| \Delta x_i\\
+&\leq K(U(P, \alpha', x) - L(P, \alpha', x))
+\end{align*}
+
+Now, $(1) \implies (2)$:\\
+Note $f \in \mathcal{R}([a,b]; \alpha)$ and $\alpha' \in \mathcal{R}([a,b]) \implies \exists P_1, P_2.\; U(P_1, f, \alpha) - L(P_1, f, \alpha) < \frac{\epsilon}{2}$ and $U(P_2, \alpha', x) - L(P_2, \alpha', x) < \frac{\epsilon}{2(1+K)}$. Then
+\begin{align*}
+\left|\sum_{i=1}^n f(t_i) \alpha'(t_i) \Delta x_i - \int_a^b f d\alpha\right| &\leq \left|\sum_{i=1}^n f(t_i) \alpha'(t_i) \Delta x_i - \sum_{i=1}^n f(t_i) \Delta \alpha_i\right| + \left|\sum_{i=1}^n f(t_i) \Delta \alpha_i - \int_a^b f d\alpha\right|\\
+&\leq K(U(P, \alpha', x) - L(P, \alpha', x)) + U(P, f, \alpha) - L(P, f, \alpha)\\
+& < K\left(\frac{\epsilon}{2(K+1)}\right) + \frac{\epsilon}{2} < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon
+\end{align*}
+and the last theorem in $\S 7.2$ guarantees that $f \alpha' \in \mathcal{R}([a,b])$ and $\int_a^b f \alpha' dx = \int_a^b f d\alpha$.
+
+The proof that $(2) \implies (1)$ is similar (exercise to reader).
+\end{quote}
 
 \end{document}
