@@ -2052,7 +2052,7 @@ $c_1 f_1 + c_2 f_2 \in \mathcal{R}([a,b]; \alpha)$ and $\int_a^b (c_1 f_1 + c_2 
 
 \textbf{Theorem}: Suppose $f, g \in \mathcal{R}([a,b]; \alpha)$. Then $fg \in \mathcal{R}([a,b]\; \alpha)$.
 
-\emph{Proof}: The function $\psi : \mathbb{R} \to \mathbb{R}$ where $\phi(x) = x^2$ is cont. on $\mathbb{R}$. By the last theorem, if $h \in \mathcal{R}([a,b]; \alpha)$ then $h^2 \in \mathcal{R}([a,b]; \alpha)$. Note that $fg = \frac{1}{4}(f+g)^2 - \frac{1}{4} (fg)^2 \in \mathcal{R}([a,b]; \alpha)$ since $f \pm g \in \mathcal{R}([a,b]; \alpha)$.
+\emph{Proof}: The function $\psi : \mathbb{R} \to \mathbb{R}$ where $\phi(x) = x^2$ is cont. on $\mathbb{R}$. By the last theorem, if $h \in \mathcal{R}([a,b]; \alpha)$ then $h^2 \in \mathcal{R}([a,b]; \alpha)$. Note that $fg = \frac{1}{4}(f+g)^2 - \frac{1}{4} (f-g)^2 \in \mathcal{R}([a,b]; \alpha)$ since $f \pm g \in \mathcal{R}([a,b]; \alpha)$.
 
 This result shows that $\mathcal{R}([a,b]; \alpha)$ has even more structure than a linear space; it is an algebra, i.e. a vector space closed under product.
 
@@ -2162,5 +2162,78 @@ and the last theorem in $\S 7.2$ guarantees that $f \alpha' \in \mathcal{R}([a,b
 
 The proof that $(2) \implies (1)$ is similar (exercise to reader).
 \end{quote}
+
+\textbf{Theorem (Change of Variables)}: Let $A < B$. Suppose $\phi : [A,B] \to [a,b]$ is an increasing bijection. Let $f \in \mathcal{R}([a,b]; \alpha)$ and define $g : [A,B] \to \mathbb{R}$ via $g = f \circ \phi$ and $\beta : [A,B] \to \mathbb{R}$ via $\beta = \alpha \circ \phi$. Then $g \in \mathcal{R}([A,B]; \beta)$ and $\int_A^B g d\beta = \int_a^b f d\alpha$.
+
+\emph{Proof}:
+\begin{quote}
+Note that $\phi$ induces a bijection from $\Pi[A,B]$ to $\Pi[a,b]$: if $P = \{x_0, x_1, \ldots, x_n\} \in \Pi[A,B]$ then $\phi(P) := \{\phi(x_0), \phi(x_1), \ldots, \phi(x_n)\} \in \Pi[a,b]$.
+
+Also, $\sup \{g(x) \;|\; x \in [x_{i-1}, x_i]\} = \sup \{(f \circ \phi)(x) \;|\; x \in [x_{i-1}, x_i]\} = \sup \{f(y) \;|\; y \in [\phi(x_{i-1}), \phi(x_i)\}$. Similarly, $\inf \{g(x) \;|\; x \in [x_{i-1}, x_i]\} = \inf \{f(y) \;|\; y \in [\phi(x_{i-1}), \phi(x_i)]\}$. Hence, since $\beta = \alpha \circ \phi$, $U(P, g, \beta) = U(\phi(P), f, \alpha)$ and $L(P, g, \beta) = L(\phi(P), f, \alpha)$ $\forall P \in \Pi[A,B]$.
+
+Let $\epsilon > 0$. Since $f \in \mathcal{R}([a,b]; \alpha)$, $\exists Q \in \Pi[a,b].\; U(Q, f, \alpha) - L(Q, f, \alpha) < \frac{\epsilon}{2}$. Writing $P = \phi^{-1}(Q)$ satisfies $U(P, g, \beta) - L(P, g, \beta) = U(Q, f, \alpha) - L(Q, f, \alpha) < \frac{\epsilon}{2}$. By Riemann's Theorem, we deduce that $g \in \mathcal{R}([A,B]; \beta)$.
+
+Moreover:
+\begin{align*}
+\left|\int_A^B g d\beta - \int_a^b f d\alpha\right| &\leq \left|\int_A^B g d\beta - \sum_{i=1}^n g(x_i) \Delta \beta_i\right| + \left|\sum_{i=1}^n g(x_i) \Delta \beta_i - \int_a^b f d\alpha\right|\\
+&= \left|\int_A^B g d\beta - \sum_{i=1}^n g(x_i) \Delta \beta_i\right| + \left|\sum_{i=1}^n f(\phi(x_1)) (\alpha(\phi(x_i)) - \alpha(\phi(x_{i-1}))) - \int_a^b f d\alpha\right|\\
+&\leq U(P, g, \beta) - L(P, g, \beta) + U(\phi(P), f, \alpha) - L(\phi(P), f, \alpha)\\
+&= 2(U(Q, f, \alpha) - L(Q, f, \alpha)) \leq \frac{2\epsilon}{2} = \epsilon
+\end{align*}
+Since $\epsilon > 0$ was arbitrary, we deduce that $\int_A^B g d\beta = \int_a^b f d\alpha$.
+\end{quote}
+We can combine this with the last theorem to deduce the ``usual" Riemmanian change of variables:
+
+\textbf{Corollary}: Assume $\alpha(x) = x$ and $\phi : [A,B] \to [a,b]$ is increasing, differentiable on $[A,B]$, and $\phi' \in \mathcal{R}([A,B])$. If $f \in \mathcal{R}([a,b])$ then $f \circ \phi \in \mathcal{R}([A,B])$ and $\int_a^b f(x) dx = \int_A^B f(\phi(x)) \phi'(x) dx$.
+
+\emph{Proof}: $\int_A^B g d\beta = \int_A^B g \phi' dx$ $\forall g \in \mathcal{R}([A,B]; \beta)$ with $\beta = \alpha \circ \phi = \phi$.
+
+\section{Sequences and Series of Functions}
+
+\subsection{Convergence}
+
+\textbf{Definition}: Let $\varnothing \neq E \subseteq \mathbb{R}$. Suppose $\forall n \geq l \in \mathbb{Z}.\; f_n : E \to \mathbb{R}$. Then $\{f_n\}_{n=l}^\infty$ is a \emph{sequence of functions} on $E$.
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item If $\exists f : E \to \mathbb{R}$ such that $\forall x \in E.\; f_n(x) \to f(x)$ as $n \to \infty$, then $f_n$ converges to $f$ \emph{pointwise} and write $f_n \to f$ as $n \to \infty$.
+	\item If $\exists f : E \to \mathbb{R}$ such that $\forall n \geq l.\; \{|f_n(x) - f(x)| \;|\; x \in E\}$ is bounded, and $\lim_{n \to \infty} \sup \{|f_n(x) - f(x)|\} = 0$, then $f_n$ converges to $f$ \emph{uniformly} on $E$, and we write $f_n \rightrightarrows f$ as $n \to \infty$.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Lemma}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item Let $f_n, f : E \to \mathbb{R}$. Then \\$f_n \rightrightarrows f \iff \forall \epsilon > 0.\; \exists N \geq l.\; n \geq N \implies |f_n(x) - f(x)| < \epsilon$ for every $x \in E$.
+	\item If $f_n \rightrightarrows f$ then $f_n \to f$. The converse fails.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Examples}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $E = (0, \frac{1}{2})$, $f_n(x) = x^n$.\\
+	$f_n \to 0$ pointwise is trivial, and $|f_n(x)| = |x^n| = |x|^n \leq \frac{1}{2^n}$. So $\sup\{|f_n(x)|\} \leq \frac{1}{2^n}$ and so $\lim_{n \to \infty} \sup\{|f_n - 0|\} = 0$. Thus, $f_n \rightrightarrows 0$.
+
+	\item $E = \mathbb{R}$, $f_n(x) = \begin{cases}
+	\frac{1}{n} & \text{if } x \in [n,n+1]\\
+	0 & \text{otherwise}
+	\end{cases}$\\
+	$\sup\{|f_n(x)|\} = \frac{1}{n} \to 0$, so $f_n \rightrightarrows 0$ as $n \to \infty$.
+
+	\item $E = \mathbb{R}$, $f_n(x) = \begin{cases}
+	n & \text{if } x \in [n, n+1]\\
+	0 & \text{otherwise}
+	\end{cases}$\\
+	Fix $x \in \mathbb{R}$. For sufficiently large $N$, $x < N$, so $x \notin [n, n+1]$ for $n \geq N$. Hence $f_n(x) = 0$ for $n \geq N$ and $f_n \to 0$ pointwise on $\mathbb{R}$. However, $\sup\{|f_n(x)|\} = n \not \to 0$ and so it does not converge uniformly.
+	\end{enumerate}
+\end{quote}
+
+\subsubsection{Big Questions}
+
+\begin{enumerate}
+\item If $\forall n.\; f_n : E \to \mathbb{R}$ is continuous on $E$, and $f_n$ converges to $f : E \to \mathbb{R}$, is it true that $f$ is continuous?
+\item Same question for differentiability? If so, is $f'(x) = \lim_{n \to \infty} f_n'(x)$?
+\item If $\forall n.\; \{f_n\}_{n=l}^\infty \subseteq \mathcal{R}([a,b]; \alpha)$ and $f_n$ converges to $f$, is $f \in \mathcal{R}([a,b]; \alpha)$? If so, is $\int_a^b f d\alpha = \lim_{n \to \infty} \int_a^b f_n d\alpha$?
+\end{enumerate}
 
 \end{document}
