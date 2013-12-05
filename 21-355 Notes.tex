@@ -206,7 +206,7 @@ Consider the following relation on the set $\mathbb{N} \times \mathbb{N}$:
 	\end{align*}
 \end{quote}
 
-\textbf{Definition}: Write the \emph{equivalence class} of $(m,n)$ as $[(m,n)] = \{(p,q) \;|\; (p,q) \simeq (m,n)\}$.\\
+\textbf{Definition}: Write the \emph{equivalence class} of $(m,n)$ as $[(m,n)] = \{(p,q) \mid (p,q) \simeq (m,n)\}$.\\
 Define the \emph{integers} $\mathbb{Z} = \{[(m,n)]\}$.
 
 \textbf{Lemma}: Suppose $(m,n) \simeq (m', n'), (p,q) \simeq (p',q')$. Then:
@@ -242,7 +242,7 @@ Note that for all $m,n \in \mathbb{N}$:
 [(m,0)] + [(n,0)] &= [(m+n, 0)]\\
 [(m,0)] \cdot [(n,0)] &= [(mn, 0)]
 \end{align*}
-As such, the set $\{[(n,0)] \;|\; n \in \mathbb{N}\} \subseteq \mathbb{Z}$ behaves exactly like a copy of $\mathbb{N}$.
+As such, the set $\{[(n,0)] \mid n \in \mathbb{N}\} \subseteq \mathbb{Z}$ behaves exactly like a copy of $\mathbb{N}$.
 
 \textbf{Definition}: For $n \in \mathbb{N}$ we set $n \in \mathbb{Z}$ to be $n := [(n,0)]$.
 
@@ -307,7 +307,7 @@ Remark: the heuristic here is that $\frac{m}{n} = [(m,n)]$.
 	\item For $x,y \in \mathbb{Q}$, we define $x-y = x+(-y) \in \mathbb{Q}$
 	\item For $x,y \in \mathbb{Q}, y \neq 0$ we define $\frac{x}{y} = x(y)^{-1}$. This is well defined because $y=0 \iff y = [(0,n)]$.\end{enumerate}
 \end{quote}
-\textbf{Proposition}: $\mathbb{Q} = \{\frac{m}{n} \;|\; m,n \in \mathbb{Z}, n \neq 0\}$.
+\textbf{Proposition}: $\mathbb{Q} = \{\frac{m}{n} \mid m,n \in \mathbb{Z}, n \neq 0\}$.
 
 We define and propose the trichotomy of order on $\mathbb{Q}$, as per the integers.
 
@@ -348,7 +348,7 @@ We define and propose the trichotomy of order on $\mathbb{Q}$, as per the intege
 
 \emph{Proof}: Suppose not; i.e. there does exist such a $q \in \mathbb{Q}$.
 \begin{quote}\vspace{-0.3cm}
-Consider the set $S(q) = \{n \in \mathbb{N}^+ \;|\; q = \frac{m}{n}$ for some $m \in \mathbb{Z}\}$. Cleary $|S(q)| > 0$. Then the well-ordering principle implies that $\exists !n \in S(q).\; n = \min S(q)$.
+Consider the set $S(q) = \{n \in \mathbb{N}^+ \mid q = \frac{m}{n}$ for some $m \in \mathbb{Z}\}$. Cleary $|S(q)| > 0$. Then the well-ordering principle implies that $\exists !n \in S(q).\; n = \min S(q)$.
 
 Since $n \in S(q)$, we know that $q = \frac{m}{n}$ for some $m \in \mathbb{Z}$. Then $q^2 = (\frac{m}{n})^2 = \frac{m^2}{n^2} \implies m^2 = 2n^2 \implies m^2$ is even. We claim that $m$ is also even (proof is exercise to reader).
 
@@ -386,7 +386,7 @@ Informally, $\mathbb{Q}$ has ``holes":
 
 \textbf{Theorem}: $\mathbb{Q}$ does not satisfy the least upper bound property.
 
-\emph{Proof}: Consider the set $A = \{x \in \mathbb{Q} \;|\; x > 0, x^2 \leq 2\}$.
+\emph{Proof}: Consider the set $A = \{x \in \mathbb{Q} \mid x > 0, x^2 \leq 2\}$.
 \begin{quote}\vspace{-0.3cm}
 Note that $0 < 1 = 1^2 \leq 2 \implies 1 \in A$, so $A$ is non-empty. Also, $2 \leq 4 = 2^2$ implies $(x \in A \implies 0 < x^2 < 2 < 2^2) \implies x < 2$. Then 2 is an upper bound of $A$.
 
@@ -432,7 +432,7 @@ We now construct an ordered field satisfying the least upper bound property usin
 	\end{enumerate}
 \end{quote}
 
-\textbf{Lemma}: Let $q \in \mathbb{Q}$. Then $\{p \in \mathbb{Q} \;|\; p < q\}$ is a cut.
+\textbf{Lemma}: Let $q \in \mathbb{Q}$. Then $\{p \in \mathbb{Q} \mid p < q\}$ is a cut.
 
 \emph{Proof}: Call the set $\mathcal{C}$. We prove the 3 properties of a cut:
 \begin{quote}\vspace{-0.3cm}
@@ -443,9 +443,9 @@ We now construct an ordered field satisfying the least upper bound property usin
 	\end{enumerate}
 \end{quote}
 
-\textbf{Definition}: Given $q \in \mathbb{Q}$ we write $\mathcal{C}_q = \{p \in \mathbb{Q} \;|\; p < q\}$. By the above lemma, $\mathcal{C}_q$ is a cut.
+\textbf{Definition}: Given $q \in \mathbb{Q}$ we write $\mathcal{C}_q = \{p \in \mathbb{Q} \mid p < q\}$. By the above lemma, $\mathcal{C}_q$ is a cut.
 
-\textbf{Definition}: We write $\mathbb{R} = \{\mathcal{C} \in \mathcal{P}(\mathbb{Q}) \;|\; \mathcal{C} \text{ is a cut}\} \neq \varnothing$.
+\textbf{Definition}: We write $\mathbb{R} = \{\mathcal{C} \in \mathcal{P}(\mathbb{Q}) \mid \mathcal{C} \text{ is a cut}\} \neq \varnothing$.
 
 \textbf{Lemma}: The following hold:
 \begin{quote}\vspace{-0.3cm}
@@ -474,11 +474,11 @@ By the contrapositive: if $\mathcal{C}$ is an upper bound, $\mathcal{C} \geq \ma
 
 \subsubsection{Defining the Real Numbers: Addition}
 
-\textbf{Definition}: Given $\mathcal{A}, \mathcal{B} \in \mathbb{R}$, set $\mathcal{A} + \mathcal{B} = \{a+b \;|\; a \in \mathcal{A}, b \in \mathcal{B}\}$.
+\textbf{Definition}: Given $\mathcal{A}, \mathcal{B} \in \mathbb{R}$, set $\mathcal{A} + \mathcal{B} = \{a+b \mid a \in \mathcal{A}, b \in \mathcal{B}\}$.
 
 \textbf{Lemma}: If $\mathcal{A}, \mathcal{B} \in \mathbb{R}$, then $\mathcal{A} + \mathcal{B} \in \mathbb{R}$.
 
-\textbf{Theorem}: Define $-\mathcal{A} = \{q \in \mathbb{Q} \;|\; \exists(p >q).\; -p \notin \mathcal{A}\}$. Then $\mathbb{R}, +, 0_\mathbb{R} = \mathcal{C}_0 = \{p \in \mathbb{Q} \;|\; p < 0\}$ satisfy the field axioms.
+\textbf{Theorem}: Define $-\mathcal{A} = \{q \in \mathbb{Q} \mid \exists(p >q).\; -p \notin \mathcal{A}\}$. Then $\mathbb{R}, +, 0_\mathbb{R} = \mathcal{C}_0 = \{p \in \mathbb{Q} \mid p < 0\}$ satisfy the field axioms.
 
 \emph{Proof}:
 \begin{quote}\vspace{-0.3cm}
@@ -499,7 +499,7 @@ If $\mathcal{A} + \mathcal{C} = \mathcal{B} + \mathcal{C}$, we can add $- \mathc
 
 \subsubsection{Defining the Real Numbers: Multiplication}
 
-\textbf{Lemma}: Let $\mathcal{A}, \mathcal{B} \in \mathbb{R}$, $\mathcal{A}, \mathcal{B} > 0_\mathbb{R}$. Then $\mathcal{C} = \{q \in \mathbb{Q} \;|\; q \leq 0\} \cup \{a \cdot b \;|\; a \in \mathcal{A}, b \in \mathcal{B}, a, b > 0\} \in \mathbb{R}$.
+\textbf{Lemma}: Let $\mathcal{A}, \mathcal{B} \in \mathbb{R}$, $\mathcal{A}, \mathcal{B} > 0_\mathbb{R}$. Then $\mathcal{C} = \{q \in \mathbb{Q} \mid q \leq 0\} \cup \{a \cdot b \mid a \in \mathcal{A}, b \in \mathcal{B}, a, b > 0\} \in \mathbb{R}$.
 
 \emph{Proof}:
 \begin{quote}\vspace{-0.3cm}
@@ -513,7 +513,7 @@ If $\mathcal{A} + \mathcal{C} = \mathcal{B} + \mathcal{C}$, we can add $- \mathc
 \textbf{Definition of Multiplication}: Let $\mathcal{A}, \mathcal{B} \in \mathbb{R}$.
 \begin{quote}\vspace{-0.3cm}
 	\begin{enumerate}
-	\item If $\mathcal{A} > 0, \mathcal{B} > 0$ we set $\mathcal{A} \cdot \mathcal{B} = \{q \in \mathbb{Q} \;|\; q \leq 0\} \cup \{a \cdot b \;|\; a \in \mathcal{A}, b \in \mathcal{B}, a, b > 0\} \in \mathbb{R}$.
+	\item If $\mathcal{A} > 0, \mathcal{B} > 0$ we set $\mathcal{A} \cdot \mathcal{B} = \{q \in \mathbb{Q} \mid q \leq 0\} \cup \{a \cdot b \mid a \in \mathcal{A}, b \in \mathcal{B}, a, b > 0\} \in \mathbb{R}$.
 	\item If $\mathcal{A} = 0$ or $\mathcal{B} = 0$, we set $\mathcal{A} \cdot \mathcal{B} = 0_\mathbb{R}$.
 	\item If $\mathcal{A} > 0$ and $\mathcal{B} < 0$, let $\mathcal{A} \cdot \mathcal{B} = - (\mathcal{A} \cdot (-\mathcal{B}))$.
 	\item If $\mathcal{A} < 0$ and $\mathcal{B} > 0$, let $\mathcal{A} \cdot \mathcal{B} = -((-\mathcal{A}) \cdot \mathcal{B})$.
@@ -522,7 +522,7 @@ If $\mathcal{A} + \mathcal{C} = \mathcal{B} + \mathcal{C}$, we can add $- \mathc
 \end{quote}
 
 \textbf{Theorem}: $\mathbb{R}, \cdot$ satisfies (M1-M5) with $1_\mathbb{R} = \mathcal{C}_1$, and\\
-$\mathcal{A} > 0 \implies \mathcal{A}^{-1} = \{q \in \mathbb{Q} \;|\; q \leq 0\} \cup \{q \in \mathbb{Q} \;|\; q > 0, \exists p > q.\; p^{-1} \notin \mathcal{A}\} \in \mathbb{R}$;\\
+$\mathcal{A} > 0 \implies \mathcal{A}^{-1} = \{q \in \mathbb{Q} \mid q \leq 0\} \cup \{q \in \mathbb{Q} \mid q > 0, \exists p > q.\; p^{-1} \notin \mathcal{A}\} \in \mathbb{R}$;\\
 $\mathcal{A} < 0 \implies \mathcal{A}^{-1} = -(-\mathcal{A})^{-1}$.
 
 \emph{Proof}: HW3 (similar to addition).
@@ -577,8 +577,8 @@ Notation: think of $\mathbb{R}$ as numbers, not cut notation.
 	\begin{enumerate}
 	\item $\mathbb{R}$ is Archimedean: $\forall x \in \mathbb{R}, x > 0.\; \exists n \in \mathbb{N}.\; x < n$
 	\item $\mathbb{N} \subset \mathbb{R}$ is not bounded above
-	\item $\inf\{\frac{1}{n} \;|\; n \in \mathbb{N}, n \geq 1\} = 0$
-	\item $\forall x \in \mathbb{R}$ the set $B(x) = \{m \in \mathbb{Z} \;|\; x < m\}$ has a minimum in $\mathbb{Z}$.
+	\item $\inf\{\frac{1}{n} \mid n \in \mathbb{N}, n \geq 1\} = 0$
+	\item $\forall x \in \mathbb{R}$ the set $B(x) = \{m \in \mathbb{Z} \mid x < m\}$ has a minimum in $\mathbb{Z}$.
 	\item $\forall x,y \in \mathbb{R}, x < y.\; \exists q \in \mathbb{Q}.\; x < q < y$
 	\end{enumerate}
 \end{quote}
@@ -597,7 +597,7 @@ Next we show that $\mathbb{R}$ does not have the ``holes" we saw in $\mathbb{Q}$
 
 \emph{Proof}: The case $n = 1$ is trivial so assume $n \geq 2$.
 \begin{quote}\vspace{-0.3cm}
-Set $E = \{z \in \mathbb{R} \;|\; z > 0 \land z^n < x\}$. We want to show $E \neq \varnothing$ and is bounded above. Set $t = \frac{x}{1+x}$; then $0 < t < 1$ and $t < x$. Hence $0 < t^n < t < x$, and so $t \in E$ and $E \neq \varnothing$.
+Set $E = \{z \in \mathbb{R} \mid z > 0 \land z^n < x\}$. We want to show $E \neq \varnothing$ and is bounded above. Set $t = \frac{x}{1+x}$; then $0 < t < 1$ and $t < x$. Hence $0 < t^n < t < x$, and so $t \in E$ and $E \neq \varnothing$.
 
 Set $s = 1+x$. Then $1 < s \land x < s \implies x < s < s^n$; so if $z \in E$ then $z^n < x < s^n \implies z < s$. Then $s$ is an upper bound of $E$.
 
@@ -609,7 +609,7 @@ By least upper bound property, $\exists y \in \mathbb{R}.\; y = \sup E$. Since $
 
 \subsubsection{Absolute Value}
 
-For $x \in \mathbb{R}$, we define the function $|\cdot| : \mathbb{R} \to \{r \in \mathbb{R} \;|\; r \geq 0\}$:
+For $x \in \mathbb{R}$, we define the function $|\cdot| : \mathbb{R} \to \{r \in \mathbb{R} \mid r \geq 0\}$:
 \[
  |x| =
   \begin{cases}
@@ -632,11 +632,11 @@ For $x \in \mathbb{R}$, we define the function $|\cdot| : \mathbb{R} \to \{r \in
 
 \section{Sequences}
 
-Let $E$ be a set. Then we may define a sequence $\{a_n\}_{n=l}^\infty \subseteq E$ as the set of values $a_n \equiv a(n)$ for some $l \in \mathbb{Z}$ and some function $a : \{n \in \mathbb{Z} \;|\; n \geq l\} \to E$.
+Let $E$ be a set. Then we may define a sequence $\{a_n\}_{n=l}^\infty \subseteq E$ as the set of values $a_n \equiv a(n)$ for some $l \in \mathbb{Z}$ and some function $a : \{n \in \mathbb{Z} \mid n \geq l\} \to E$.
 
 \subsection{Convergence and Bounds}
 
-\textbf{Definition}: We say a sequence $\{a_n\}_{n=l}^{\infty} \subseteq \mathbb{R}$ converges to $a \in \mathbb{R}$, i.e. $a_n \to a$ as $n \to \infty$ or $\lim_{n \to \infty} a_n = a$, if for every $0 < \epsilon \in \mathbb{R}$, there exists $N \in \{m \in \mathbb{Z} \;|\; m \geq l\}$ such that $n \geq N \implies |a_n - a| < \epsilon$.
+\textbf{Definition}: We say a sequence $\{a_n\}_{n=l}^{\infty} \subseteq \mathbb{R}$ converges to $a \in \mathbb{R}$, i.e. $a_n \to a$ as $n \to \infty$ or $\lim_{n \to \infty} a_n = a$, if for every $0 < \epsilon \in \mathbb{R}$, there exists $N \in \{m \in \mathbb{Z} \mid m \geq l\}$ such that $n \geq N \implies |a_n - a| < \epsilon$.
 
 \textbf{Definition}: We say a sequence $\{a_n\}_{n=l}^{\infty} \subseteq \mathbb{R}$ is bounded iff. $\exists M \in \mathbb{R}, M > 0.\; |a_n| < M \;(\forall n \geq l)$.
 
@@ -690,7 +690,7 @@ Since $\epsilon > 0$ was arbitrary, we deduce $\frac{a_n}{b_n} \to \frac{a}{b}$ 
 \begin{quote}\vspace{-0.3cm}
 Suppose $\{a_n\}$ is Cauchy. Then $|a_n| < M (\forall n \geq l)$ by the last lemma.
 
-Set $E = \{x \in \mathbb{R} \;|\; \exists N.\; n \geq N \implies x < a_n\}$. Note that $-M < a_n (\forall n \geq l)$, and so $-M \in E$ and $E \neq \varnothing$.
+Set $E = \{x \in \mathbb{R} \mid \exists N.\; n \geq N \implies x < a_n\}$. Note that $-M < a_n (\forall n \geq l)$, and so $-M \in E$ and $E \neq \varnothing$.
 
 Also, $x \in E \implies \exists N_x.\; n \geq N_x \implies x < a_n < M$, and so $M$ is an upper bound of $E$.\\
 By the least upper bound property of $\mathbb{R}$, $\exists a = \sup E \in \mathbb{R}$. We claim that $a_n \to a$ as $n \to \infty$.
@@ -736,20 +736,20 @@ We say $\{a_n\}$ is \emph{monotone} iff. it is either non-increasing or non-decr
 \begin{quote}
 $\implies$: We'll prove when the sequence is non-decreasing (other case handled by similar argument).
 
-Set $E = \{a_n \;|\; n \geq l\} \subseteq \mathbb{R}$. Clearly $E \neq \varnothing$. Also, since $\{a_n\}$ is bounded, $E$ is as well (in particular above). By least upper bound property of $\mathbb{R}$, $\exists a = \sup(E) \in \mathbb{R}$. We claim that $a = \lim_{n \to \infty} a_n$.
+Set $E = \{a_n \mid n \geq l\} \subseteq \mathbb{R}$. Clearly $E \neq \varnothing$. Also, since $\{a_n\}$ is bounded, $E$ is as well (in particular above). By least upper bound property of $\mathbb{R}$, $\exists a = \sup(E) \in \mathbb{R}$. We claim that $a = \lim_{n \to \infty} a_n$.
 
 Let $\epsilon > 0$. Since $a = \sup(E)$ we know that $a- \epsilon$ is not an upper bound of $E$; hence $\exists (N \geq l).\; a - \epsilon < a_N$. Also, since the sequence is non-decreasing, $a_n \leq a_{n+1} (\forall n \geq l)$, and so $n \geq N \implies a_N \leq a_n$. Then $n \geq N \implies a - \epsilon < a_N \leq a_n \leq a$ because $a$ is an upper bound of $E$.
 
 So $n \geq N \implies -\epsilon < a_n - a \leq 0 \implies |a_n - a| < \epsilon$. Since $\epsilon > 0$ was arbitrary, we deduce that $a_n \to a$ as $n \to \infty$.
 \end{quote}
 
-\textbf{Lemma}: Suppose that $\{a_n\}$ is bounded. Set $S_m = \sup \{a_n \;|\; n \geq m\}$ and $I_m = \inf \{a_n \;|\; n \geq m\}$. Then $S_m, I_m \in \mathbb{R}$ are well-defined $\forall m \geq l$; $\{S_m\}$ is non-increasing; and $\{I_m\}$ is non-decreasing. Both sequences are bounded.
+\textbf{Lemma}: Suppose that $\{a_n\}$ is bounded. Set $S_m = \sup \{a_n \mid n \geq m\}$ and $I_m = \inf \{a_n \mid n \geq m\}$. Then $S_m, I_m \in \mathbb{R}$ are well-defined $\forall m \geq l$; $\{S_m\}$ is non-increasing; and $\{I_m\}$ is non-decreasing. Both sequences are bounded.
 
 \textbf{Definition}: Suppose $\{a_n\} \subseteq \mathbb{R}$ is bounded. We set $\limsup_{n \to \infty} a_n = \lim_{m \to \infty} S_m \in \mathbb{R}$ and $\liminf_{n \to \infty} a_n = \lim_{m \to \infty} I_m \in \mathbb{R}$. Both limits exist by the lemma and previous theorem. We know that $\liminf_{n \to \infty} a_n \leq \limsup_{n \to \infty} a_n$ from HW.
 
 \subsection{Subsequences}
 
-\textbf{Definition}: Let $\phi: \{n \in \mathbb{Z} \;|\; n \geq l\} \to \{n \in \mathbb{Z}\;|\; n \geq l\}$ be order preserving (increasing), i.e. $m < n$ then $\phi(m) < \phi(n)$. Let $\{a_n\}_{l=k}^\infty \subseteq \mathbb{R}$ be a sequence. We say $\{a_{\phi(k)}\}_{k=l}^\infty$ is a \emph{subsequence} of $\{a_n\}$.
+\textbf{Definition}: Let $\phi: \{n \in \mathbb{Z} \mid n \geq l\} \to \{n \in \mathbb{Z}\mid n \geq l\}$ be order preserving (increasing), i.e. $m < n$ then $\phi(m) < \phi(n)$. Let $\{a_n\}_{l=k}^\infty \subseteq \mathbb{R}$ be a sequence. We say $\{a_{\phi(k)}\}_{k=l}^\infty$ is a \emph{subsequence} of $\{a_n\}$.
 
 \emph{Remarks}:
 \begin{quote}\vspace{-0.3cm}
@@ -792,8 +792,8 @@ If not, then $\phi(k) < N (\forall k \geq l)$; but $k \leq \phi(k) < N (\forall 
 \begin{quote}\vspace{-0.3cm}
 	\begin{enumerate}
 	\item Trivial.
-	\item Since $k \leq \phi(k)$, $\{a_{\phi(n)} \;|\; n \geq k\} \subseteq \{a_n \;|\; n \geq k\}$ for every order-preserving $\phi$. Hence $S_k = \sup \{a_{\phi(n)}\} \;|\; n \geq k\} \subseteq \sup \{a_n \;|\; n \geq k\} = T_k$. But:\\
-	$\limsup_{n \to \infty} a_{\phi(n)} = \limsup_{k \to \infty} \{a_{\phi(n)} \;|\; n \geq k\} \leq \limsup_{k \to \infty} \{a_n \;|\; n \geq k\} = \limsup_{n \to \infty} a_n$.
+	\item Since $k \leq \phi(k)$, $\{a_{\phi(n)} \mid n \geq k\} \subseteq \{a_n \mid n \geq k\}$ for every order-preserving $\phi$. Hence $S_k = \sup \{a_{\phi(n)}\} \mid n \geq k\} \subseteq \sup \{a_n \mid n \geq k\} = T_k$. But:\\
+	$\limsup_{n \to \infty} a_{\phi(n)} = \limsup_{k \to \infty} \{a_{\phi(n)} \mid n \geq k\} \leq \limsup_{k \to \infty} \{a_n \mid n \geq k\} = \limsup_{n \to \infty} a_n$.
 	\item Similar to (2); exercise to reader.
 	\item Too lazy to \LaTeX; exercise to reader. %% Insert proof %%
 	\item Exercise to reader.
@@ -935,7 +935,7 @@ Notice $\sum_{n=1}^\infty \frac{1}{n}$ is divergent, but $\sum_{n=1}^\infty \fra
 \subsubsection{Logarithm}
 
 \textbf{Definition}: From Supplemental Reading 3, for every $1 < b \in \mathbb{R}$, we define a function\\
-$\log_b : \{x \in \mathbb{R} \;|\; x > 0 \} \to \mathbb{R}$ such that
+$\log_b : \{x \in \mathbb{R} \mid x > 0 \} \to \mathbb{R}$ such that
 \begin{quote}\vspace{-0.3cm}
 	\begin{enumerate}
 	\item $b^{\log_b x} = x \;(\forall x > 0)$
@@ -1098,7 +1098,7 @@ Hence, $\gamma > 0$. But the next step is questionable:
 \end{align*}
 Problem: rearrangement is a delicate issue.
 
-\textbf{Definition}: Let $\gamma : \{m \in \mathbb{Z} \;|\; m \geq l\} \to \{m \in \mathbb{Z} \;|\; m \geq l\}$ be a bijection. The series $\sum_{n=l}^\infty a_{\gamma(n)}$ is called a rearrangement of $\sum_{n=l}^\infty a_n$.
+\textbf{Definition}: Let $\gamma : \{m \in \mathbb{Z} \mid m \geq l\} \to \{m \in \mathbb{Z} \mid m \geq l\}$ be a bijection. The series $\sum_{n=l}^\infty a_{\gamma(n)}$ is called a rearrangement of $\sum_{n=l}^\infty a_n$.
 
 \textbf{Theorem}: If $\sum_{n=l}^\infty a_n$ is absolutely convergent, then every rearrangement converges to $\sum_{n=l}^\infty a_n$.
 
@@ -1137,18 +1137,18 @@ Then $\sum_{n=0}^\infty b_n$ and $\sum_{n=0}^\infty c_n$ both diverge.
 
 \textbf{Rearrangement Theorem Proof}:
 \begin{quote}\vspace{-0.3cm}
-Let $\{a_n^+\}_{n=0}^\infty$ denote the subsequence of $\{b_n \;|\; b_n > 0$ or $b_n = 0 \land a_n = 0\}$. Let $\{a_n^-\}_{n=0}^\infty$ denote the subsequence of $\{c_n \;|\; c_n > 0\}$ (from last lemma). Note:
+Let $\{a_n^+\}_{n=0}^\infty$ denote the subsequence of $\{b_n \mid b_n > 0$ or $b_n = 0 \land a_n = 0\}$. Let $\{a_n^-\}_{n=0}^\infty$ denote the subsequence of $\{c_n \mid c_n > 0\}$ (from last lemma). Note:
 
 \begin{enumerate}
 \item $a_n^+ \to 0, a_n^- \to 0$ since $a_n \to 0 \implies b_n \to 0, c_n \to 0$.
 \item $\sum a_n^+$ and $\sum a_n^-$ both diverge because they differ by 0 from $\sum b_n, \sum c_n$ respectively.
 \end{enumerate}
-Set $m_0 = n_0 = -1$. Since $\sum a_n^+$ diverges we may use the well-ordering principle: $\exists m_1 = \min\{k \in \mathbb{N} \;|\; \sum_{n=0}^k a_n^+ > c\}$. Similarly, $\exists n_1 = \min\{k \in \mathbb{N} \;|\; \sum_{n=0}^{m_1} a_n^+ - \sum_{n=0}^k a_n^- < c\}$.
+Set $m_0 = n_0 = -1$. Since $\sum a_n^+$ diverges we may use the well-ordering principle: $\exists m_1 = \min\{k \in \mathbb{N} \mid \sum_{n=0}^k a_n^+ > c\}$. Similarly, $\exists n_1 = \min\{k \in \mathbb{N} \mid \sum_{n=0}^{m_1} a_n^+ - \sum_{n=0}^k a_n^- < c\}$.
 
 Next, if $m_p$ and $n_p$ are known, we set:
 \begin{align*}
-m_{p+1} &= \min\left\{k \in \mathbb{N} \;|\; \sum_{l=0}^{p-1} \sum_{j=1+m_l}^{m_l} a_j^+ - \sum_{l=0}^{p-1} \sum_{j=1+n_l}^{n_l} a_j^- + \sum_{j=1+m_p}^k a_j^+ > c\right\}\\
-n_{p+1} &= \min\left\{k \in \mathbb{N} \;|\; \sum_{l=0}^{p-1} \sum_{j=1+m_l}^{m_l} a_j^+ - \sum_{l=0}^{p-1} \sum_{j=1+n_l}^{n_l} a_j^- + \sum_{j=1+m_p}^{m_{p+1}} a_j^+ - \sum_{j=1+n_p}^k a_j^- < c\right\}
+m_{p+1} &= \min\left\{k \in \mathbb{N} \mid \sum_{l=0}^{p-1} \sum_{j=1+m_l}^{m_l} a_j^+ - \sum_{l=0}^{p-1} \sum_{j=1+n_l}^{n_l} a_j^- + \sum_{j=1+m_p}^k a_j^+ > c\right\}\\
+n_{p+1} &= \min\left\{k \in \mathbb{N} \mid \sum_{l=0}^{p-1} \sum_{j=1+m_l}^{m_l} a_j^+ - \sum_{l=0}^{p-1} \sum_{j=1+n_l}^{n_l} a_j^- + \sum_{j=1+m_p}^{m_{p+1}} a_j^+ - \sum_{j=1+n_p}^k a_j^- < c\right\}
 \end{align*}
 
 Consider the series $(a_1^+ + \cdots + a_{m_1}^+) - (a_1^- + \cdots + a_{n+1}^-) + (a_{1+m_1}^+ + \cdots + a_{m+2}^+) - (a_{1+n_1}^- + \cdots + a_{n_2}^-) + \cdots$. This is clearly a rearrangement of $\sum_{n=0}^\infty a_n$.
@@ -1179,8 +1179,8 @@ Our goal in Section 4 is to develop some tools for understanding the ``topology"
 \begin{enumerate}
 	\item For $a,b \in \mathbb{R}$ with $a \leq b$, we define:
 	\begin{align*}
-		(a,b) = \{x \in \mathbb{R} \;|\; a < x < b\} \hspace{1.5cm} [a, b) = \{x \in \mathbb{R} \;|\; a \leq x < b\}\\
-		(a,b] = \{x \in \mathbb{R} \;|\; a < x \leq b\} \hspace{1.5cm} [a,b] = \{x \in \mathbb{R} \;|\; a \leq x \leq b\}
+		(a,b) = \{x \in \mathbb{R} \mid a < x < b\} \hspace{1.5cm} [a, b) = \{x \in \mathbb{R} \mid a \leq x < b\}\\
+		(a,b] = \{x \in \mathbb{R} \mid a < x \leq b\} \hspace{1.5cm} [a,b] = \{x \in \mathbb{R} \mid a \leq x \leq b\}
 	\end{align*}
 
 	\item For $x \in \mathbb{R}$ and $\epsilon > 0$, we set $B(x, \epsilon) = (x-\epsilon, x + \epsilon)$ and $B[x, \epsilon] = [x-\epsilon, x + \epsilon]$.\\
@@ -1205,7 +1205,7 @@ Our goal in Section 4 is to develop some tools for understanding the ``topology"
 
 	\item $[a,b]$ is not open, nor is $(a,b]$ by previous argument.
 	\item $E = \{a\}$ is not open.
-	\item $E = \{\frac{1}{n} \;|\; n \in \mathbb{N}, n \geq 1\}$ is not open: $\forall \epsilon > 0.\; B(1, \epsilon) \not \subseteq E$.
+	\item $E = \{\frac{1}{n} \mid n \in \mathbb{N}, n \geq 1\}$ is not open: $\forall \epsilon > 0.\; B(1, \epsilon) \not \subseteq E$.
 	\end{enumerate}
 \end{quote}
 
@@ -1232,9 +1232,9 @@ Then $\bigcap_{n=1}^\infty E_n = \{0\}$ which is closed.
 	\item $[a,b]$ is closed because $[a,b]^c = (-\infty, a) \cup (b, \infty)$ is the union of open sets, and thus open.
 	\item $[a,b)$ and $(a,b]$ are not closed because $[a,b)^c = (-\infty, a) \cup [b, \infty)$ and $B(b, \epsilon) \not \subseteq [a,b)^c \;(\forall \epsilon > 0)$.
 	\item $\{a\}$ is closed since $\{a\}^c = (-\infty, a) \cup (a, \infty)$, both open sets.
-	\item Suppose $E \subseteq \mathbb{R}$ is finite. Write $E = \{a_i \;|\; i \in [n]\}$ where $a_1 < a_2 < \ldots < a_n$. Then $E^c = (-\infty, a_1) \cup (a_1, a_2) \cup \cdots \cup (a_{n-1}, a_n) \cup (a_n, \infty)$, all of which are open.
-	\item $E = \{\frac{1}{n} \;|\; n \in \mathbb{N}, n \geq 1\}$ is not closed. $E^c = (-\infty, 0] \cup \bigcup_{n=1}^\infty (\frac{1}{n+1}, \frac{1}{n}) \cup (1, \infty)$ is not open because $B(0, \epsilon) \cap E = \{\frac{1}{n} \;|\; \frac{1}{\epsilon} < n\} \neq \varnothing \implies B(0, \epsilon) \notin E^c$.
-	\item $E = \{0\} \cup \{\frac{1}{n} \;|\; n \geq 1\}$ is closed, as $E^c = (-\infty, 0) \cup \bigcup_{n=1}^\infty (\frac{1}{n+1}, \frac{1}{n}) \cup (1, \infty)$ is open.
+	\item Suppose $E \subseteq \mathbb{R}$ is finite. Write $E = \{a_i \mid i \in [n]\}$ where $a_1 < a_2 < \ldots < a_n$. Then $E^c = (-\infty, a_1) \cup (a_1, a_2) \cup \cdots \cup (a_{n-1}, a_n) \cup (a_n, \infty)$, all of which are open.
+	\item $E = \{\frac{1}{n} \mid n \in \mathbb{N}, n \geq 1\}$ is not closed. $E^c = (-\infty, 0] \cup \bigcup_{n=1}^\infty (\frac{1}{n+1}, \frac{1}{n}) \cup (1, \infty)$ is not open because $B(0, \epsilon) \cap E = \{\frac{1}{n} \mid \frac{1}{\epsilon} < n\} \neq \varnothing \implies B(0, \epsilon) \notin E^c$.
+	\item $E = \{0\} \cup \{\frac{1}{n} \mid n \geq 1\}$ is closed, as $E^c = (-\infty, 0) \cup \bigcup_{n=1}^\infty (\frac{1}{n+1}, \frac{1}{n}) \cup (1, \infty)$ is open.
 	\end{enumerate}
 \end{quote}
 
@@ -1258,7 +1258,7 @@ Then $\bigcap_{n=1}^\infty E_n = \{0\}$ which is closed.
 	\item A point $x \in E$ is called \emph{isolated} if it is not a limit point.
 	\end{enumerate}
 \end{quote}
-\emph{Example}: $E = \{\frac{1}{n} \;|\; n \geq 1\}$. 0 is a limit point, but $\frac{1}{n} \in E$ is isolated, since $B(\frac{1}{n}, \frac{1}{n(n+1)}) \cap E = \{\frac{1}{n}\}$.\\
+\emph{Example}: $E = \{\frac{1}{n} \mid n \geq 1\}$. 0 is a limit point, but $\frac{1}{n} \in E$ is isolated, since $B(\frac{1}{n}, \frac{1}{n(n+1)}) \cap E = \{\frac{1}{n}\}$.\\
 
 \textbf{Theorem}: Let $E \subseteq \mathbb{R}$. $E$ is closed $\iff$ every limit point of $E$ is contained in $E$.
 
@@ -1285,7 +1285,7 @@ Set $r_n = \min(\frac{1}{n}, |x-x_{n-1}|)$ and choose $x_n \in (B(x_1, r_n) \cap
 Then $\forall n \geq 1.\; \{x_n\}_{n=1}^\infty \subseteq E$ and $|x-x_{n-1}| < |x-x_n|$ and $|x-x_n| < \frac{1}{n}$. It follows $\{x_n\}$ is not eventually constant, and $x_n \to x$ as $n \to \infty$.
 
 $\Longleftarrow$:\\
-Let $\epsilon > 0$. $\exists N \geq 1.\; n \geq N \implies |x-x_n| < \epsilon$. Then $\{x_n \;|\; n \geq N\} \subseteq B(x, \epsilon) \cap E$. If $\{x_n \;|\; n \geq N\} = \{x\}$ then $\{x_n\}$ is eventually constant, a contradiction. Hence $\varnothing \neq \{x_n \;|\; n \geq N\} \backslash \{x\} \subseteq (B(x, \epsilon) \cap E) \backslash \{x\} \implies (B(x, \epsilon) \cap E) \backslash \{x\} \neq \varnothing$, and hence $x$ is a limit point.
+Let $\epsilon > 0$. $\exists N \geq 1.\; n \geq N \implies |x-x_n| < \epsilon$. Then $\{x_n \mid n \geq N\} \subseteq B(x, \epsilon) \cap E$. If $\{x_n \mid n \geq N\} = \{x\}$ then $\{x_n\}$ is eventually constant, a contradiction. Hence $\varnothing \neq \{x_n \mid n \geq N\} \backslash \{x\} \subseteq (B(x, \epsilon) \cap E) \backslash \{x\} \implies (B(x, \epsilon) \cap E) \backslash \{x\} \neq \varnothing$, and hence $x$ is a limit point.
 \end{quote}
 
 \emph{Corollary}: Let $E \in \mathbb{R}$. The following are equivalent (proof follows from last theorem):
@@ -1310,9 +1310,9 @@ Let $\epsilon > 0$. $\exists N \geq 1.\; n \geq N \implies |x-x_n| < \epsilon$. 
 \textbf{Definition}: Let $E \subseteq \mathbb{R}$.
 \begin{quote}\vspace{-0.3cm}
 	\begin{enumerate}
-	\item Let $\mathcal{O}(E) = \{V \subseteq \mathbb{R} \;|\; V \subseteq E$ and $V$ is open$\} \subseteq \mathcal{P}(\mathbb{R})$
+	\item Let $\mathcal{O}(E) = \{V \subseteq \mathbb{R} \mid V \subseteq E$ and $V$ is open$\} \subseteq \mathcal{P}(\mathbb{R})$
 
-	\hspace{0.75cm}$\mathcal{C}(E) = \{C \subseteq \mathbb{R} \;|\; E \subseteq C$ and $C$ is closed$\} \subseteq \mathcal{P}(\mathbb{R})$.
+	\hspace{0.75cm}$\mathcal{C}(E) = \{C \subseteq \mathbb{R} \mid E \subseteq C$ and $C$ is closed$\} \subseteq \mathcal{P}(\mathbb{R})$.
 
 	Note that $\varnothing \in \mathcal{O}(E)$ and $\mathbb{R} \in \mathcal{C}(E)$.
 
@@ -1329,7 +1329,7 @@ Let $\epsilon > 0$. $\exists N \geq 1.\; n \geq N \implies |x-x_n| < \epsilon$. 
 	\item $E^0 \subseteq E \subseteq \bar{E}$
 	\item $E^0$ is open and $\bar{E}, \partial E$ are closed.
 	\item For every $x \in E$, $x \in E^0 \oplus x \in \partial E$.
-	\item $\partial E = \{x \in \mathbb{R} \;|\; \forall \epsilon > 0.\; B(x, \epsilon) \cap E \neq \varnothing$ and $B(x, \epsilon) \cap E^c \neq \varnothing\}$.
+	\item $\partial E = \{x \in \mathbb{R} \mid \forall \epsilon > 0.\; B(x, \epsilon) \cap E \neq \varnothing$ and $B(x, \epsilon) \cap E^c \neq \varnothing\}$.
 	\item $E$ is open $\iff E = E^0$, $E$ is closed $\iff E = \bar{E}$.
 	\end{enumerate}
 \end{quote}
@@ -1370,11 +1370,11 @@ Let $\epsilon > 0$. $\exists N \geq 1.\; n \geq N \implies |x-x_n| < \epsilon$. 
 	\begin{enumerate}
 	\item Every $E \subseteq \mathbb{R}$ admits a cover: $E = \bigcup_{x \in E} \{x\}$.
 	\item Every $E \subseteq \mathbb{R}$ admits an open cover: $E \subseteq \bigcup_{x \in E} B(x, \epsilon)$ for $\epsilon > 0$.
-	\item If $E$ is finite and $\mathcal{V}$ is an open cover, we claim there is a finite open subcover. Indeed, write $E = \{a_i \;|\; 1 \leq i \leq n\}$ and choose $V_{\alpha_i}$ such that $a_i \in V_{\alpha_i}$. Then $E \subseteq \bigcup_{i=1}^n V_{\alpha_i}$ and $\{V_{\alpha_i}\}_{i=1}^n \subseteq \{V_\alpha\}_{\alpha \in A}$. Hence every open cover of a finite set admits a finite open subcover.
+	\item If $E$ is finite and $\mathcal{V}$ is an open cover, we claim there is a finite open subcover. Indeed, write $E = \{a_i \mid 1 \leq i \leq n\}$ and choose $V_{\alpha_i}$ such that $a_i \in V_{\alpha_i}$. Then $E \subseteq \bigcup_{i=1}^n V_{\alpha_i}$ and $\{V_{\alpha_i}\}_{i=1}^n \subseteq \{V_\alpha\}_{\alpha \in A}$. Hence every open cover of a finite set admits a finite open subcover.
 
-	\item $E = \{\frac{1}{n} \;|\; n \geq 1\}$. $\mathcal{V} = \{B(\frac{1}{n}, \frac{1}{n(n+1)}\}_{n=1}^\infty$ is an open cover of $E$. Note that $B(\frac{1}{n}, \frac{1}{n(n+1)}) \cap E = \frac{1}{n}$, so there does not exist a finite subcover.
+	\item $E = \{\frac{1}{n} \mid n \geq 1\}$. $\mathcal{V} = \{B(\frac{1}{n}, \frac{1}{n(n+1)}\}_{n=1}^\infty$ is an open cover of $E$. Note that $B(\frac{1}{n}, \frac{1}{n(n+1)}) \cap E = \frac{1}{n}$, so there does not exist a finite subcover.
 
-	\item $E = \{0\} \cup \{\frac{1}{n} \;|\; n \geq 1\}$. Suppose $\mathcal{V}$ is an open cover of $E$. Since $0 \in E$, $\exists \alpha_0 \in A.\; 0 \in V_{\alpha_0}$. Since $V_{\alpha_0}$ is open, $\exists \epsilon > 0.\; B(0, \epsilon) \subseteq V_{\alpha_0}$. Then $B(0, \epsilon) \cap E = \{\frac{1}{n} \;||; n \geq N\}$ where $N = \min \{n \in N \;|\; n \geq \frac{1}{\epsilon}\}$. Hence $E \backslash B(0, \epsilon) = \{\frac{1}{n} \;|\; 1 \leq n \leq N\}$. There exist $V_{\alpha_n}$ for $n \in [N]$ such that $\frac{1}{n} \in V_{\alpha_n}$. Then $E \subseteq \bigcup_{n=0}^N V_{\alpha_n}$ and $E$ has a finite subcover.
+	\item $E = \{0\} \cup \{\frac{1}{n} \mid n \geq 1\}$. Suppose $\mathcal{V}$ is an open cover of $E$. Since $0 \in E$, $\exists \alpha_0 \in A.\; 0 \in V_{\alpha_0}$. Since $V_{\alpha_0}$ is open, $\exists \epsilon > 0.\; B(0, \epsilon) \subseteq V_{\alpha_0}$. Then $B(0, \epsilon) \cap E = \{\frac{1}{n} \;||; n \geq N\}$ where $N = \min \{n \in N \mid n \geq \frac{1}{\epsilon}\}$. Hence $E \backslash B(0, \epsilon) = \{\frac{1}{n} \mid 1 \leq n \leq N\}$. There exist $V_{\alpha_n}$ for $n \in [N]$ such that $\frac{1}{n} \in V_{\alpha_n}$. Then $E \subseteq \bigcup_{n=0}^N V_{\alpha_n}$ and $E$ has a finite subcover.
 
 	\item Let $a < b$ and $E = (a,b)$. Then $\mathcal{V} = \{(a+\frac{1}{n+1}, b - \frac{1}{n+1})\}_{n \in \mathbb{N}}$ is an open cover of $E$. Since these intervals are nested, there cannot be a finite subcover.
 	\end{enumerate}
@@ -1389,8 +1389,8 @@ Let $\epsilon > 0$. $\exists N \geq 1.\; n \geq N \implies |x-x_n| < \epsilon$. 
 	\item $\mathbb{R}$ is not compact because $\mathcal{V} = \{B(0, n)\}_{n \in \mathbb{N}}$ is an open cover that clearly does not admit a finite subcover of $\mathbb{R}$.
 	\item Any finite set $E \subseteq \mathbb{R}$ is compact.
 	\item $(a,b)$ for $a < b$ is not compact.
-	\item $\{\frac{1}{n} \;|\; n \geq 1\}$ is not compact.
-	\item $\{0\} \cup \{\frac{1}{n} \;|\; n \geq 1\}$ is compact.
+	\item $\{\frac{1}{n} \mid n \geq 1\}$ is not compact.
+	\item $\{0\} \cup \{\frac{1}{n} \mid n \geq 1\}$ is compact.
 	\end{enumerate}
 \end{quote}
 Notice in each of our examples of compact sets that the set is closed and bounded.
@@ -1415,7 +1415,7 @@ $\Longleftarrow$ \textbf{(Heine-Borel)} Suppose $K$ is closed and bounded. If $K
 \begin{quote}\vspace{-0.3cm}
 Notice that $K$ bounded $\implies \inf K, \sup K \in \mathbb{R}$, and $K$ closed $\implies \inf K, \sup K \in K$. In particular, $\sup K = \max K, \inf = \min K$. Let $\mathcal{V}$ be an open cover of $K$.
 
-Let $E = \{x \in K \;|\; \mathcal{V} \text{ admits a finite subcover of }K \cap [\inf K, x]\} \subseteq K$. Notice that $K \cap [\inf K, \inf K] = \{\inf K\}$ is a finite set and hence compact; thus $\mathcal{V}$ admits a finite subcover of $K \cap [\inf K, \inf K]$. Hence $\inf K \in E$, and so $E \neq \varnothing$. Clearly $E$ is bounded above by $\sup K$. By LUB property, $\exists \sup E \in \mathbb{R}$ and $\sup E \leq \sup K$.\\
+Let $E = \{x \in K \mid \mathcal{V} \text{ admits a finite subcover of }K \cap [\inf K, x]\} \subseteq K$. Notice that $K \cap [\inf K, \inf K] = \{\inf K\}$ is a finite set and hence compact; thus $\mathcal{V}$ admits a finite subcover of $K \cap [\inf K, \inf K]$. Hence $\inf K \in E$, and so $E \neq \varnothing$. Clearly $E$ is bounded above by $\sup K$. By LUB property, $\exists \sup E \in \mathbb{R}$ and $\sup E \leq \sup K$.\\
 
 We want to show $\sup E = \sup K = \max E$. Notice that $\forall n \geq 1.\; \exists x_n \in E \subseteq K$ such that $\sup E - \frac{1}{n} < x_n \leq \sup E$. Then $x_n \to \sup E$ as $n \to \infty$, and so $\sup E \in K$ (since $K$ is closed).
 
@@ -1499,13 +1499,13 @@ We say $\lim_{x \to p} f(x) = q$ or $f(x) \to q$ as $x \to p$ iff $\forall \epsi
 
 	\emph{Proof}: Let $\epsilon > 0$. Choose $\delta = \min(1, \sqrt{\epsilon/e}) > 0$. Then for $x \in \mathbb{R}$, $0 < |x - 0| < \delta \implies |x| < \min(1, \sqrt{\epsilon/e}) \implies |\cos(x) - 1| \leq x^2 e^1$ (since $|x|^2 < \delta \leq 1 \implies e^{|x|^2} \leq e^1$) $\implies |\cos(x) - 1| < \delta^2 e \leq (\sqrt{\epsilon/e})^2 e = \epsilon$.
 
-	\item $E = \{\frac{1}{n} \;|\; n \geq 1\}, p=0$. Let $f(x) = \frac{1}{x}$ for $x \in E$. We claim $\lim_{x \to 0} f(x)$ does not exist.
+	\item $E = \{\frac{1}{n} \mid n \geq 1\}, p=0$. Let $f(x) = \frac{1}{x}$ for $x \in E$. We claim $\lim_{x \to 0} f(x)$ does not exist.
 
 	\emph{Proof}: Suppose not. Then for $\epsilon = 1.\; \exists \delta > 0.\; x \in E,\; 0 < |x - 0| < \delta \implies |f(x) - q| < 1$. But $x \in E, |x| < \delta \implies x = \frac{1}{n}, \frac{1}{\delta} < n$, and $|f(x) - q| = |\frac{1}{1/n} - q| = |n - q| < 1$, which is a contradiction.
 	\end{enumerate}
 \end{quote}
 
-\textbf{Definition}: Let $f : E \to \mathbb{R}$ for some $E \subseteq \mathbb{R}$. If $A \subseteq E$ we define $f(A) = \{f(x) \;|\; x \in A\} \subseteq \mathbb{R}$ as the \emph{image} of $A$ under $f$. If $B \subseteq \mathbb{R}$ we define $f^{-1}(B) = \{x \in E \;|\; f(x) \in B\}$ as the \emph{pre-image} of $B$ under $f$.
+\textbf{Definition}: Let $f : E \to \mathbb{R}$ for some $E \subseteq \mathbb{R}$. If $A \subseteq E$ we define $f(A) = \{f(x) \mid x \in A\} \subseteq \mathbb{R}$ as the \emph{image} of $A$ under $f$. If $B \subseteq \mathbb{R}$ we define $f^{-1}(B) = \{x \in E \mid f(x) \in B\}$ as the \emph{pre-image} of $B$ under $f$.
 
 \textbf{Lemma}: Suppose $f : E \to \mathbb{R}$. Then $A \subseteq B \subseteq E \implies f(A) \subseteq f(B)$, and\\
 $A \subseteq B \subseteq \mathbb{R} \implies f^{-1}(A) \subseteq f^{-1}(B) \subseteq E$.
@@ -1754,7 +1754,7 @@ If $f$ is non-increasing or non-decreasing, $f$ is \emph{monotone}.
 
 \textbf{Definition}: Assume $f : [a,b] \to \mathbb{R}$ for $a < b \in \mathbb{R}$. For all $x \in [a,b]$, the function $\phi : (a,b) \backslash \{x\} \to \mathbb{R}$ via $\phi(t) = \frac{f(t) - f(x)}{t - x}$ is well-defined, and $x$ is a limit point of $(a,b) \backslash \{x\}$. If $\lim_{t \to x} \phi(t)$ exists we write $f'(x) = \lim_{t \to x} \phi(t)$ and say that $f$ is \emph{differentiable} at $x$.
 
-We define $f' : \{x \in [a,b] \;|\; x \text{ is differentiable at }x\} \to \mathbb{R}$ to be the \emph{derivative} of $f$. If $f$ is differentiable $\forall x \in E \subseteq [a,b]$, we say $f$ is differentiable on $E$.
+We define $f' : \{x \in [a,b] \mid x \text{ is differentiable at }x\} \to \mathbb{R}$ to be the \emph{derivative} of $f$. If $f$ is differentiable $\forall x \in E \subseteq [a,b]$, we say $f$ is differentiable on $E$.
 
 \textbf{Definition (General)}: Let $E \subseteq \mathbb{R}$, $f : E \to \mathbb{R}$, and $x \in E$ be a limit point of $E$. Define $\phi : E \backslash \{x\} \to \mathbb{R}$ by $\phi(t) = \frac{f(t) - f(x)}{t-x}$. If $\lim_{t \to x} \phi(t)$ exists we say $f$ is differentiable at $x$, and write $f'(x) = \lim_{t \to x} \phi(t)$.\\
 
@@ -1879,7 +1879,7 @@ To prove the claim, we apply Cauchy's Mean Value Theorem on $[a, x_n]$: $\exists
 
 \subsection{Higher Derivatives and Taylor's Theorem}
 
-\textbf{Definition}: Suppose $f : E \to \mathbb{R}$ is differentiable at $x \in E$, and $x$ is a limit point of $\{y \in E \;|\; f'(x) \text{ exists}\}$. We say $f$ is twice differentiable at $x$ if $f' : \{y \in E \;|\; f'(y) \text{ exists}\} \to \mathbb{R}$ is differentiable at $x$; and $f''(x) = f^{(2)}(x) = (f')'(x)$. Similarly, for $n \in \mathbb{N}$ with $n > 2$, we say $f$ is $n$-times differentiable at $x$ if $x$ is a limit point of $\{y \in E \;|\; f^{(n-1)}(y) \text{ exists}\}$ and $f^{(n-1)}$ is differentiable at $x$, in which case $f^{(n)}(x) = (f^{(n-1)})'(x)$.
+\textbf{Definition}: Suppose $f : E \to \mathbb{R}$ is differentiable at $x \in E$, and $x$ is a limit point of $\{y \in E \mid f'(x) \text{ exists}\}$. We say $f$ is twice differentiable at $x$ if $f' : \{y \in E \mid f'(y) \text{ exists}\} \to \mathbb{R}$ is differentiable at $x$; and $f''(x) = f^{(2)}(x) = (f')'(x)$. Similarly, for $n \in \mathbb{N}$ with $n > 2$, we say $f$ is $n$-times differentiable at $x$ if $x$ is a limit point of $\{y \in E \mid f^{(n-1)}(y) \text{ exists}\}$ and $f^{(n-1)}$ is differentiable at $x$, in which case $f^{(n)}(x) = (f^{(n-1)})'(x)$.
 
 If $f^{(n)}$ exists $\forall n \in \mathbb{N}$, $n \geq 1$ we say $f$ is infinitely differentiable at $x$.
 
@@ -1902,7 +1902,7 @@ By construction, $g^{(k)}(x) = 0$ $(\forall k = 0, \ldots, n-1)$, and $g(y) = 0$
 
 \subsection{The R-S Integral}
 
-\textbf{Definition}: Let $a,b \in \mathbb{R}$ with $a \leq b$. A partition of $[a,b]$ is a finite ordered set $P = \{x_0, \ldots, x_n\}$ such that $a = x_0 \leq x_1 \leq \cdots \leq x_n = b$. Write $\Pi[a,b] = \{P \;|\; P \text{ is a partition of }[a,b]\}$. For brevity we'll write $\Pi = \Pi[a,b]$.
+\textbf{Definition}: Let $a,b \in \mathbb{R}$ with $a \leq b$. A partition of $[a,b]$ is a finite ordered set $P = \{x_0, \ldots, x_n\}$ such that $a = x_0 \leq x_1 \leq \cdots \leq x_n = b$. Write $\Pi[a,b] = \{P \mid P \text{ is a partition of }[a,b]\}$. For brevity we'll write $\Pi = \Pi[a,b]$.
 
 \textbf{Universal Assumptions}: Throughout $\S 7$ we will always assume that:
 \begin{quote}\vspace{-0.3cm}
@@ -1915,8 +1915,8 @@ By construction, $g^{(k)}(x) = 0$ $(\forall k = 0, \ldots, n-1)$, and $g(y) = 0$
 \textbf{Definition}: For each $P \in \Pi[a,b]$ we associate to $f$ the following quantities ($P = \{x_0, \ldots, x_n\}$):
 \begin{quote}\vspace{-0.3cm}
 	\begin{enumerate}
-	\item $m_i = \inf \{f(x) \;|\; x \in [x_{i-1}, x_i]\}$ for $i \in [n]$
-	\item $M_i = \sup \{f(x) \;|\; x \in [x_{i-1}, x_i]\}$ for $i \in [n]$
+	\item $m_i = \inf \{f(x) \mid x \in [x_{i-1}, x_i]\}$ for $i \in [n]$
+	\item $M_i = \sup \{f(x) \mid x \in [x_{i-1}, x_i]\}$ for $i \in [n]$
 	\item $\Delta \alpha_i = \alpha(x_i) - \alpha(x_{i-1}) \geq 0$ for $i \in [n]$
 	\end{enumerate}
 
@@ -1928,11 +1928,11 @@ $U$ is the upper Riemann-Stieltjes sum, and $L$ is the lower R-S sum.
 
 \textbf{Definition of Integral}: We define
 \begin{quote}\vspace{-0.3cm}
-$\underline{\int_a^b} f d\alpha = \sup \{L(P, f, \alpha) \;|\; P \in \Pi[a,b]\}$, and $\overline{\int_a^b} f d\alpha = \inf \{U(P, f, \alpha) \;|\; P \in \Pi[a,b]\}$. Both are well-defined by the remark.
+$\underline{\int_a^b} f d\alpha = \sup \{L(P, f, \alpha) \mid P \in \Pi[a,b]\}$, and $\overline{\int_a^b} f d\alpha = \inf \{U(P, f, \alpha) \mid P \in \Pi[a,b]\}$. Both are well-defined by the remark.
 
 If $\underline{\int_a^b} f d\alpha = \overline{\int_a^b} f d\alpha$ then we say $f$ is R-S integrable with respect to $\alpha$, and write\\ $\int_a^b f d\alpha = \underline{\int_a^b} f d\alpha = \overline{\int_a^b} f d\alpha$.\\
 
-We write $\mathcal{R}([a,b]; \alpha) = \{f : [a,b] \to \mathbb{R} \;|\; f \text{ is bounded, } f \text{ is R-S integrable with respect to }\alpha\}$. When $\alpha(x) = x$, $\int_a^b f dx$ is the Riemann integral and we write $\mathcal{R}([a,b])$.
+We write $\mathcal{R}([a,b]; \alpha) = \{f : [a,b] \to \mathbb{R} \mid f \text{ is bounded, } f \text{ is R-S integrable with respect to }\alpha\}$. When $\alpha(x) = x$, $\int_a^b f dx$ is the Riemann integral and we write $\mathcal{R}([a,b])$.
 
 \emph{Heuristics}: The function $\alpha$ assigns different weights to different points in $[a,b]$. The intuition is that $\int_a^b f d\alpha$ is a ``weighted Riemann integral". If $\alpha$ is continuous then we have a geometric interpretation of $\int_a^b f d \alpha$: consider the curve in $\mathbb{R}^2$ parameterized by $(x(t), y(t)) = (\alpha(t), f(t))$; $\int_a^b f d\alpha =$ area under this curve.
 \end{quote}
@@ -1948,7 +1948,7 @@ If $P_1, P_2 \in \Pi[a,b]$ we define the \emph{common refinement} $P_1 \# P_2 \i
 
 \textbf{Theorem}: $\underline{\int_a^b} f d\alpha \subseteq \overline{\int_a^b} f d \alpha$.
 
-\emph{Proof}: Let $P_1, P_2 \in \Pi[a,b]$. Then $L(P_1, f, \alpha) \leq L(P_1 \# P_2, f, \alpha) \leq U(P_1 \# P_2, f, \alpha) \leq U(P_2, f, \alpha)$ by last proposition. Hence $\underline{\int_a^b} f d\alpha = \sup\{L(P_1, f, \alpha) \;|\; P_1 \in \Pi[a,b]\} \leq U(P_2, f, \alpha)$. Then $\underline{\int_a^b} f d\alpha \leq \inf \{U(P_2, f, \alpha) \;|\; P_2 \in \Pi[a,b]\} = \overline{\int_a^b} f d\alpha$.
+\emph{Proof}: Let $P_1, P_2 \in \Pi[a,b]$. Then $L(P_1, f, \alpha) \leq L(P_1 \# P_2, f, \alpha) \leq U(P_1 \# P_2, f, \alpha) \leq U(P_2, f, \alpha)$ by last proposition. Hence $\underline{\int_a^b} f d\alpha = \sup\{L(P_1, f, \alpha) \mid P_1 \in \Pi[a,b]\} \leq U(P_2, f, \alpha)$. Then $\underline{\int_a^b} f d\alpha \leq \inf \{U(P_2, f, \alpha) \mid P_2 \in \Pi[a,b]\} = \overline{\int_a^b} f d\alpha$.
 
 \subsection{Integrability Criteria}
 
@@ -2015,7 +2015,7 @@ Next, we show that R-S integration can handle more general discontinuities.
 
 \emph{Remark}: There is a much more powerful version known as Lebesgue's Theorem, which says that:
 \begin{center}
-$f \in \mathcal{R}([a,b]; \alpha) \iff$ ($E = \{x \in [a,b] \;|\; f$ is not continuous at $x\} \implies E$ is $\alpha$-null)
+$f \in \mathcal{R}([a,b]; \alpha) \iff$ ($E = \{x \in [a,b] \mid f$ is not continuous at $x\} \implies E$ is $\alpha$-null)
 \end{center}
 \begin{quote}
 Here, a set $E$ is $\alpha$-null if $\forall \epsilon > 0.\; \exists$ intervals $(u_j, v_j) \subseteq \mathbb{R}$ for $j \geq 1 \in \mathbb{N}$ such that $E \subseteq \bigcup_{j=1}^\infty (u_j, v_j)$ and $\sum_{j=1}^\infty \alpha(v_j) - \alpha(u_j) < \epsilon$.
@@ -2076,7 +2076,7 @@ This leads to a theorem $f, g \in \mathcal{R}([a,b]; \alpha) \implies f \land g,
 
 \subsection{Fundamental Theorem of Calculus}
 
-\textbf{Lemma}: Suppose $f \in \mathcal{R}([a,b]; \alpha)$. Define $F : [a,b] \to \mathbb{R}$ via $F(x) = \int_a^x f d\alpha$. Let $M = \sup \{|f(x)| \;|\; x \in [a,b]\}$. Then $|F(x) - F(y)| \leq M|\alpha(x) - \alpha(y)|$ ($\forall x,y \in [a,b]$).
+\textbf{Lemma}: Suppose $f \in \mathcal{R}([a,b]; \alpha)$. Define $F : [a,b] \to \mathbb{R}$ via $F(x) = \int_a^x f d\alpha$. Let $M = \sup \{|f(x)| \mid x \in [a,b]\}$. Then $|F(x) - F(y)| \leq M|\alpha(x) - \alpha(y)|$ ($\forall x,y \in [a,b]$).
 
 \textbf{Theorem}: Suppose $f \in \mathcal{R}([a,b]; \alpha)$ and define $F(x) = \int_a^x f d\alpha$. The following hold:
 \begin{quote}\vspace{-0.3cm}
@@ -2169,7 +2169,7 @@ The proof that $(2) \implies (1)$ is similar (exercise to reader).
 \begin{quote}
 Note that $\phi$ induces a bijection from $\Pi[A,B]$ to $\Pi[a,b]$: if $P = \{x_0, x_1, \ldots, x_n\} \in \Pi[A,B]$ then $\phi(P) := \{\phi(x_0), \phi(x_1), \ldots, \phi(x_n)\} \in \Pi[a,b]$.
 
-Also, $\sup \{g(x) \;|\; x \in [x_{i-1}, x_i]\} = \sup \{(f \circ \phi)(x) \;|\; x \in [x_{i-1}, x_i]\} = \sup \{f(y) \;|\; y \in [\phi(x_{i-1}), \phi(x_i)\}$. Similarly, $\inf \{g(x) \;|\; x \in [x_{i-1}, x_i]\} = \inf \{f(y) \;|\; y \in [\phi(x_{i-1}), \phi(x_i)]\}$. Hence, since $\beta = \alpha \circ \phi$, $U(P, g, \beta) = U(\phi(P), f, \alpha)$ and $L(P, g, \beta) = L(\phi(P), f, \alpha)$ $\forall P \in \Pi[A,B]$.
+Also, $\sup \{g(x) \mid x \in [x_{i-1}, x_i]\} = \sup \{(f \circ \phi)(x) \mid x \in [x_{i-1}, x_i]\} = \sup \{f(y) \mid y \in [\phi(x_{i-1}), \phi(x_i)\}$. Similarly, $\inf \{g(x) \mid x \in [x_{i-1}, x_i]\} = \inf \{f(y) \mid y \in [\phi(x_{i-1}), \phi(x_i)]\}$. Hence, since $\beta = \alpha \circ \phi$, $U(P, g, \beta) = U(\phi(P), f, \alpha)$ and $L(P, g, \beta) = L(\phi(P), f, \alpha)$ $\forall P \in \Pi[A,B]$.
 
 Let $\epsilon > 0$. Since $f \in \mathcal{R}([a,b]; \alpha)$, $\exists Q \in \Pi[a,b].\; U(Q, f, \alpha) - L(Q, f, \alpha) < \frac{\epsilon}{2}$. Writing $P = \phi^{-1}(Q)$ satisfies $U(P, g, \beta) - L(P, g, \beta) = U(Q, f, \alpha) - L(Q, f, \alpha) < \frac{\epsilon}{2}$. By Riemann's Theorem, we deduce that $g \in \mathcal{R}([A,B]; \beta)$.
 
@@ -2196,7 +2196,7 @@ We can combine this with the last theorem to deduce the ``usual" Riemmanian chan
 \begin{quote}\vspace{-0.3cm}
 	\begin{enumerate}
 	\item If $\exists f : E \to \mathbb{R}$ such that $\forall x \in E.\; f_n(x) \to f(x)$ as $n \to \infty$, then $f_n$ converges to $f$ \emph{pointwise} and write $f_n \to f$ as $n \to \infty$.
-	\item If $\exists f : E \to \mathbb{R}$ such that $\forall n \geq l.\; \{|f_n(x) - f(x)| \;|\; x \in E\}$ is bounded, and $\lim_{n \to \infty} \sup \{|f_n(x) - f(x)|\} = 0$, then $f_n$ converges to $f$ \emph{uniformly} on $E$, and we write $f_n \rightrightarrows f$ as $n \to \infty$.
+	\item If $\exists f : E \to \mathbb{R}$ such that $\forall n \geq l.\; \{|f_n(x) - f(x)| \mid x \in E\}$ is bounded, and $\lim_{n \to \infty} \sup \{|f_n(x) - f(x)|\} = 0$, then $f_n$ converges to $f$ \emph{uniformly} on $E$, and we write $f_n \rightrightarrows f$ as $n \to \infty$.
 	\end{enumerate}
 \end{quote}
 
@@ -2235,5 +2235,89 @@ We can combine this with the last theorem to deduce the ``usual" Riemmanian chan
 \item Same question for differentiability? If so, is $f'(x) = \lim_{n \to \infty} f_n'(x)$?
 \item If $\forall n.\; \{f_n\}_{n=l}^\infty \subseteq \mathcal{R}([a,b]; \alpha)$ and $f_n$ converges to $f$, is $f \in \mathcal{R}([a,b]; \alpha)$? If so, is $\int_a^b f d\alpha = \lim_{n \to \infty} \int_a^b f_n d\alpha$?
 \end{enumerate}
+The answer depends on the type of convergence. Pointwise convergence is not enough.
+
+\textbf{Examples}
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $f_n : (-1, 1) \to \mathbb{R}$ via $f_n(x) = (1-x^2)^n$.
+
+	We can see $f_n \to f$, where $f(x) = \begin{cases}
+	1 & \text{if } x = 0\\
+	0 & \text{otherwise}
+	\end{cases}$\\
+	This also shows that the convergence is not uniform. Note that $f_n$ is differentiable and continuous on $(-1, 1)$ but $f$ is neither. So Q1, Q2 fail when convergence is pointwise.
+
+	\item $f_n : (-1, 1) \to \mathbb{R}$ via $f_n(x) = \frac{1}{n} \sin(n^2x)$. Note $|f_n(x)| \leq \frac{1}{n}$, so $f_n \rightrightarrows 0$, which is differentiable and convergent.
+	On the other hand, $f_n'(x) = \frac{n^2 \cos(n^2x)}{n} = n \cos (n^2x)$, and this does not converge even pointwise. Then Q2.2 may be false without further assumptions.
+
+	\item HW 11 shows that if $f_n \to f$ via $f(x) = \begin{cases}
+	1 & \text{if } x \in [a,b] \cap \mathbb{Q}\\
+	0 & \text{if } x \in [a,b] \backslash \mathbb{Q}
+	\end{cases}$,
+	then $f \notin \mathcal{R}([a,b]; \alpha)$, even when $f_n \in \mathcal{R}([a,b]; \alpha)$. So Q3 fails for pointwise convergence.
+
+	\item Consider $f_n : [0,1] \to \mathbb{R}$ via $f_n(x) = \begin{cases}
+	n & \text{if } x \in (0, \frac{1}{n}\\
+	0 & \text{if } x \in \{0\} \cup [\frac{1}{n}, 1]
+	\end{cases}$.\\
+	$f_n$ is continuous except at 2 points, and hence $f_n \in \mathcal{R}([0,1])$.
+
+	It's easy to see $f_n \to 0 \in \mathcal{R}([0,1])$ but the convergence is not uniform. However, $\lim_{n \to \infty} \int_0^1 f_n dx = \lim_{n \to \infty} \int_0^{1/n} n dx = \lim_{n \to \infty} \frac{n}{n} = 1 \neq \int_0^1 0 dx$. So Q3.2 is false for pointwise convergence.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Theorem}: Suppose $\forall n \geq l$, $f_n : E \to \mathbb{R}$ is continuous on $E$. Assume $f_n \rightrightarrows f$ as $n \to \infty$. Then $f$ is continuous on $E$.
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+Let $\epsilon > 0$, $y \in E$. Since $f_n \rightrightarrows f$, $\exists N.\; n \geq N \implies |f_n(x) - f(x)| < \frac{\epsilon}{3}$. Since $f_N$ is continuous, $\exists \delta > 0.\; x \in E, |x-y| < \delta \implies |f_N(x) - f_N(y)| < \frac{\epsilon}{3}$.
+
+Then $x \in E$ and $|x-y| < \delta \implies |f(x) - f(y)| \leq |f(x) - f_N(x)| + |f_N(x) - f_N(y)| + |f_N(y) - f(y)| < 3 \frac{\epsilon}{3} = \epsilon$. Hence $f$ is continuous at each $y \in E$.
+\end{quote}
+
+\textbf{Theorem}: Suppose $f_n : [a,b] \to \mathbb{R}$ for $n \geq l$, and that $f_n$ is differentiable on $[a,b]$ and $f_n'$ is continuous on $[a,b]$. Assume $\exists x_0 \in [a,b].\; f_n(x_0) \to \gamma$ as $n \to \infty$ and that $f_n' \rightrightarrows g$ for some $g : [a,b] \to \mathbb{R}$. Then $\exists f : [a,b] \to \mathbb{R}$ that is differentiable on $[a,b]$, $f_n \rightrightarrows f$, and $f'(x) = \lim_{n \to \infty} f_n'(x)$ $\forall x \in [a,b]$.
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+Notice by FTC$_2$ that $\forall z \in [a,b].\; f_n(z) = f_n(x_0) - \int_a^{x_0} f_n' dx + \int_a^z f_n' dx$, which is well-defined since $g$ is continuous by previous theorem. By FTC, $f$ is differentiable on $[a,b]$ and $f' = g$.
+
+Let $\epsilon > 0$. Then $\exists N \geq l.\; n \geq N \implies |f_n(x_0) - \gamma| < \frac{\epsilon}{2}$ and $\sup_{[a,b]} |f_n' - g| < \frac{\epsilon}{2(b-a)}$.
+
+Then for all $n \geq N$ and all $z \in [a,b]$:
+\begin{displaymath}
+|f_n(z) - f(z)| \leq |f_n(x_0) - \gamma| + \int_a^b |f_n' - g| dx < \frac{\epsilon}{2} + \int_a^b \frac{\epsilon}{2(b-a)} dx = \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon
+\end{displaymath}
+Hence $\lim_{n \to \infty} \sup\{|f_n(z) - f(z)| \mid z \in [a,b]\} = 0$, i.e. $f_n \rightrightarrows f$.
+\end{quote}
+
+\subsection{The Cauchy Condition and the Weierstrass M-Test}
+
+\textbf{Theorem (Cauchy Condition for Uniform Convergence)}: Let $f_n : E \to \mathbb{R}$ for $n \geq l$.\\
+The following are equivalent:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $f_n \rightrightarrows f$ for some $f : E \to \mathbb{R}$
+	\item $\forall \epsilon > 0.\; \exists N \geq l.\; m,n \geq N \implies |f_n(x) - f_m(x)| < \epsilon$ $\forall x \in E$
+	\end{enumerate}
+\end{quote}
+
+\textbf{Definition}: Let $f_n : E \to \mathbb{R}$ for $n \geq l$. We say the series $\sum_{n=l}^\infty f_n(x)$
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item converges pointwise if the sequence $S_N(x) = \sum_{n=l}^N f_n(x)$ converges pointwise to $S(x)$;
+	\item converges absolutely if the sequence $\sum_{n=l}^\infty |f_n(x)|$ converges pointwise; and
+	\item converges uniformly if $S_N \rightrightarrows S$.
+	\end{enumerate}
+	If (1) or (2) hold, we write $S = \sum_{n=l}^\infty f_n$.
+\end{quote}
+
+\textbf{Theorem (Weierstrass M-test)}: Suppose $f_n : E \to \mathbb{R}$ for $n \geq l$ and $\sup_E |f_n| = M_n$. If $\sum_{n=l}^\infty M_n$ converges, then $\sum_{n=l}^\infty f_n$ converges uniformly on $E$.
+
+\emph{Proof}: Let $\epsilon > 0$. Then $\exists N.\; n \geq m \geq N \implies \sum_{k=m}^n M_k < \epsilon$. Then
+\begin{displaymath}
+n \geq m \geq N \implies |S_n(x) - S_m(x)| = \left|\sum_{k=m}^n f_k(x)\right| \leq \sum_{k=m}^n |f_k(x)| \leq \sum_{k=m}^n M_k < \epsilon
+\end{displaymath}
+So the Cauchy condition on uniform convergence implies $S_n \rightrightarrows S$ for some $S : E \to \mathbb{R}$.
 
 \end{document}
