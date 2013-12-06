@@ -2320,4 +2320,67 @@ n \geq m \geq N \implies |S_n(x) - S_m(x)| = \left|\sum_{k=m}^n f_k(x)\right| \l
 \end{displaymath}
 So the Cauchy condition on uniform convergence implies $S_n \rightrightarrows S$ for some $S : E \to \mathbb{R}$.
 
+\subsection{Power Series}
+
+\textbf{Definition}: Suppose $\{a_n\}_{n=0}^\infty \subseteq \mathbb{R}$, and let $p \in \mathbb{R}$. The series $f(x) = \sum_{n=0}^\infty a_n (x-p)^n$ is called a \emph{power series} centered at $p$.
+
+\textbf{Proposition}: Let $f(x) = \sum_{n=0}^\infty a_n (x-p)^n$. The following hold:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item If $\{|a_n|^{1/n}\}_{n=1}^\infty$ is unbounded, then $f(x)$ converges iff $x = p$.
+	\item Suppose $\{|a_n|^{1/n}\}$ is bounded and set $\rho = \limsup_{n \to \infty} |a_n|^{1/n}$.
+
+	If $\rho > 0$, set $R = \frac{1}{\rho} > 0$. In this case, $f(x)$ converges absolutely on $B(p, R)$, uniformly on every coompact set $K \subseteq B(p, R)$, and $f(x)$ diverges for $x \notin B[p, R] = \{x \in \mathbb{R} \mid |x-p| \leq R\}$.
+
+	If $\rho = 0$ then $f(x)$ converges absolutely on $\mathbb{R}$ and uniformly on every compact set $K \subseteq \mathbb{R}$.
+
+	\item If $\rho < 0$ in part (2), convergence at $x = p \pm R$ is unclear.
+	\end{enumerate}
+\end{quote}
+
+\emph{Proof}:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item If $x = p$, the sum is 0 and trivially converges. Since $\{|a_n|^{1/n}\}$ is unbounded, $\forall M > 0.\; \exists$ a subsequence $a_{n_k}$ such that $|a_{n_k}| > M^{n_k}$ for each $k$. Then $|x-p| \geq \frac{1}{M} \implies |a_{n_k}(x-p)^{n_k}| \geq M^{n_k}|x-p|^{n_k} \geq 1$. So $|x-p| \geq \frac{1}{M} \implies a_{n_k} (x-p)^{n_k} \not \to 0 \implies a_n(x-p)^k \not \to 0$. Since $M > 0$ is arbitrary, we deduce that $f(x)$ diverges $\forall x \neq p$.
+
+	\item Absolute convergence on $B(p, R)$ and divergence on $B[p,R]^C$ follow from the root test:
+	$|a_n (x-p)^n|^{1/n} = |a_n|^{1/n} |x-p|$, so
+	\begin{displaymath}
+	\limsup_{n \to \infty} |a_n(x-p)^n|^{1/n} = |x-p| \rho
+		\begin{cases}
+		< 1 & \text{for } x \in B(p, R)\\
+		> 1 & \text{for } |x-p| > R
+		\end{cases}
+	\end{displaymath}
+
+	Suppose now that $\rho > 0$. It suffices to show $f(x)$ converges uniformly on $B(p, R-\epsilon)$ $\forall 0 < \epsilon < R$. Notice that $\limsup_{n \to \infty} |a_n(R-\epsilon)^n|^{1/n} = (\limsup_{n \to \infty} |a_n|^{1/n})(R - \epsilon) = \frac{R-\epsilon}{R} < 1 \implies \sum_{n=0}^\infty |a_n| (R-\epsilon)^n$ converges absolutely.
+
+If $x \in B(p, R-\epsilon)$ then $|a_n(x-p)^n| \leq |a_n|(R-\epsilon)^n$ $\forall n \geq 0$. The uniform convergence of $f(x) = \sum_{n=0}^\infty a_n(x-p)^n$ for $x \in B(p, R-\epsilon)$ then follows from the Weierstrass M-test. The case $\rho = 0$ follows similarly.
+
+	\item Consider $f(x) = \sum_{n=1}^\infty \frac{x^n}{n}$ for which $\rho = R = 1$. $f(1)$ diverges, $f(-1)$ converges. The function $g(x) = \sum_{n=1}^\infty \frac{(-1)^n x^n}{n}$ reverses this situation. Consider $h(x) = \sum_{n=1}^\infty \frac{x^{2n}}{2n}$ : $h(\pm 1)$ diverges. Let $k(x) = \sum_{n=1}^\infty \frac{x^n}{n^2}$: $k(\pm 1)$ converges.
+	\end{enumerate}
+\end{quote}
+
+\textbf{Definition}: Let $f(x) = \sum_{n=0}^\infty a_n (x-p)^n$.
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item If $\{|a_n|^{1/n}\}$ is unbounded we set $I = \{p\}$.
+	\item If $\{|a_n|^{1/n}\}$ is bounded and $\rho = \limsup |a_n|^{1/n} = 0$, we set $I = \mathbb{R}$.
+	\item If $\{|a_n|^{1/n}\}$ is bounded and $\rho > 0$, we set $R = \frac{1}{\rho}$ and $I = B(p, R)$.
+	\end{enumerate}
+	In each case we call $I$ the \emph{interval of convergence} for $f$.
+\end{quote}
+
+\textbf{Theorem (Fundamental Theorem of Power Series)}: Let $f(x) = \sum_{n=0}^\infty a_n (x-p)^n$. Assume $I \neq \{p\}$. Then the following hold:
+\begin{quote}\vspace{-0.3cm}
+	\begin{enumerate}
+	\item $f$ is continuous on $I$.
+	\item If $[a,b] \subseteq I$ then $f \in \mathcal{R}([a,b]; \alpha)$ and $\int_a^b f d\alpha = \sum_{n=0}^\infty a_n \int_a^b (x-p)^n d\alpha(x)$.
+	\item $f$ is differentiable on $I$ and $f'(x) = \sum_{n=1}^\infty n a_n (x-p)^{n-1}$
+	\item $f$ is infinitely differentiable on $I$, and $f^{(k)}(x) = \sum_{n=k}^\infty \frac{n!}{(n-k)!} a_n(x-p)^{n-k}$ $\forall k \in \mathbb{N}$. Moreover, $\frac{f^{(n)}(p)}{n!} = a_n$ $\forall n \in \mathbb{N}$.
+	\end{enumerate}
+\end{quote}
+
+\emph{Proof}: exercise to reader.
+
 \end{document}
