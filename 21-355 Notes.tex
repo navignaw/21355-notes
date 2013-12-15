@@ -1439,7 +1439,7 @@ Let $y = \inf K' = \min K'$ (since $K'$ is closed) and note that $y > \max E$. T
 \subsection{Connected Sets}
 
 \textbf{Definition}: We say two sets $A, B \subseteq \mathbb{R}$ are \emph{separated} if $A \cap \bar{B} = \bar{A} \cap B = \varnothing$.\\
-A set $E \subseteq \mathbb{R}$ is \emph{disconnected} if $E = A \cup B$ such that $a \neq \varnothing, B \neq \varnothing$ and $A, B$ are separated.\\
+A set $E \subseteq \mathbb{R}$ is \emph{disconnected} if $E = A \cup B$ such that $A \neq \varnothing, B \neq \varnothing$ and $A, B$ are separated.\\
 If a set is $E \subseteq \mathbb{R}$ is not disconnected, we say it's \emph{connected}.
 
 \emph{Examples}:
@@ -1467,7 +1467,7 @@ Suppose $E$ is disconnected. Write $E = A \cup B$ with $A, B \neq \varnothing$ a
 Let $z = \sup(A \cap [x,y])$. Clearly $z \in \bar{A}$ and so $z \notin B \implies z \neq y \implies x \leq z \leq y$. If $z \notin A$ then $z \neq x \implies x < z < y$ and $z \notin A \cup B = E$. Otherwise, if $z \in A$, then $z \notin \bar{B}$. $\bar{B}$ is closed, so $\bar{B}^C$ is open; and hence we can find $w$ such that $z < w < y$, $w \notin B$, and $w \notin A$. Then $x < w < y$ and $w \notin A \cup B = E$. In all cases, then, $\neg 2$ is true.
 \end{quote}
 
-\emph{Corollary}: $\mathbb{R}, (-\infty, a), (-\infty, a], (a, \infty), [a, \infty), (a,b), (a,b], [a,b), and [a,b]$ are all connected.
+\emph{Corollary}: $\mathbb{R}, (-\infty, a), (-\infty, a], (a, \infty), [a, \infty), (a,b), (a,b], [a,b)$, and $[a,b]$ are all connected.
 
 \section{Continuity}
 
@@ -1883,7 +1883,7 @@ To prove the claim, we apply Cauchy's Mean Value Theorem on $[a, x_n]$: $\exists
 
 If $f^{(n)}$ exists $\forall n \in \mathbb{N}$, $n \geq 1$ we say $f$ is infinitely differentiable at $x$.
 
-\textbf{Theorem (Taylor)}: Suppose $f : [a,b] \to \mathbb{R}$. Assume $f^{(n-1)}$ is continuous on $[a,b]$ and $f^(n)$ exists on $(a,b)$. Let $x,y \in [a,b]$ with $x \neq y$. Then $\exists z \in (\min\{x,y\}, \max\{x,y\})$ such that
+\textbf{Theorem (Taylor)}: Suppose $f : [a,b] \to \mathbb{R}$. Assume $f^{(n-1)}$ is continuous on $[a,b]$ and $f^{(n)}$ exists on $(a,b)$. Let $x,y \in [a,b]$ with $x \neq y$. Then $\exists z \in (\min\{x,y\}, \max\{x,y\})$ such that
 \begin{displaymath}
 f(y) = \sum_{k=0}^{n-1} \frac{f^{(k)}(x)}{k!} (y-x)^k + \frac{f^{(n)}(z)}{n!} (y-x)^n
 \end{displaymath}
@@ -2135,7 +2135,7 @@ Since this is true $\forall \epsilon > 0$, we deduce $\int_a^b f dx = F(b) - F(a
 
 \textbf{Theorem}: Suppose $\alpha$ is diff. on $[a,b]$ and $\alpha' \in \mathcal{R}([a,b])$. Then:
 \begin{displaymath}
-f \in \mathcal{R}([a,b]; \alpha) \iff fa' \in \mathcal{R}([a,b]) \text{ and } \int_a^b f dx = \int_a^b f \alpha' dx
+f \in \mathcal{R}([a,b]; \alpha) \iff fa' \in \mathcal{R}([a,b]) \text{ and } \int_a^b f d\alpha = \int_a^b f \alpha' dx
 \end{displaymath}
 
 \emph{Proof}: Write $K = \sup |f|$. For any $P \in \Pi[a,b]$ we know for $t_i, s_i \in [x_{i-1}, x_i]$ for $i \in [n]$,
